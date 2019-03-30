@@ -1,3 +1,4 @@
-int main() {
-    a, b;
+int main(){
+  println("hi");
+  return 0;
 }

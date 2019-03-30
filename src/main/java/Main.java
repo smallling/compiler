@@ -10,9 +10,7 @@ import java.io.*;
 public class Main {
 
     public static void main (String[] args) throws IOException, SyntaxError {
-        String fileName = "test";
-        InputStream is = new FileInputStream("testcase/" + fileName);
-        ANTLRInputStream input = new ANTLRInputStream (is);
+        ANTLRInputStream input = new ANTLRInputStream (System.in);
         MxStarLexer lexer = new MxStarLexer (input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MxStarParser parser = new MxStarParser(tokens);
@@ -40,6 +38,5 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("Accept");
     }
 }
