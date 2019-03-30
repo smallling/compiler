@@ -64,7 +64,7 @@ public class ScopeBuilder {
             }
             else if(sonNode instanceof VarDefNode) {
                 dfsSpecialScope(curScope, sonNode);
-                if((curScope instanceof ClassScope) && !curScope.addIteam(sonNode.name, sonNode.type))throw new ReDefinedError(sonNode.loc);
+                if(!curScope.addIteam(sonNode.name, sonNode.type) && (curScope instanceof ClassScope))throw new ReDefinedError(sonNode.loc);
             }
             else dfsSpecialScope(curScope, sonNode);
         }

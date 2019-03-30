@@ -152,7 +152,7 @@ public class SemanticChecker extends AstVisitor{
         iterCnt++;
         visitChild(node);
         iterCnt--;
-        ExprNode tmpNode = (ExprNode)node.son.get(1);
+        ExprNode tmpNode = (ExprNode)node.son.get(0);
         if(!tmpNode.type.equalsSingleType("bool"))throw new NotConditionExpr(node.loc);
 
     }
@@ -289,14 +289,13 @@ public class SemanticChecker extends AstVisitor{
         if(!(sonNode.type instanceof SpecialTypeRef))throw new NoCastExpr(node.loc);
         ClassDefTypeRef tmp = (ClassDefTypeRef) rootScope.findItem(((SpecialTypeRef) sonNode.type).getTypeName());
 
+        for(int i = 0; i <objNode.son.size(); i++) {
+            visit(objNode.son.get(i));
+        }
         node.type = checkClass(tmp, objNode);
         if(node.type instanceof ClassTypeRef)((ClassTypeRef) node.type).belongTo(tmp);
         objNode.inClass = ((SpecialTypeRef) sonNode.type).getTypeName();
         objNode.type = node.type;
-
-        for(int i = 0; i <objNode.son.size(); i++) {
-            visit(objNode.son.get(i));
-        }
     }
 
     @Override

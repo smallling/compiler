@@ -54,6 +54,7 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
     public Node visitConstructionFunction(MxStarParser.ConstructionFunctionContext ctx) {
         Node res = new ConsFuncDefNode();
         res.name = ctx.Identifier().getText();
+        res.type = new VoidTypeRef();
         res.son.add(visit(ctx.compoundStatement()));
         res.loc = new Location(ctx.start);
         return res;
@@ -299,6 +300,7 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
     public Node visitNullLite(MxStarParser.NullLiteContext ctx) {
         Node res = new NullLiteralNode();
         res.name = "null";
+        res.type = new NullTypeRef();
         res.loc = new Location(ctx.start);
         return res;
     }
@@ -426,7 +428,7 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
             nowNode.son.add(new TypeExprNode());
             nowNode = nowNode.son.get(nowNode.son.size() - 1);
         }
-        for(int i = tmp.length(); i < dim; i++) {
+        for(int i = ctx.expression().size(); i < dim; i++) {
             nowNode.son.add(new EmptyExprNode());
             nowNode.son.add(new TypeExprNode());
             nowNode = nowNode.son.get(nowNode.son.size() - 1);
