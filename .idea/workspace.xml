@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f6b34713-d91d-4687-8442-43fa50c5da2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BuildAstVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BuildAstVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +34,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="309" column="49" selection-start-line="309" selection-start-column="49" selection-end-line="309" selection-end-column="49" />
+            <state relative-caret-position="190">
+              <caret line="84" column="62" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="107" column="43" lean-forward="true" selection-start-line="107" selection-start-column="43" selection-end-line="107" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="259" column="7" selection-start-line="259" selection-start-column="7" selection-end-line="259" selection-end-column="7" />
+            <state relative-caret-position="190">
+              <caret line="262" column="4" lean-forward="true" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -153,18 +163,6 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#1684#1685#0" expanded="true" />
                 <element signature="e#1707#1708#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -272,10 +270,10 @@
         <option value="$PROJECT_DIR$/semantic.bash" />
         <option value="$PROJECT_DIR$/testcase/test" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" />
       </list>
     </option>
   </component>
@@ -355,7 +353,7 @@
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/output-dir" value="$PROJECT_DIR$/src/" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553974930269" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553975523145" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MastarCpler-master" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -425,7 +423,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.12908587" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12908587" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -435,7 +433,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39891893" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39891893" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
@@ -455,37 +453,6 @@
       <window_info anchor="right" id="Ant Build" order="7" weight="0.24930748" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12908587" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39891893" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32901832" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32864866" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32864866" />
-      <window_info active="true" anchor="bottom" id="ANTLR Preview" order="11" visible="true" weight="0.9664865" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3264865" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32963988" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" weight="0.32992035" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.24930748" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.bash" />
@@ -498,6 +465,12 @@
           <line>309</line>
           <properties />
           <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -792,16 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.interp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -960,20 +923,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="309" column="49" selection-start-line="309" selection-start-column="49" selection-end-line="309" selection-end-column="49" />
+        <state relative-caret-position="190">
+          <caret line="262" column="4" lean-forward="true" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="107" column="43" lean-forward="true" selection-start-line="107" selection-start-column="43" selection-end-line="107" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="259" column="7" selection-start-line="259" selection-start-column="7" selection-end-line="259" selection-end-column="7" />
+        <state relative-caret-position="190">
+          <caret line="84" column="62" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

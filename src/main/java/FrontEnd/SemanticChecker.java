@@ -82,7 +82,7 @@ public class SemanticChecker extends AstVisitor{
         visitChild(node);
         if(node.son.size() > 0) {
             ExprNode tmpNode = (ExprNode)node.son.get(0);
-            if(!AssignOpType.checkExpr(tmpNode.type, node.type))throw new NoCastExpr(tmpNode.loc);
+            if(!AssignOpType.checkExpr(node.type, tmpNode.type))throw new NoCastExpr(tmpNode.loc);
         }
         Scope<TypeRef> curScope = node.belong;
         if(curScope instanceof ClassScope) node.inClass = curClassName;
