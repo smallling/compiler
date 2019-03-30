@@ -2,257 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6b34713-d91d-4687-8442-43fa50c5da2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.bash" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/compiler.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/antlr-4.7.2-complete.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/META-INF/compiler.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ArithmeticLiteralNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ArithmeticOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ArrExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/AssignOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/AstVisitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BinaryExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BitOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BoolLiteralNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BreakStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BrkOutIterStat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BuildAstVisitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ClassDefNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/CntOutIterStat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/CodeNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/CompStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ConsFuncDefNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ContinueStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/DisMatchedFormError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/DisMatchedFuncReturn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/DisMatchedTypeError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/EmptyExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/EmptyStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ExprStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/FakeOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ForStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/FuncDefNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/FuncExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IfElseStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IfStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IntLiteralNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IterStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/JumpStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/LeftUnaryExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/LiteralNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/Location.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/LogicalOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStar.g4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStar.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStar.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarBaseListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarBaseVisitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarLexer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AddExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AddShiftExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AdditiveExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AndExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AndLogicOrExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AndXorExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ArrPriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AssignExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AssignmentExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BasicTypeNameContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BoolLiteContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BoolLiteralContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BreakJumpContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ClassBodyContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ClassDefContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$CodeContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$CompStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$CompoundStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ConstructionFunctionContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ContinueJumpContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EmptyStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EmptyStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EqualAndExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EqualExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EqualityExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExprListContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExprStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExpressionContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExpressionStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ForStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ForStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$FuncPriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$FunctionDefContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IfElseStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IfStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IntLiteContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IterStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IterativeStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$JumpStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$JumpStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LUExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LiteralContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LiteralOriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicAndExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicOrExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicalAndExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicalOrExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$MulAddExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$MulExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$MultiplicativeExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$NewCreatorContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$NewUExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$NullLiteContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ObjPriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OpRUExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OrAssignEXprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OrExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OrLogicAndExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OriPriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OriginExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ParameterContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ParameterListContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$PriRUExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$PrimaryExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RUExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RelExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RelaEqualExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RelationExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ReturnJumpContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RightUnaryExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$SeleStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$SelectionStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ShftExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ShiftExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ShiftRelExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$SonOriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$StatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$StringLiteContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$TypeNameContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$UnaryExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$UnaryMulExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefStatementWithoutInitContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarNameContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarOriExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarWithInitContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarWithoutInitContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$WhileStatContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$WhileStatementContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$XExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$XorExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$XorOrExprContext.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarVisitor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NewExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoCastExpr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoDefinedOpError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoDefinedTypeError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoDefinedVarError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoMainFuncError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/Node.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NotConditionExpr.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NotLeftValue.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NullLiteralNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NullPointer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ObjExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/OpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/PrimExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ReDefinedError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/RelativeOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ReturnStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/RightUnaryExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ScopeBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SeleStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SelfPmOpType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SemanticChecker.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/StatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/StringLiteralNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SyntaxError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/TestAst.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ThisBeAssigned.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ThisOutOfClass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/TypeExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/UnaryExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VarDefNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VarDefStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VarExprNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VoidDefVarError.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/WhileStatNode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/WrongNameConsFunc.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/ClassScope.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/GeneralScope.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/LocalScope.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/Scope.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/SpecialScope.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/SymbolTable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/ArrTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/BoolTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/ClassDefTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/ClassTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/FuncTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/IntTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/NullTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/SimpleTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/SingleTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/SpecialTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/StringTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/TypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/VarTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/VoidTypeRef.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarBaseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarBaseVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarLexer.interp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarLexer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarLexer.tokens" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarVisitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/SyntaxError.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/TestAst.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/ClassScope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/GeneralScope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/LocalScope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/SpecialScope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/SymbolTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ArrTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/BoolTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassDefTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/FuncTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/IntTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/NullTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SimpleTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SingleTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SpecialTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/StringTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/TypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VarTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VoidTypeRef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testcase/test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.bash" beforeDir="false" afterPath="$PROJECT_DIR$/build.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/test" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/test" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -339,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="1">
+              <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -357,26 +108,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcase/test">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.bash">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            <state relative-caret-position="15">
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.bash">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+            <state relative-caret-position="189">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -486,9 +237,9 @@
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/testcase/test" />
         <option value="$PROJECT_DIR$/build.bash" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
   </component>
@@ -543,7 +294,7 @@
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/output-dir" value="$PROJECT_DIR$/src/" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553963066213" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553964916936" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -612,7 +363,7 @@
   <component name="ToolWindowManager">
     <frame x="993" y="25" width="927" height="1053" extended-state="4" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15017065" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15358362" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -621,7 +372,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32901832" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399137" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -630,7 +381,7 @@
       <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32901832" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32901832" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32864866" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.96763754" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.9674973" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3279396" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32963988" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -1108,13 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/jdk1.7.0_80/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9015">
@@ -1122,27 +866,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testcase/test">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state relative-caret-position="15">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.bash">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
         </state>
       </provider>
     </entry>
