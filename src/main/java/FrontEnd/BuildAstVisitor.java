@@ -20,6 +20,9 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
     public Node visitClassDef(MxStarParser.ClassDefContext ctx) {
         Node res = new ClassDefNode();
         res.son.addAll(visit(ctx.classBody()).son);
+        Node sonNode = res.son.get(res.son.size() - 1);
+        if(!(sonNode instanceof ConsFuncDefNode))System.out.println("FUCK");
+        if(sonNode.name == "")sonNode.name = ctx.Identifier().getText();
         res.name = ctx.Identifier().getText();
         res.loc = new Location(ctx.Identifier().getSymbol());
         return res;
@@ -34,7 +37,15 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
         for(int i = 0; i < ctx.functionDef().size(); i++) {
             res.son.add(visit(ctx.functionDef(i)));
         }
-        res.son.add(visit(ctx.constructionFunction()));
+        if(ctx.constructionFunction() != null) {
+            res.son.add(visit(ctx.constructionFunction()));
+        }
+        else {
+            ConsFuncDefNode sonNode = new ConsFuncDefNode();
+            sonNode.type = TypeRef.buildTypeRef("void");
+            sonNode.son.add(new EmptyStatNode());
+            res.son.add(sonNode);
+        }
         res.loc = new Location(ctx.start);
         return res;
     }
