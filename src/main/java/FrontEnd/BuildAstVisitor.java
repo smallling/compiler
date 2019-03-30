@@ -130,9 +130,10 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
     @Override
     public Node visitCompoundStatement(MxStarParser.CompoundStatementContext ctx) {
         Node res = new CompStatNode();
-        for(int i = 0; i < ctx.statement().size(); i++) {
-            res.son.add(visit(ctx.statement(i)));
+        for(int i = 1; i < ctx.getChildCount() - 1; i++) {
+            res.son.add(visit(ctx.getChild(i)));
         }
+
         res.loc = new Location(ctx.start);
         return res;
     }

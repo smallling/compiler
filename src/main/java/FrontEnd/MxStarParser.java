@@ -60,7 +60,7 @@ public class MxStarParser extends Parser {
 			"']'", "'++'", "'--'", "'~'", "'!'", "'-'", "'+'", "'*'", "'/'", "'%'", 
 			"'<<'", "'>>'", "'<'", "'>'", "'<='", "'>='", "'=='", "'!='", "'&'", 
 			"'^'", "'|'", "'&&'", "'||'", null, null, null, "'bool'", "'int'", "'string'", 
-			"'null'", "'void'", "'true'", "'flase'", "'if'", "'for'", "'while'", 
+			"'null'", "'void'", "'true'", "'false'", "'if'", "'for'", "'while'", 
 			"'break'", "'continue'", "'return'", "'new'", "'class'", "'this'", "'else'"
 		};
 	}

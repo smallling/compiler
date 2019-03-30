@@ -257,7 +257,7 @@ True :
 ;
 
 False :
-    'flase'
+    'false'
 ;
 
 If :
