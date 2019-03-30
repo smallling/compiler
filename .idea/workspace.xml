@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6b34713-d91d-4687-8442-43fa50c5da2b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.bash" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/antlr-4.7.2-complete.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/META-INF/compiler.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ArithmeticLiteralNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ArithmeticOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ArrExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/AssignOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/AstVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BinaryExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BitOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BoolLiteralNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BreakStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BrkOutIterStat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/BuildAstVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ClassDefNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/CntOutIterStat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/CodeNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/CompStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ConsFuncDefNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ContinueStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/DisMatchedFormError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/DisMatchedFuncReturn.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/DisMatchedTypeError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/EmptyExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/EmptyStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ExprStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/FakeOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ForStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/FuncDefNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/FuncExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IfElseStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IfStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IntLiteralNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/IterStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/JumpStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/LeftUnaryExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/LiteralNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/Location.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/LogicalOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStar.g4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStar.interp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStar.tokens" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarBaseListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarBaseVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarLexer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarLexer.interp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarLexer.tokens" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AddExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AddShiftExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AdditiveExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AndExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AndLogicOrExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AndXorExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ArrPriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AssignExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$AssignmentExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BasicTypeNameContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BoolLiteContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BoolLiteralContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$BreakJumpContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ClassBodyContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ClassDefContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$CodeContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$CompStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$CompoundStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ConstructionFunctionContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ContinueJumpContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EmptyStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EmptyStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EqualAndExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EqualExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$EqualityExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExprListContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExprStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExpressionContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ExpressionStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ForStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ForStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$FuncPriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$FunctionDefContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IfElseStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IfStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IntLiteContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IterStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$IterativeStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$JumpStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$JumpStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LUExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LiteralContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LiteralOriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicAndExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicOrExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicalAndExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$LogicalOrExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$MulAddExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$MulExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$MultiplicativeExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$NewCreatorContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$NewUExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$NullLiteContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ObjPriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OpRUExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OrAssignEXprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OrExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OrLogicAndExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OriPriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$OriginExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ParameterContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ParameterListContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$PriRUExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$PrimaryExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RUExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RelExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RelaEqualExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RelationExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ReturnJumpContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$RightUnaryExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$SeleStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$SelectionStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ShftExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ShiftExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$ShiftRelExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$SonOriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$StatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$StringLiteContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$TypeNameContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$UnaryExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$UnaryMulExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarDefStatementWithoutInitContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarNameContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarOriExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarWithInitContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$VarWithoutInitContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$WhileStatContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$WhileStatementContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$XExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$XorExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser$XorOrExprContext.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarParser.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/MxStarVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NewExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoCastExpr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoDefinedOpError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoDefinedTypeError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoDefinedVarError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NoMainFuncError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NotConditionExpr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NotLeftValue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NullLiteralNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/NullPointer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ObjExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/OpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/PrimExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ReDefinedError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/RelativeOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ReturnStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/RightUnaryExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ScopeBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SeleStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SelfPmOpType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SemanticChecker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/StatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/StringLiteralNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/SyntaxError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/TestAst.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ThisBeAssigned.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/ThisOutOfClass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/TypeExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/UnaryExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VarDefNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VarDefStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VarExprNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/VoidDefVarError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/WhileStatNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/FrontEnd/WrongNameConsFunc.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/ClassScope.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/GeneralScope.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/LocalScope.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/Scope.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/ScopeClass/SpecialScope.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/SymbolTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/ArrTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/BoolTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/ClassDefTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/ClassTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/FuncTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/IntTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/NullTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/SimpleTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/SingleTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/SpecialTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/StringTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/TypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/VarTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/compiler/main/java/MyUtil/TypeSystem/VoidTypeRef.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.interp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.tokens" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarBaseListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarBaseVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarLexer.interp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarLexer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarLexer.tokens" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/SyntaxError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/TestAst.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/ClassScope.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/GeneralScope.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/LocalScope.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scope.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/SpecialScope.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/SymbolTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ArrTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/BoolTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassDefTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/FuncTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/IntTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/NullTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SimpleTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SingleTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SpecialTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/StringTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/TypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VarTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VoidTypeRef.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testcase/test" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/compiler$Main.ic" NAME="Main Coverage Results" MODIFIED="1553771861218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>main.java.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="235" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5640">
+              <caret line="410" selection-start-line="410" selection-end-line="410" />
+              <folding>
+                <element signature="e#9990#9991#0" expanded="true" />
+                <element signature="e#10040#10041#0" expanded="true" />
+                <element signature="e#10431#10432#0" expanded="true" />
+                <element signature="e#10474#10475#0" expanded="true" />
+                <element signature="e#10795#10796#0" expanded="true" />
+                <element signature="e#10841#10842#0" expanded="true" />
+                <element signature="e#10926#10927#0" expanded="true" />
+                <element signature="e#10972#10973#0" expanded="true" />
+                <element signature="e#12675#12676#0" expanded="true" />
+                <element signature="e#12722#12723#0" expanded="true" />
+                <element signature="e#12795#12796#0" expanded="true" />
+                <element signature="e#12845#12846#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+              <folding>
+                <element signature="e#347#348#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/Parser.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3630">
+              <caret line="250" column="13" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/jdk1.7.0_80/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9015">
+              <caret line="634" selection-start-line="634" selection-end-line="634" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase/test">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.bash">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>varexprnode</find>
+      <find>lU</find>
+      <find>new</find>
+      <find>leftu</find>
+      <find>newExpr</find>
+      <find>expression</find>
+      <find>assign</find>
+      <find>visitExpress</find>
+      <find>new</find>
+      <find>newCreator</find>
+      <find>visitAss</find>
+      <find>Func</find>
+      <find>FuncExprNode</find>
+      <find>expr</find>
+      <find>ArrExprNode</find>
+      <find>visitOr</find>
+      <find>ArrExprN</find>
+      <find>ArrPriExpr</find>
+      <find>funcPriExpr</find>
+      <find>varexpr</find>
+      <find>Obj</find>
+      <find>primar</find>
+      <find>obj</find>
+      <find>funcpri</find>
+      <find>arrPriExpr</find>
+      <find>funcdef</find>
+      <find>Override</find>
+      <find>inclass</find>
+      <find>func</find>
+      <find>vardefn</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>getText</replace>
+      <replace>name</replace>
+      <replace>node)</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$/src/main/java/FrontEnd</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/MxStar.g4" />
+        <option value="$PROJECT_DIR$/src/cpp.g4" />
+        <option value="$PROJECT_DIR$/src/Main.g4" />
+        <option value="$PROJECT_DIR$/src/FrontEnd/MxStar.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarBaseListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarBaseVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/TestAst.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/SymbolTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scopre.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VarType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/Single.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/Simple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/ClassScopre.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/ClassScope.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/GeneralScope.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/SpecialScope.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/LocalScope.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/Location.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VarTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ArrTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/IntTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/BoolTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassDefTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/FuncTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/NullTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SingleTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SimpleTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/StringTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VoidTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/SyntaxError.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/TypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scope.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SpecialTypeRef.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/Node.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" />
+        <option value="$PROJECT_DIR$/testcase/test" />
+        <option value="$PROJECT_DIR$/build.bash" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="993" />
+    <option name="y" value="25" />
+    <option name="width" value="927" />
+    <option name="height" value="1053" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="$PROJECT_DIR$/src/FrontEnd/MxStar.g4::/auto-gen" value="false" />
+    <property name="$PROJECT_DIR$/src/FrontEnd/MxStar.g4::/gen-listener" value="true" />
+    <property name="$PROJECT_DIR$/src/FrontEnd/MxStar.g4::/gen-visitor" value="true" />
+    <property name="$PROJECT_DIR$/src/FrontEnd/MxStar.g4::/output-dir" value="$PROJECT_DIR$/src/" />
+    <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/auto-gen" value="false" />
+    <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-listener" value="true" />
+    <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-visitor" value="true" />
+    <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/output-dir" value="$PROJECT_DIR$/src/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553963066213" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/FrontEnd" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.Main" />
+      <module name="compiler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6b34713-d91d-4687-8442-43fa50c5da2b" name="Default Changelist" comment="" />
+      <created>1553617551160</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553617551160</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="993" y="25" width="927" height="1053" extended-state="4" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15017065" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32901832" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.399137" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32901832" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32901832" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32864866" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.96763754" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3279396" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32963988" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.24930748" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1468144" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.399137" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32901832" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32901832" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32864866" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.96763754" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3279396" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32963988" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.24930748" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bash" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar:///usr/jdk-12/lib/src.zip!/java.base/jdk/internal/loader/ClassLoaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1830">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/jdk-12/lib/src.zip!/java.base/java/lang/System.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4830">
+          <caret line="401" selection-start-line="401" selection-end-line="401" />
+          <folding>
+            <element signature="e#5629#5630#0" expanded="true" />
+            <element signature="e#5683#5684#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/ParserRuleContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3015">
+          <caret line="220" selection-start-line="220" selection-end-line="220" />
+          <folding>
+            <element signature="e#6537#6538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/TestAst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/jdk1.7.0_80/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/jdk1.7.0_80/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="776" column="13" lean-forward="true" selection-start-line="776" selection-start-column="13" selection-end-line="776" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scopre.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VarType.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/Single.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/Simple.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/Special.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/ClassScopre.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/SpecialScope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+          <folding>
+            <element signature="e#135#136#0" expanded="true" />
+            <element signature="e#172#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/ClassScope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="38" lean-forward="true" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/GeneralScope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding>
+            <element signature="e#141#142#0" expanded="true" />
+            <element signature="e#178#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/LocalScope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding>
+            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#167#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/tree/TerminalNode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/BoolTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="e#112#113#0" expanded="true" />
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/IntTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+          <folding>
+            <element signature="e#179#180#0" expanded="true" />
+            <element signature="e#217#218#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/NullTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+          <folding>
+            <element signature="e#112#113#0" expanded="true" />
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SingleTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding>
+            <element signature="e#139#140#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SimpleTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/StringTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <element signature="e#117#118#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#192#193#0" expanded="true" />
+            <element signature="e#233#234#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#325#326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/SymbolTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#511#512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VoidTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <element signature="e#112#113#0" expanded="true" />
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#183#184#0" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#303#304#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/VarTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/TypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/OpType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ArrTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#212#213#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#131#132#0" expanded="true" />
+            <element signature="e#167#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/ClassDefTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#361#362#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1021#1022#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SpecialTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStarParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="298" selection-start-line="298" selection-end-line="298" />
+          <folding>
+            <element signature="e#13287#13288#0" expanded="true" />
+            <element signature="e#13347#13348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/FuncTypeRef.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding>
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#752#753#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#827#828#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="52" column="62" lean-forward="true" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/SyntaxError.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/BailErrorStrategy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5640">
+          <caret line="410" selection-start-line="410" selection-end-line="410" />
+          <folding>
+            <element signature="e#9990#9991#0" expanded="true" />
+            <element signature="e#10040#10041#0" expanded="true" />
+            <element signature="e#10431#10432#0" expanded="true" />
+            <element signature="e#10474#10475#0" expanded="true" />
+            <element signature="e#10795#10796#0" expanded="true" />
+            <element signature="e#10841#10842#0" expanded="true" />
+            <element signature="e#10926#10927#0" expanded="true" />
+            <element signature="e#10972#10973#0" expanded="true" />
+            <element signature="e#12675#12676#0" expanded="true" />
+            <element signature="e#12722#12723#0" expanded="true" />
+            <element signature="e#12795#12796#0" expanded="true" />
+            <element signature="e#12845#12846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#347#348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/lib/antlr-4.7.2-complete.jar!/org/antlr/v4/runtime/Parser.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3630">
+          <caret line="250" column="13" selection-start-line="250" selection-start-column="13" selection-end-line="250" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/jdk1.7.0_80/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9015">
+          <caret line="634" selection-start-line="634" selection-end-line="634" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.bash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="59" lean-forward="true" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>compiler</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
