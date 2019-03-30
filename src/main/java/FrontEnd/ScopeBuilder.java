@@ -11,7 +11,7 @@ public class ScopeBuilder {
         stringType.insert("length", new FuncTypeRef(new IntTypeRef()));
         stringType.insert("substring", new FuncTypeRef(new StringTypeRef(), new IntTypeRef(), new IntTypeRef()));
         stringType.insert("parseInt", new FuncTypeRef(new IntTypeRef()));
-        stringType.insert("ord", new FuncTypeRef(new IntTypeRef()));
+        stringType.insert("ord", new FuncTypeRef(new IntTypeRef(), new IntTypeRef()));
         root.addIteam("string", stringType);
 
         root.addIteam("print", new FuncTypeRef(new VoidTypeRef(), new StringTypeRef()));

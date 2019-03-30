@@ -5,6 +5,7 @@ import main.java.MyUtil.ScopeClass.ClassScope;
 import main.java.MyUtil.ScopeClass.GeneralScope;
 import main.java.MyUtil.ScopeClass.Scope;
 import main.java.MyUtil.TypeSystem.*;
+import sun.net.www.protocol.http.HttpURLConnection;
 
 public class SemanticChecker extends AstVisitor{
     public GeneralScope<TypeRef> rootScope;
@@ -22,7 +23,7 @@ public class SemanticChecker extends AstVisitor{
     boolean checkTypeExit(TypeRef nowType) {
         if(nowType instanceof ArrTypeRef)nowType = ((ArrTypeRef) nowType).getSingleType();
         if(nowType instanceof ClassTypeRef) {
-            ClassDefTypeRef belong = (ClassDefTypeRef)rootScope.findItem(((ClassTypeRef) nowType).getTypeName());
+            TypeRef belong = rootScope.findItem(((ClassTypeRef) nowType).getTypeName());
             if(belong == null)return false;
         }
         return true;
