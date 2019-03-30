@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6b34713-d91d-4687-8442-43fa50c5da2b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FrontEnd/MxStarParser.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="2" lean-forward="true" selection-start-line="82" selection-end-line="82" selection-end-column="22" />
+            <state relative-caret-position="90">
+              <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -109,35 +112,34 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="24" column="72" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+            <state relative-caret-position="165">
+              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
               <folding>
                 <element signature="e#3333#3334#0" expanded="true" />
                 <element signature="e#3469#3470#0" expanded="true" />
                 <element signature="e#3604#3605#0" expanded="true" />
                 <element signature="e#3739#3740#0" expanded="true" />
                 <element signature="e#3869#3870#0" expanded="true" />
-                <element signature="e#4005#4006#0" expanded="true" />
-                <element signature="e#4138#4139#0" expanded="true" />
-                <element signature="e#5694#5695#0" expanded="true" />
-                <element signature="e#5821#5822#0" expanded="true" />
-                <element signature="e#10612#10613#0" expanded="true" />
-                <element signature="e#11046#11047#0" expanded="true" />
+                <element signature="e#4007#4008#0" expanded="true" />
+                <element signature="e#5563#5564#0" expanded="true" />
+                <element signature="e#5690#5691#0" expanded="true" />
+                <element signature="e#10481#10482#0" expanded="true" />
+                <element signature="e#10915#10916#0" expanded="true" />
+                <element signature="e#11282#11283#0" expanded="true" />
                 <element signature="e#11413#11414#0" expanded="true" />
-                <element signature="e#11544#11545#0" expanded="true" />
-                <element signature="e#13294#13295#0" expanded="true" />
-                <element signature="e#13417#13418#0" expanded="true" />
-                <element signature="e#15117#15118#0" expanded="true" />
-                <element signature="e#15581#15582#0" expanded="true" />
-                <element signature="e#16046#16047#0" expanded="true" />
-                <element signature="e#16501#16502#0" expanded="true" />
-                <element signature="e#16953#16954#0" expanded="true" />
-                <element signature="e#17416#17417#0" expanded="true" />
-                <element signature="e#18165#18166#0" expanded="true" />
-                <element signature="e#18291#18292#0" expanded="true" />
-                <element signature="e#19076#19077#0" expanded="true" />
-                <element signature="e#19552#19553#0" expanded="true" />
-                <element signature="e#20021#20022#0" expanded="true" />
+                <element signature="e#13163#13164#0" expanded="true" />
+                <element signature="e#13286#13287#0" expanded="true" />
+                <element signature="e#14986#14987#0" expanded="true" />
+                <element signature="e#15450#15451#0" expanded="true" />
+                <element signature="e#15915#15916#0" expanded="true" />
+                <element signature="e#16370#16371#0" expanded="true" />
+                <element signature="e#16822#16823#0" expanded="true" />
+                <element signature="e#17285#17286#0" expanded="true" />
+                <element signature="e#18034#18035#0" expanded="true" />
+                <element signature="e#18160#18161#0" expanded="true" />
+                <element signature="e#18945#18946#0" expanded="true" />
+                <element signature="e#19421#19422#0" expanded="true" />
+                <element signature="e#19890#19891#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -207,8 +209,8 @@
       <find>varDefSta</find>
       <find>add</find>
       <find>VarDefNode</find>
-      <find>vardefstatementwithout</find>
       <find>Bina</find>
+      <find>vardefstatementwithout</find>
       <find>vardefstat</find>
     </findStrings>
     <replaceStrings>
@@ -267,13 +269,13 @@
         <option value="$PROJECT_DIR$/src/main/java/MyUtil/ScopeClass/Scope.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyUtil/TypeSystem/SpecialTypeRef.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/Node.java" />
-        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" />
         <option value="$PROJECT_DIR$/build.bash" />
         <option value="$PROJECT_DIR$/semantic.bash" />
         <option value="$PROJECT_DIR$/testcase/test" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/SemanticChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/ScopeBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4" />
         <option value="$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java" />
       </list>
     </option>
@@ -284,8 +286,8 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="993" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="927" />
     <option name="height" value="1055" />
@@ -329,6 +331,13 @@
             <path>
               <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
               <item name="compiler" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="MyUtil" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="compiler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compiler" type="462c0819:PsiDirectoryNode" />
               <item name="testcase" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -347,7 +356,7 @@
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/gen-visitor" value="true" />
     <property name="$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4::/output-dir" value="$PROJECT_DIR$/src/" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553973055038" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553973521584" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MastarCpler-master" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -414,10 +423,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="993" y="25" width="927" height="1055" extended-state="4" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1513083" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12908587" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -426,7 +435,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32756758" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39891893" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -436,7 +445,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32864866" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32864866" />
       <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.9664865" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719395" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.3264865" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32963988" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -448,7 +457,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1468144" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07368421" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -457,25 +466,25 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32901832" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.399137" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32756758" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39891893" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32901832" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Tool Output" order="8" weight="0.32901832" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32901832" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32864866" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32864866" />
-      <window_info anchor="bottom" id="ANTLR Preview" order="11" weight="0.96763754" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3279396" />
+      <window_info active="true" anchor="bottom" id="ANTLR Preview" order="11" visible="true" weight="0.9664865" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719395" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32963988" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.24930748" />
-      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.32992035" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.24930748" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout-to-restore>
   </component>
@@ -863,13 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="2" lean-forward="true" selection-start-line="82" selection-end-line="82" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -889,13 +891,6 @@
             <element signature="e#454#455#0" expanded="true" />
             <element signature="e#511#512#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -941,37 +936,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/MxStar.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/AstVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/FrontEnd/BuildAstVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="72" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+        <state relative-caret-position="165">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
           <folding>
             <element signature="e#3333#3334#0" expanded="true" />
             <element signature="e#3469#3470#0" expanded="true" />
             <element signature="e#3604#3605#0" expanded="true" />
             <element signature="e#3739#3740#0" expanded="true" />
             <element signature="e#3869#3870#0" expanded="true" />
-            <element signature="e#4005#4006#0" expanded="true" />
-            <element signature="e#4138#4139#0" expanded="true" />
-            <element signature="e#5694#5695#0" expanded="true" />
-            <element signature="e#5821#5822#0" expanded="true" />
-            <element signature="e#10612#10613#0" expanded="true" />
-            <element signature="e#11046#11047#0" expanded="true" />
+            <element signature="e#4007#4008#0" expanded="true" />
+            <element signature="e#5563#5564#0" expanded="true" />
+            <element signature="e#5690#5691#0" expanded="true" />
+            <element signature="e#10481#10482#0" expanded="true" />
+            <element signature="e#10915#10916#0" expanded="true" />
+            <element signature="e#11282#11283#0" expanded="true" />
             <element signature="e#11413#11414#0" expanded="true" />
-            <element signature="e#11544#11545#0" expanded="true" />
-            <element signature="e#13294#13295#0" expanded="true" />
-            <element signature="e#13417#13418#0" expanded="true" />
-            <element signature="e#15117#15118#0" expanded="true" />
-            <element signature="e#15581#15582#0" expanded="true" />
-            <element signature="e#16046#16047#0" expanded="true" />
-            <element signature="e#16501#16502#0" expanded="true" />
-            <element signature="e#16953#16954#0" expanded="true" />
-            <element signature="e#17416#17417#0" expanded="true" />
-            <element signature="e#18165#18166#0" expanded="true" />
-            <element signature="e#18291#18292#0" expanded="true" />
-            <element signature="e#19076#19077#0" expanded="true" />
-            <element signature="e#19552#19553#0" expanded="true" />
-            <element signature="e#20021#20022#0" expanded="true" />
+            <element signature="e#13163#13164#0" expanded="true" />
+            <element signature="e#13286#13287#0" expanded="true" />
+            <element signature="e#14986#14987#0" expanded="true" />
+            <element signature="e#15450#15451#0" expanded="true" />
+            <element signature="e#15915#15916#0" expanded="true" />
+            <element signature="e#16370#16371#0" expanded="true" />
+            <element signature="e#16822#16823#0" expanded="true" />
+            <element signature="e#17285#17286#0" expanded="true" />
+            <element signature="e#18034#18035#0" expanded="true" />
+            <element signature="e#18160#18161#0" expanded="true" />
+            <element signature="e#18945#18946#0" expanded="true" />
+            <element signature="e#19421#19422#0" expanded="true" />
+            <element signature="e#19890#19891#0" expanded="true" />
           </folding>
         </state>
       </provider>

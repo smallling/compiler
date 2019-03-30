@@ -138,18 +138,6 @@ public interface MxStarListener extends ParseTreeListener {
 	 */
 	void exitJumpStat(MxStarParser.JumpStatContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code varDefStat}
-	 * labeled alternative in {@link MxStarParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void enterVarDefStat(MxStarParser.VarDefStatContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code varDefStat}
-	 * labeled alternative in {@link MxStarParser#statement}.
-	 * @param ctx the parse tree
-	 */
-	void exitVarDefStat(MxStarParser.VarDefStatContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code emptyStat}
 	 * labeled alternative in {@link MxStarParser#statement}.
 	 * @param ctx the parse tree

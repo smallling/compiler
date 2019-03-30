@@ -116,11 +116,6 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
     }
 
     @Override
-    public Node visitVarDefStat(MxStarParser.VarDefStatContext ctx) {
-        return visit(ctx.varDefStatement());
-    }
-
-    @Override
     public Node visitEmptyStat(MxStarParser.EmptyStatContext ctx) {
         return visit(ctx.emptyStatement());
     }

@@ -36,7 +36,6 @@ statement :
     | selectionStatement    #seleStat
     | iterativeStatement    #iterStat
     | jumpStatement         #jumpStat
-    | varDefStatement       #varDefStat
     | emptyStatement        #emptyStat
 ;
 
@@ -45,7 +44,7 @@ emptyStatement :
 ;
 
 compoundStatement :
-    '{' statement* '}'
+    '{' (statement | varDefStatement)* '}'
 ;
 
 expressionStatement :

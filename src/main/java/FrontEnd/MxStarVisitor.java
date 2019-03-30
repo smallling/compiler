@@ -88,13 +88,6 @@ public interface MxStarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitJumpStat(MxStarParser.JumpStatContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code varDefStat}
-	 * labeled alternative in {@link MxStarParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVarDefStat(MxStarParser.VarDefStatContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code emptyStat}
 	 * labeled alternative in {@link MxStarParser#statement}.
 	 * @param ctx the parse tree
