@@ -1,14 +1,10 @@
 package main.java.FrontEnd;
 
-import com.sun.xml.internal.fastinfoset.util.ValueArray;
 import javafx.util.Pair;
 import main.java.MyUtil.ScopeClass.ClassScope;
 import main.java.MyUtil.ScopeClass.GeneralScope;
 import main.java.MyUtil.ScopeClass.Scope;
 import main.java.MyUtil.TypeSystem.*;
-import org.omg.CORBA.TRANSACTION_MODE;
-
-import java.lang.reflect.Type;
 
 public class SemanticChecker extends AstVisitor{
     public GeneralScope<TypeRef> rootScope;
