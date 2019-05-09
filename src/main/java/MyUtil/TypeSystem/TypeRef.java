@@ -1,6 +1,11 @@
 package main.java.MyUtil.TypeSystem;
 
+import java.util.ArrayList;
+
 public abstract class TypeRef {
+    public static int curLen = 8;
+
+    long size;
     public static TypeRef buildTypeRef(String typeName) {
         if(typeName.contains("[")) {
             int dim = 0;
@@ -24,8 +29,17 @@ public abstract class TypeRef {
         }
     }
 
+    public static String getPre(TypeRef tmp) {
+        if(tmp instanceof SpecialTypeRef || tmp instanceof ArrTypeRef)return "A_";
+        return "V_";
+    }
+
     public boolean equalsSingleType(String type) {
         return (this instanceof SingleTypeRef) && (((SingleTypeRef) this).typeName.equals(type));
+    }
+
+    public long getSize() {
+        return size;
     }
 
     public abstract boolean equals(TypeRef other);

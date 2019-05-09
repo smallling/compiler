@@ -3,6 +3,7 @@ package main.java.MyUtil.TypeSystem;
 public class IntTypeRef extends SimpleTypeRef {
     public IntTypeRef() {
         typeName = "int";
+        size = curLen;
     }
 
     public IntTypeRef clone() {

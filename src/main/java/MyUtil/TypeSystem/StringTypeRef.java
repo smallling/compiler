@@ -3,6 +3,7 @@ package main.java.MyUtil.TypeSystem;
 public class StringTypeRef extends SpecialTypeRef {
     public StringTypeRef() {
         typeName = "string";
+        size = curLen;
     }
 
     public StringTypeRef clone() {

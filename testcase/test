@@ -1,4 +1,8 @@
-int main(){
-  println("hi");
-  return 0;
+int main() {
+    int a = 5;
+    int b;
+    int c;
+    c = a++;
+    b = c;
+    return b+c+a;
 }

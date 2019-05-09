@@ -1,11 +1,15 @@
 package main.java.FrontEnd;
 
 import javafx.util.Pair;
+import main.java.MyUtil.OprandClass.GeneralMemAccess;
+import main.java.MyUtil.OprandClass.ImmOprand;
+import main.java.MyUtil.OprandClass.MemAccess;
+import main.java.MyUtil.OprandClass.Register;
 import main.java.MyUtil.ScopeClass.ClassScope;
 import main.java.MyUtil.ScopeClass.GeneralScope;
+import main.java.MyUtil.ScopeClass.LocalScope;
 import main.java.MyUtil.ScopeClass.Scope;
 import main.java.MyUtil.TypeSystem.*;
-import sun.net.www.protocol.http.HttpURLConnection;
 
 public class SemanticChecker extends AstVisitor{
     public GeneralScope<TypeRef> rootScope;
@@ -25,6 +29,7 @@ public class SemanticChecker extends AstVisitor{
         if(nowType instanceof ClassTypeRef) {
             TypeRef belong = rootScope.findItem(((ClassTypeRef) nowType).getTypeName());
             if(belong == null)return false;
+            else ((ClassTypeRef) nowType).belongTo((ClassDefTypeRef) belong);
         }
         return true;
     }
@@ -88,6 +93,10 @@ public class SemanticChecker extends AstVisitor{
         Scope<TypeRef> curScope = node.belong;
         if(curScope instanceof ClassScope) node.inClass = curClassName;
         if(!curScope.addIteam(node.name, node.type))throw new ReDefinedError(node.loc);
+
+        String tmpName = TypeRef.getPre(node.type) + node.name + node.belong.getName();
+        if(curScope instanceof GeneralScope)node.reg = new GeneralMemAccess(tmpName);
+        else node.reg = new Register(tmpName, tmpName);
     }
 
     @Override
@@ -98,6 +107,11 @@ public class SemanticChecker extends AstVisitor{
             if(!(sonNode instanceof VarDefStatNode)) visit(sonNode);
             else {
                 if((sonNode.type instanceof ClassTypeRef) && (rootScope.findItem(((ClassTypeRef) sonNode.type).getTypeName()) == null))throw new NoDefinedTypeError(sonNode.loc);
+                for(int j = 0; j < sonNode.son.size(); j++) {
+                    Node sonSonNode = sonNode.son.get(j);
+                    String tmpName = TypeRef.getPre(sonSonNode.type) + sonSonNode.name + sonSonNode.belong.getName();
+                    sonSonNode.reg = new Register(tmpName);
+                }
             }
         }
         node.type = rootScope.findItem(node.name);
@@ -294,7 +308,7 @@ public class SemanticChecker extends AstVisitor{
             visit(objNode.son.get(i));
         }
         node.type = checkClass(tmp, objNode);
-        if(node.type instanceof ClassTypeRef)((ClassTypeRef) node.type).belongTo(tmp);
+        if(node.type instanceof ClassTypeRef)((ClassTypeRef) node.type).belongTo((ClassDefTypeRef) rootScope.findItem(((SpecialTypeRef) tmp.getTypeRef(objNode.name)).getTypeName()));
         objNode.inClass = ((SpecialTypeRef) sonNode.type).getTypeName();
         objNode.type = node.type;
     }
@@ -305,11 +319,27 @@ public class SemanticChecker extends AstVisitor{
             if(curClassName == "") throw new ThisOutOfClass(node.loc);
             node.type = new ClassTypeRef(curClassName);
             ((ClassTypeRef) node.type).belongTo((ClassDefTypeRef) rootScope.findItem(curClassName));
+            node.reg = new Register("A_this", "A_this");
         }
         else {
             Pair<Scope<TypeRef>, TypeRef> now = node.belong.findVarName(node.name);
             if(now == null)throw new NoDefinedVarError(node.loc);
             node.type = now.getValue();
+            if(now.getKey() instanceof ClassScope) {
+                node.inClass = curClassName;
+                ClassDefTypeRef tmp = (ClassDefTypeRef) rootScope.findItem(curClassName);
+                long offset = tmp.getSize(node.name);
+                node.reg = new MemAccess(new Register("A_this", "A_this"), new ImmOprand(offset));
+            }
+            else {
+                String tmpName = TypeRef.getPre(node.type) + node.name + now.getKey().getName();
+                if(now.getKey() instanceof GeneralScope) {
+                    node.reg = new GeneralMemAccess(tmpName);
+                }
+                else if(now.getKey() instanceof LocalScope){
+                    node.reg = new Register(tmpName, tmpName);
+                }
+            }
         }
     }
 }

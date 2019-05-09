@@ -15,7 +15,7 @@ public class Scope<T> {
         sonScope = new ArrayList<>();
         table = new SymbolTable<>();
         fa = tmpFa;
-        name =tmpName;
+        name = tmpName;
     }
 
     public static <L> ClassScope<L> newClassScope(Scope<L> tmpFa) {

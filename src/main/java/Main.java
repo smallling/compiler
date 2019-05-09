@@ -1,16 +1,26 @@
 package main.java;
 
+import main.java.BackEnd.CodeGen;
+import main.java.BackEnd.RegisterDistribution;
 import main.java.FrontEnd.*;
+import main.java.MyUtil.FuncFrame;
+import main.java.MyUtil.LinearIR;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
 
-    public static void main (String[] args) throws IOException, SyntaxError {
-        ANTLRInputStream input = new ANTLRInputStream (System.in);
+    static public int rebuildCnt = 0;
+
+    public static void main (String[] args) throws Exception {
+        String fileName = "test";
+        InputStream is = new FileInputStream("testcase/" + fileName);
+        ANTLRInputStream input = new ANTLRInputStream (is);
+        //ANTLRInputStream input = new ANTLRInputStream (System.in);
         MxStarLexer lexer = new MxStarLexer (input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MxStarParser parser = new MxStarParser(tokens);
@@ -19,11 +29,6 @@ public class Main {
 
         BuildAstVisitor buildAstVisitor = new BuildAstVisitor();
         Node root = buildAstVisitor.visit(tree);
-
-        /*
-        TestAst test = new TestAst();
-        test.dfs(root, "");
-        */
 
         ScopeBuilder scopeBuilder = new ScopeBuilder();
         scopeBuilder.work(root);
@@ -38,5 +43,38 @@ public class Main {
             e.printStackTrace();
         }
 
+        IRBuilder irBuilder = new IRBuilder();
+        LinearIR irCode = irBuilder.buildIR(root);
+
+        //irCode.print();
+
+        //System.err.println("=============================================================");
+
+        irCode.rebuild();
+
+        //irCode.print();
+
+        //System.err.println("=============================================================");
+
+        for(FuncFrame func : irCode.funcs) {
+            RegisterDistribution tmp = new RegisterDistribution();
+            tmp.processFunc(func);
+        }
+
+        if(irCode.init != null) {
+            RegisterDistribution tmp = new RegisterDistribution();
+            tmp.processFunc(irCode.init);
+        }
+
+        //irCode.print();
+
+        //System.err.println("=============================================================");
+
+        CodeGen codeGen = new CodeGen(irCode);
+        ArrayList<String> codeList = codeGen.genCode();
+
+        for(String code : codeList) {
+            System.out.println(code);
+        }
     }
 }

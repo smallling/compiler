@@ -3,6 +3,7 @@ package main.java.MyUtil.TypeSystem;
 public class NullTypeRef extends SingleTypeRef {
     public NullTypeRef() {
         typeName = "null";
+        size = curLen;
     }
 
     public NullTypeRef clone() {

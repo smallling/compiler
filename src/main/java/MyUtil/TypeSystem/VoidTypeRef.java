@@ -3,6 +3,7 @@ package main.java.MyUtil.TypeSystem;
 public class VoidTypeRef extends SingleTypeRef {
     public VoidTypeRef() {
         typeName = "void";
+        size = 0;
     }
 
     public VoidTypeRef clone() {

@@ -1,6 +1,5 @@
 package main.java.MyUtil.TypeSystem;
 
-import main.java.MyUtil.ScopeClass.SpecialScope;
 
 public abstract class SpecialTypeRef extends SimpleTypeRef {
     ClassDefTypeRef belong;

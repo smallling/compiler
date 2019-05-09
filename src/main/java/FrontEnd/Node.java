@@ -1,5 +1,6 @@
 package main.java.FrontEnd;
 
+import main.java.MyUtil.OprandClass.Oprand;
 import main.java.MyUtil.ScopeClass.Scope;
 import main.java.MyUtil.TypeSystem.*;
 
@@ -13,12 +14,15 @@ public abstract class Node {
     List<Node> son;
     Scope<TypeRef> belong;
     String inClass;
+    Oprand reg;
+    boolean beImm;
 
     Node() {
         name = "";
         type = TypeRef.buildTypeRef("void");
         son = new ArrayList<Node>();
         inClass = null;
+        beImm = false;
     }
 
     public int sonSize() {
@@ -33,7 +37,16 @@ public abstract class Node {
         visitor.visit(this);
     }
 
-    void print(String indentation) {}
+    public boolean canBeImm() {
+        return beImm;
+    }
+
+    public void toBeImm() {
+        beImm = true;
+    }
+
+    void print(String indentation) {
+    }
 }
 
 class CodeNode extends Node {

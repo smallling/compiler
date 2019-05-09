@@ -1,29 +1,37 @@
 package main.java.MyUtil.TypeSystem;
 
+import javafx.util.Pair;
+
 import java.util.HashMap;
-import java.util.Map;
 
 public class ClassDefTypeRef extends TypeRef {
-    HashMap<String, TypeRef> map;
+    HashMap<String, Pair<TypeRef, Long>> map;
 
     public ClassDefTypeRef() {
         map = new HashMap<>();
+        size = 0;
     }
 
     public ClassDefTypeRef(HashMap<String, TypeRef> tmpMap) {
-        map = (HashMap<String, TypeRef>) tmpMap.clone();
+        map = new HashMap<>();
+        for(String key : tmpMap.keySet()) {
+            TypeRef now = tmpMap.get(key);
+            map.put(key, new Pair<>(now, size));
+            if(now instanceof VarTypeRef)size += now.getSize();
+        }
     }
 
     public void insert(String key, TypeRef value) {
-        map.put(key, value);
+        size += value.getSize();
+        map.put(key, new Pair<>(value, size));
     }
 
     public boolean equals(TypeRef other) {
         if(!(other instanceof ClassDefTypeRef))return false;
         ClassDefTypeRef tmp = (ClassDefTypeRef) other;
         if(map.size() != tmp.map.size())return false;
-        for(String nowkey : map.keySet()) {
-            if(!(tmp.map.containsKey(nowkey)) || !(tmp.map.get(nowkey).equals(map.get(nowkey))))return false;
+        for(String key : map.keySet()) {
+            if(!(tmp.map.containsKey(key)) || !(tmp.map.get(key).equals(map.get(key))))return false;
         }
         return true;
     }
@@ -33,8 +41,10 @@ public class ClassDefTypeRef extends TypeRef {
     }
 
     public TypeRef getTypeRef(String str) {
-        return map.get(str);
+        return map.get(str).getKey();
     }
 
-
+    public long getSize(String str) {
+        return map.get(str).getValue();
+    }
 }
