@@ -17,10 +17,10 @@ public class Main {
     static public int rebuildCnt = 0;
 
     public static void main (String[] args) throws Exception {
-        String fileName = "test";
-        InputStream is = new FileInputStream("testcase/" + fileName);
-        ANTLRInputStream input = new ANTLRInputStream (is);
-        //ANTLRInputStream input = new ANTLRInputStream (System.in);
+        //String fileName = "test";
+        //InputStream is = new FileInputStream("testcase/" + fileName);
+        //ANTLRInputStream input = new ANTLRInputStream (is);
+        ANTLRInputStream input = new ANTLRInputStream (System.in);
         MxStarLexer lexer = new MxStarLexer (input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MxStarParser parser = new MxStarParser(tokens);
