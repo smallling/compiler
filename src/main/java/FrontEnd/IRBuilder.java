@@ -257,7 +257,7 @@ public class IRBuilder extends AstVisitor {
             insertQuad(new Quad("jump", new LabelName(Integer.toString(labelTrue))));
             return;
         }
-        if(node.name.equals(false)) {
+        if(node.name.equals("false")) {
             insertQuad(new Quad("jump", new LabelName(Integer.toString(labelFalse))));
             return;
         }
@@ -953,7 +953,7 @@ public class IRBuilder extends AstVisitor {
                 pres.add("A_");
                 pres.add("V_");
                 genParam(oprs, pres);
-                insertQuad(new Quad("call", null, new FuncName("S_parseInt"), new ImmOprand(2)));
+                insertQuad(new Quad("call", null, new FuncName("S_ord"), new ImmOprand(2)));
                 insertQuad(new Quad("mov", tmp, ttmp));
                 return;
             }

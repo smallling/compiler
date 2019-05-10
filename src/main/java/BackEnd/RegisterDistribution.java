@@ -225,6 +225,9 @@ public class RegisterDistribution {
         for(BasicBlock block : func.blockList) {
             LinkedList<Quad> curCodeList = new LinkedList<>();
             for(int i = 0; i < block.codeList.size(); i++) {
+                if(i == 10) {
+                    System.out.println("fuck");
+                }
                 Quad code = block.codeList.get(i);
                 LinkedList<String> used = new LinkedList<>(code.getUsedReg());
                 LinkedList<String> defined = new LinkedList<>(code.getDefinedReg());
@@ -245,6 +248,16 @@ public class RegisterDistribution {
                         memMap.put(tmp.get(), tmp);
                         tmp.setMemPos(memMap.get(reg).getMemPos());
                         renameMap.put(reg, tmp.get());
+                    }
+                }
+                if(renameMap.size() > 0) {
+                    for (String reg : renameMap.keySet()) {
+                        String to = renameMap.get(reg);
+                        if (entity.containsKey(reg)) {
+                            String tmp = entity.get(reg);
+                            entity.remove(reg);
+                            entity.put(to, tmp);
+                        }
                     }
                 }
                 code.renameUsedReg(renameMap);

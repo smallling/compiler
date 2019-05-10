@@ -172,7 +172,7 @@ public class Quad {
             }
             if(op.equals("lea")) {
                 curList.addAll(((MemAccess) r1).getUsedReg());
-                curList.add(rt.get());
+                //curList.add(rt.get());
             }
             if(op.equals("push")) {
                 if(rt instanceof MemAccess) {
