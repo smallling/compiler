@@ -328,6 +328,8 @@ public class IRBuilder extends AstVisitor {
 
     Oprand genMemAccess(Oprand... oprands) {
         Register tmp = new Register(getTmpName("A_"));
+        if(oprands[0] instanceof MemAccess)oprands[0] = changeOprToReg(oprands[0]);
+        if(oprands.length > 1 && oprands[1] instanceof MemAccess)oprands[1] = changeOprToReg(oprands[1]);
         if(oprands.length == 1)insertQuad(new Quad("lea", tmp, new MemAccess(oprands[0])));
         if(oprands.length == 2)insertQuad(new Quad("lea", tmp, new MemAccess(oprands[0], oprands[1])));
         if(oprands.length == 3)insertQuad(new Quad("lea", tmp, new MemAccess(oprands[0], oprands[1], oprands[2])));

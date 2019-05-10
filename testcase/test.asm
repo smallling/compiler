@@ -1,7 +1,6 @@
 default rel
 
-global V_var_useless
-global F_useless_loop
+global A_a
 global main
 global S_substring
 global S_parseInt
@@ -352,116 +351,62 @@ L_020:  neg     rbx
 
 
 
-F_useless_loop:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        inc qword [rel V_var_useless]
-        mov rax, 1
-        jmp end_F_useless_loop
-end_F_useless_loop:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
 main:
         push rbp
         mov rbp, rsp
-        sub rsp, 0
+        sub rsp, 32
+        push r12
+        push r14
+        push r13
+        push r15
         push rbx
         call __init
-        mov rbx, 0
-        cmp rbx, 10
-        jl lb0
-        jmp lb1
-lb1:
-        mov rbx, 0
-        call F_useless_loop
-        mov rcx, rax
-        mov rax, rbx
-        add rax, rcx
-        cmp rax, 10
-        jl lb2
-        jmp lb3
-lb3:
-        mov rbx, 0
-        call F_useless_loop
+        mov rdi, 40
+        call malloc
         mov rax, rax
-        cmp rbx, 10
-        jl lb4
-        jmp lb5
-lb5:
-        mov rax, 0
-        mov rcx, qword [rel V_var_useless]
-        inc qword [rel V_var_useless]
-        mov rdx, rax
-        add rdx, rcx
-        cmp rdx, 100
-        jl lb6
-        jmp lb7
-lb7:
-        mov rcx, 0
-        cmp rcx, 200
-        jl lb8
-        jmp lb9
-lb9:
-        mov rdi, qword [rel V_var_useless]
+        mov rax, rax
+        mov [rbp+-24], rax
+        mov rax, [rbp+-16]
+        lea rax, [rbx+0*8+8]
+        mov [rbp+-16], rax
+        mov rax, qword [rel A_a]
+        mov rcx, [rbp+-16]
+        mov qword [rcx], rax
+        mov rax, [rbp+-24]
+        lea r15, [rax+1*8+8]
+        mov rax, qword [rel A_a]
+        mov qword [r15], rax
+        mov rax, [rbp+-24]
+        lea r13, [rax+2*8+8]
+        mov rax, qword [rel A_a]
+        mov qword [r13], rax
+        mov rax, [rbp+-24]
+        lea r14, [rax+3*8+8]
+        mov rax, qword [rel A_a]
+        mov qword [r14], rax
+        mov rcx, [rbp+-24]
+        mov rax, [rbp+-8]
+        lea rax, [rcx]
+        mov [rbp+-8], rax
+        mov rax, qword [rbx]
+        mov rdi, rax
         call F_toString
         mov rax, rax
         mov rdi, rax
-        call F_print
+        call F_println
+        mov rax, [rbp+-24]
+        lea rbx, [rax+0*8+8]
+        mov rax, qword [rbx]
+        lea r12, [rax+0*8+8]
+        mov qword [r12], 1
         mov rax, 0
         jmp end_main
-lb8:
-        mov rax, qword [rel V_var_useless]
-        inc qword [rel V_var_useless]
-        mov rcx, rcx
-        add rcx, rax
-        mov rcx, rcx
-        cmp rcx, 200
-        jl lb8
-        jmp lb9
-lb6:
-        mov rax, rax
-        add rax, 1
-        mov rax, rax
-        mov rdx, qword [rel V_var_useless]
-        inc qword [rel V_var_useless]
-        mov rcx, rax
-        add rcx, rdx
-        cmp rcx, 100
-        jl lb6
-        jmp lb7
-lb4:
-        mov rax, rbx
-        add rax, 1
-        mov rbx, rax
-        cmp rbx, 10
-        jl lb4
-        jmp lb5
-lb2:
-        mov rax, rbx
-        add rax, 1
-        mov rbx, rax
-        call F_useless_loop
-        mov rcx, rax
-        mov rax, rbx
-        add rax, rcx
-        cmp rax, 10
-        jl lb2
-        jmp lb3
-lb0:
-        call F_useless_loop
-        mov rcx, rax
-        mov rax, rbx
-        add rax, rcx
-        mov rbx, rax
-        cmp rbx, 10
-        jl lb0
-        jmp lb1
 end_main:
         pop rbx
+        pop r15
+        pop r13
+        pop r14
+        pop r12
         mov rsp, rbp
         pop rbp
         ret
@@ -471,7 +416,10 @@ __init:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        mov qword [rel V_var_useless], 0
+        mov rdi, 40
+        call malloc
+        mov rax, rax
+        mov qword [rel A_a], rax
 end___init:
         mov rsp, rbp
         pop rbp
@@ -481,10 +429,12 @@ end___init:
 SECTION .data    align=8
 
 SECTION .bss     align=8
-V_var_useless:
+A_a:
          resq 1
 
 SECTION .rodata
+S_0: 
+         db 00H
 
 L_021:
         db 25H, 6CH, 64H, 00H

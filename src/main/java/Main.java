@@ -17,11 +17,10 @@ public class Main {
     static public int rebuildCnt = 0;
 
     public static void main (String[] args) throws Exception {
-        /*
         String fileName = "test";
         InputStream is = new FileInputStream("testcase/" + fileName);
-        ANTLRInputStream input = new ANTLRInputStream (is);*/
-        ANTLRInputStream input = new ANTLRInputStream (System.in);
+        ANTLRInputStream input = new ANTLRInputStream (is);
+        //ANTLRInputStream input = new ANTLRInputStream (System.in);
         MxStarLexer lexer = new MxStarLexer (input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         MxStarParser parser = new MxStarParser(tokens);
@@ -47,15 +46,15 @@ public class Main {
         IRBuilder irBuilder = new IRBuilder();
         LinearIR irCode = irBuilder.buildIR(root);
 
-       // irCode.print();
+        irCode.print();
 
-      //  System.err.println("=============================================================");
+        System.err.println("=============================================================");
 
         irCode.rebuild();
 
-        //irCode.print();
+        irCode.print();
 
-        //System.err.println("=============================================================");
+        System.err.println("=============================================================");
 
         for(FuncFrame func : irCode.funcs) {
             RegisterDistribution tmp = new RegisterDistribution();
@@ -81,11 +80,11 @@ public class Main {
             content += code + "\n";
         }
 
-        /*File file = new File("testcase/" + fileName + ".asm");
+        File file = new File("testcase/" + fileName + ".asm");
         OutputStream out = new FileOutputStream(file);
         if (!file.exists()) file.createNewFile();
         out.write(content.getBytes());
         out.flush();
-        out.close();*/
+        out.close();
     }
 }
