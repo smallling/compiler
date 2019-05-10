@@ -127,15 +127,15 @@ public class Quad {
 
     public LinkedList<String> getUsedReg() {
         LinkedList<String> curList = new LinkedList<>();
-        if(op.equals("mul")) {
+        if(op.equals("imul")) {
             curList.add("rax");
         }
-        if(op.equals("div") || op.equals("mod")) {
+        if(op.equals("idiv") || op.equals("mod")) {
             curList.add("rax");
             curList.add("rdx");
         }
         if(this instanceof ArthQuad) {
-            if(op.equals("inc") || op.equals("dec")) {
+            if(op.equals("inc") || op.equals("dec") || op.equals("idiv") || (op.equals("imul") && r1 != null)) {
                 if(rt instanceof MemAccess) {
                     curList.addAll(((MemAccess) rt).getUsedReg());
                 }
@@ -186,7 +186,10 @@ public class Quad {
                 if(rt instanceof Register) {
                     curList.add(rt.get());
                 }
-                if(r1 instanceof Register) {
+                if(r1 instanceof MemAccess) {
+                    curList.addAll(((MemAccess) r1).getUsedReg());
+                }
+                else if(r1 instanceof Register) {
                     curList.add(r1.get());
                 }
             }
@@ -196,7 +199,7 @@ public class Quad {
 
     public LinkedList<String> getDefinedReg() {
         LinkedList<String> curList = new LinkedList<>();
-        if(op.equals("mul") || op.equals("div") || op.equals("mod")) {
+        if(op.equals("imul") || op.equals("idiv") || op.equals("mod")) {
             curList.add("rax");
             curList.add("rdx");
         }
@@ -243,7 +246,7 @@ public class Quad {
 
     public void renameUsedReg(HashMap<String, String> renameMap) {
         if(this instanceof ArthQuad) {
-            if(op.equals("inc") || op.equals("dec")) {
+            if(op.equals("inc") || op.equals("dec") || op.equals("idiv") || (op.equals("imul") && r1 != null)) {
                 if(rt instanceof MemAccess) {
                     ((MemAccess) rt).renameUsedReg(renameMap);
                 }
@@ -290,7 +293,10 @@ public class Quad {
                 if(rt instanceof Register && renameMap.containsKey(rt.get())) {
                     rt.set(renameMap.get(rt.get()));
                 }
-                if(r1 instanceof Register && renameMap.containsKey(r1.get())) {
+                if(r1 instanceof MemAccess) {
+                    ((MemAccess) r1).renameUsedReg(renameMap);
+                }
+                else if(r1 instanceof Register && renameMap.containsKey(r1.get())) {
                     r1.set(renameMap.get(r1.get()));
                 }
             }

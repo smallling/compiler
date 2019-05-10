@@ -40,6 +40,8 @@ public class IRBuilder extends AstVisitor {
 
     public ArrayList<String> paramReg;
 
+    ArrayList<String> classStr;
+
     public IRBuilder() {
         labelCnt = 0;
         quadLabel = 0;
@@ -62,6 +64,7 @@ public class IRBuilder extends AstVisitor {
         paramReg.add("rcx");
         paramReg.add("r8");
         paramReg.add("r9");
+        classStr = new ArrayList<>();
     }
 
     public LinearIR buildIR(Node root) throws Exception {
@@ -70,6 +73,7 @@ public class IRBuilder extends AstVisitor {
     }
 
     void insertFunc() {
+        if(curFunc.getRetSize() == 0)curCodeList.add(new Quad("ret"));
         updateLabel(curCodeList);
         setMemPos(curCodeList);
         curFunc.buildCFG(curCodeList);
@@ -225,6 +229,29 @@ public class IRBuilder extends AstVisitor {
         }
     }
 
+    void genStringFunc(String funcName, Oprand ans, Oprand left, Oprand right) {
+        ArrayList<Oprand> oprs = new ArrayList<>();
+        ArrayList<String> pres = new ArrayList<>();
+        oprs.add(left);
+        oprs.add(right);
+        pres.add("A_");
+        pres.add("A_");
+        genParam(oprs, pres);
+        insertQuad(new Quad("call", null, new FuncName(funcName), new ImmOprand(2)));
+        if(ans != null)insertQuad(new Quad("mov", ans.clone(), new Register("rax")));
+    }
+
+    void genStringAdd(Node node, Oprand reg) throws Exception {
+        if(node instanceof BinaryExprNode) {
+            genStringAdd(node.son.get(0), reg);
+            genStringAdd(node.son.get(1), reg);
+        }
+        else {
+            visit(node);
+            genStringFunc("S_strcat", null, reg.clone(), node.reg.clone());
+        }
+    }
+
     void genCondition(Node node, int labelTrue, int labelFalse) throws Exception {
         if(node.name.equals("true")) {
             insertQuad(new Quad("jump", new LabelName(Integer.toString(labelTrue))));
@@ -283,7 +310,9 @@ public class IRBuilder extends AstVisitor {
         if(op.equals("!="))irOp = "jne";
 
         if(l.type instanceof StringTypeRef) {
-
+            Register tmp = new Register(getTmpName("V_"));
+            genStringFunc("strcmp", tmp, lReg, rReg);
+            insertQuad(new Quad("cmp", tmp, new ImmOprand(0)));
         } else {
             insertQuad(new Quad("cmp", lReg, rReg));
         }
@@ -326,7 +355,8 @@ public class IRBuilder extends AstVisitor {
         else {
             node.reg = new Register(getTmpName(TypeRef.getPre(node.type)));
             Oprand tmp = new Register(getTmpName(TypeRef.getPre(node.type)));
-            insertQuad(new Quad("call", tmp, new FuncName(classFuncLabel(className, node.name)), new ImmOprand(n + 1)));
+            insertQuad(new Quad("call", null, new FuncName(classFuncLabel(className, node.name)), new ImmOprand(n + 1)));
+            insertQuad(new Quad("mov", tmp, new Register("rax")));
             insertQuad(new Quad("mov", node.reg, tmp.clone()));
         }
     }
@@ -374,14 +404,22 @@ public class IRBuilder extends AstVisitor {
         if(curVarState == VarDefStatus.ClassObj) {
             curClassObj.put(node.name, curClassObjSize);
             curClassObjSize += node.type.getSize();
+            if(node.type instanceof StringTypeRef) classStr.add(node.reg.get());
         }
         if(curVarState == VarDefStatus.GeneralVar) {
             String name = ((GeneralMemAccess) node.reg).getName();
 
             linearCode.insertVar(name, node.type.getSize());
 
-            if(node.son.size() > 0) {
+            if(node.type instanceof StringTypeRef) {
+                genNewFunc(node.reg, new ImmOprand(256));
+                linearCode.addUninitMem(name, 256);
+            }
+            else {
+                linearCode.addUninitMem(name, node.type.getSize() / 8);
+            }
 
+            if(node.son.size() > 0) {
                 Node son = node.son.get(0);
                 visit(son);
                 insertQuad(new Quad("mov", node.reg.clone(), son.reg.clone()));
@@ -390,7 +428,12 @@ public class IRBuilder extends AstVisitor {
         if(curVarState == VarDefStatus.LocalVar) {
             curFunc.addLocalVar(node.name, node.type.getSize());
             if(node.type instanceof  StringTypeRef) {
-
+                genNewFunc(node.reg, new ImmOprand(256));
+                if(node.son.size() > 0) {
+                    visit(node.son.get(0));
+                    genStringFunc("S_strcpy", null, node.reg.clone(), node.son.get(0).reg.clone());
+                }
+                return;
             }
 
             if(node.son.size() > 0) {
@@ -451,6 +494,10 @@ public class IRBuilder extends AstVisitor {
         curFunc = new FuncFrame(classFuncLabel(node.name, node.name));
         curFunc.setClassObj(curClassObj);
         curFunc.addParam("A_this", TypeRef.curLen);
+
+        for(String var : classStr) {
+            genNewFunc(genMemAccess(new Register("A_this", "A_this"), new ImmOprand(curClassObj.get(var))), new ImmOprand(256));
+        }
 
         for(int i = 0; i < node.son.size(); i++) {
             Node son = node.son.get(i);
@@ -585,6 +632,13 @@ public class IRBuilder extends AstVisitor {
         Node left = node.son.get(0);
         Node right = node.son.get(1);
 
+        if(left.type instanceof StringTypeRef && node.name.equals("+")) {
+            node.reg = new Register("A_");
+            genNewFunc(node.reg, new ImmOprand(256));
+            genStringAdd(node, node.reg.clone());
+            return;
+        }
+
         if(node.type instanceof BoolTypeRef) {
             int labelTrue = labelCnt++, labelFalse = labelCnt++, label = labelCnt++;
             genCondition(node, labelTrue, labelFalse);
@@ -658,7 +712,10 @@ public class IRBuilder extends AstVisitor {
             return;
         }
         if(left.type instanceof StringTypeRef) {
-            return;
+            if(node.name.equals("=")) {
+                genStringFunc("S_strcpy", null, lReg, rReg);
+                return;
+            }
         }
         insertQuad(new Quad("mov", lReg.clone(), rReg.clone()));
     }
@@ -842,7 +899,61 @@ public class IRBuilder extends AstVisitor {
             return;
         }
         if(son.type instanceof StringTypeRef) {
+            Register tmp = new Register(getTmpName("V_"));
+            node.reg = new Register(getTmpName("V_"));
+            Register ttmp = new Register("rax");
 
+            String func = mem.name;
+            if(func.equals("length")) {
+                ArrayList<Oprand> oprs = new ArrayList<>();
+                ArrayList<String> pres = new ArrayList<>();
+                oprs.add(son.reg);
+                pres.add("A_");
+                genParam(oprs, pres);
+                insertQuad(new Quad("call", null, new FuncName("S_strlen"), new ImmOprand(1)));
+                insertQuad(new Quad("mov", tmp, ttmp));
+                return;
+            }
+            if(func.equals("substring")) {
+                Node left = mem.son.get(0), right = mem.son.get(1);
+                visit(left);
+                visit(right);
+                ArrayList<Oprand> oprs = new ArrayList<>();
+                ArrayList<String> pres = new ArrayList<>();
+                oprs.add(son.reg);
+                oprs.add(left.reg);
+                oprs.add(right.reg);
+                pres.add("A_");
+                pres.add("V_");
+                pres.add("V_");
+                insertQuad(new Quad("call", null, new FuncName("S_substring"), new ImmOprand(3)));
+                insertQuad(new Quad("mov", tmp, ttmp));
+                return;
+            }
+            if(func.equals("parseInt")) {
+                ArrayList<Oprand> oprs = new ArrayList<>();
+                ArrayList<String> pres = new ArrayList<>();
+                oprs.add(son.reg);
+                pres.add("A_");
+                genParam(oprs, pres);
+                insertQuad(new Quad("call", null, new FuncName("S_parseInt"), new ImmOprand(1)));
+                insertQuad(new Quad("mov", tmp, ttmp));
+                return;
+            }
+            if(func.equals("ord")) {
+                Node memSon = mem.son.get(0);
+                visit(memSon);
+                ArrayList<Oprand> oprs = new ArrayList<>();
+                ArrayList<String> pres = new ArrayList<>();
+                oprs.add(son.reg);
+                oprs.add(memSon.reg);
+                pres.add("A_");
+                pres.add("V_");
+                genParam(oprs, pres);
+                insertQuad(new Quad("call", null, new FuncName("S_parseInt"), new ImmOprand(2)));
+                insertQuad(new Quad("mov", tmp, ttmp));
+                return;
+            }
             return;
         }
         node.reg = new Register(getTmpName("A_"));

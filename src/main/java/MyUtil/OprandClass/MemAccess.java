@@ -41,6 +41,9 @@ public class MemAccess extends Oprand{
         offset = null;
         offsetSize = tmpOffSize;
         offsetBase = tmpOffBase;
+        if(offsetBase instanceof Register) {
+            System.err.println("fuck you!");
+        }
         ac = "qword [" + base.get() + "+" + offsetSize.get() + "*" + offsetBase.get() + "]";
     }
 
@@ -48,6 +51,9 @@ public class MemAccess extends Oprand{
         base = tmpBase;
         offsetSize = tmpOffSize;
         offsetBase = tmpOffBase;
+        if(offsetBase instanceof Register) {
+            System.err.println("fuck you!");
+        }
         offset = tmpOff;
         ac = "qword [" + base.get() + "+" + offsetSize.get() + "*" + offsetBase.get() + "+" + offset.get() + "]";
     }
@@ -63,6 +69,14 @@ public class MemAccess extends Oprand{
         if(base != null)curList.add(base.get());
         if(offsetSize != null && offsetSize instanceof Register)curList.add(offsetSize.get());
         return curList;
+    }
+
+    public Oprand getBase() {
+        return base;
+    }
+
+    public Oprand getOffsetSize() {
+        return offsetSize;
     }
 
     public void renameUsedReg(HashMap<String, String> renameMap) {
@@ -84,9 +98,12 @@ public class MemAccess extends Oprand{
 
     @Override
     public String get() {
+        if(base == null && this instanceof StackSlot) {
+            return "stack[" + ac + "]";
+        }
         ac = "qword [";
         if (base != null) ac += base.get();
-        if (offsetSize != null) ac += "+" + String.format("%s*%s", offsetSize.get(), offsetSize.get());
+        if (offsetSize != null) ac += "+" + String.format("%s*%s", offsetSize.get(), offsetBase.get());
         if (offset != null) ac += "+" + offset.get();
         ac += "]";
         return ac;

@@ -296,6 +296,7 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
                 if (tmp.charAt(i + 1) == 'n') res.name += '\n';
                 if (tmp.charAt(i + 1) == 't') res.name += '\t';
                 if (tmp.charAt(i + 1) == '\"') res.name += '\"';
+                i++;
             }
         }
         res.type = new StringTypeRef();

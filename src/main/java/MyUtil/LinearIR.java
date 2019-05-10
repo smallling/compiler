@@ -1,6 +1,7 @@
 package main.java.MyUtil;
 
 import javafx.util.Pair;
+import main.java.FrontEnd.MxStarParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +13,8 @@ public class LinearIR {
 
     public HashMap<String, Long> varSize;
 
-    ArrayList<Pair<String, String> > roData;
+    public ArrayList<Pair<String, String> > roData;
+    public ArrayList<Pair<String, Long> > uninitMem;
 
     public LinearIR() {
         funcs = new ArrayList<>();
@@ -20,6 +22,7 @@ public class LinearIR {
         globals = new ArrayList<>();
         varSize = new HashMap<>();
         roData = new ArrayList<>();
+        uninitMem = new ArrayList<>();
     }
 
     public void rebuild() {
@@ -42,6 +45,10 @@ public class LinearIR {
         varSize.put(func.getName(), func.getRetSize());
     }
 
+    public void addUninitMem(String name, long len) {
+        uninitMem.add(new Pair<>(name, len));
+    }
+
     public void setInit(FuncFrame tmp) {
         init = tmp;
     }
@@ -52,12 +59,21 @@ public class LinearIR {
     }
 
     public String insertStringConst(String str) {
-        String name = str + roData.size();
-        addRoData(name, str);
+        String name = "S_" + roData.size();
+        addRoData(name, str.getBytes());
         return name;
     }
 
-    void addRoData(String name, String str) {
+    void addRoData(String name, byte[] list) {
+        int len = list.length;
+        String str = "";
+        for(int i = 0; i < len; i++) {
+            String tmp = Integer.toHexString(list[i]).toUpperCase();
+            if(tmp.length() == 1)tmp = "0" + tmp;
+            str += tmp + "H, ";
+        }
 
+        str += "00H";
+        roData.add(new Pair<>(name, str));
     }
 }

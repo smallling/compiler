@@ -1,5 +1,6 @@
 package main.java.MyUtil;
 
+import javax.print.attribute.HashAttributeSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -52,5 +53,15 @@ public class Graph {
 
     public int getDegree(String a) {
         return graph.get(a) != null ? graph.get(a).size() : 0;
+    }
+
+    public boolean contains(String reg) {
+        return graph.containsKey(reg);
+    }
+
+    public void replace(String lreg, String rreg) {
+        HashSet<String> tmp = new HashSet<>(graph.get(lreg));
+        graph.remove(lreg);
+        graph.put(rreg, tmp);
     }
 }

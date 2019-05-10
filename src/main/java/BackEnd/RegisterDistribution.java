@@ -27,6 +27,8 @@ public class RegisterDistribution {
     HashMap<String, String> entity;
     HashSet<String> register;
 
+    HashMap<String, StackSlot> restacked;
+
     int K;
 
     String getTempName() {
@@ -72,6 +74,7 @@ public class RegisterDistribution {
         }
 
         livenessAnalyzer = new LivenessAnalyzer();
+        restacked = new HashMap<>();
     }
 
     void init() {
@@ -168,21 +171,55 @@ public class RegisterDistribution {
                 if(rt instanceof Register) {
                     memMap.put(rt.get(), (Register) rt);
                 }
+                if(rt instanceof MemAccess) {
+                    Oprand tmp = ((MemAccess) rt).getBase();
+                    if(tmp instanceof Register)memMap.put(tmp.get(), (Register) tmp);
+                    tmp = ((MemAccess) rt).getOffsetSize();
+                    if(tmp instanceof Register)memMap.put(tmp.get(), (Register) tmp);
+                }
                 if(r1 instanceof Register) {
                     memMap.put(r1.get(), (Register) r1);
+                }
+                if(r1 instanceof MemAccess) {
+                    Oprand tmp = ((MemAccess) r1).getBase();
+                    if(tmp instanceof Register)memMap.put(tmp.get(), (Register) tmp);
+                    tmp = ((MemAccess) r1).getOffsetSize();
+                    if(tmp instanceof Register)memMap.put(tmp.get(), (Register) tmp);
                 }
                 if(r2 instanceof Register) {
                     memMap.put(r2.get(), (Register) r2);
                 }
+                if(r2 instanceof MemAccess) {
+                    Oprand tmp = ((MemAccess) r2).getBase();
+                    if(tmp instanceof Register)memMap.put(tmp.get(), (Register) tmp);
+                    tmp = ((MemAccess) r2).getOffsetSize();
+                    if(tmp instanceof Register)memMap.put(tmp.get(), (Register) tmp);
+                }
             }
         }
+
         HashMap<String, MemAccess> spillPlace = new HashMap<>();
         for(String reg : spilledReg) {
-            if(memMap.containsKey(reg) && memMap.get(reg).getMemPos() != null) {
+            String yyy = null;
+            if(memMap.containsKey(reg) && memMap.get(reg).getMemPos() != null)yyy = memMap.get(reg).getMemPos();
+            if(yyy != null && !yyy.contains(".") && !(yyy.charAt(2) >= '0' && yyy.charAt(2) <= '9')) {
                 spillPlace.put(reg, new GeneralMemAccess(memMap.get(reg).getMemPos()));
             }
             else {
-                spillPlace.put(reg, new StackSlot(reg));
+                String tmpName = memMap.get(reg).getMemPos();
+                if(tmpName == null) {
+                    spillPlace.put(reg, new StackSlot(reg));
+                }
+                else {
+                    if(restacked.containsKey(tmpName)) {
+                        spillPlace.put(reg, restacked.get(tmpName));
+                    }
+                    else {
+                        StackSlot cur = new StackSlot(tmpName);
+                        spillPlace.put(reg, cur);
+                        restacked.put(tmpName, cur);
+                    }
+                }
             }
         }
         for(BasicBlock block : func.blockList) {
@@ -198,6 +235,7 @@ public class RegisterDistribution {
                     if(!renameMap.containsKey(reg)) {
                         Register tmp = new Register(getTempName());
                         memMap.put(tmp.get(), tmp);
+                        tmp.setMemPos(memMap.get(reg).getMemPos());
                         renameMap.put(reg, tmp.get());
                     }
                 }
@@ -205,6 +243,7 @@ public class RegisterDistribution {
                     if(!renameMap.containsKey(reg)) {
                         Register tmp = new Register(getTempName());
                         memMap.put(tmp.get(), tmp);
+                        tmp.setMemPos(memMap.get(reg).getMemPos());
                         renameMap.put(reg, tmp.get());
                     }
                 }
@@ -214,11 +253,12 @@ public class RegisterDistribution {
                     curCodeList.add(new Quad("mov", memMap.get(renameMap.get(reg)), spillPlace.get(reg)));
                 }
                 for(String reg : defined) {
-                    curCodeList.add(code);
+                    curCodeList.add(code.clone());
                     curCodeList.add(new Quad("mov", spillPlace.get(reg), memMap.get(renameMap.get(reg))));
                     i++;
-                    code = block.codeList.get(i);
+                    if(i < block.codeList.size())code = block.codeList.get(i);
                 }
+                if(i < block.codeList.size())curCodeList.add(code.clone());
             }
             block.codeList = curCodeList;
         }

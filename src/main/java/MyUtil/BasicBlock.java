@@ -1,7 +1,9 @@
 package main.java.MyUtil;
 
+import jdk.nashorn.internal.codegen.MethodEmitter;
 import main.java.Main;
 import main.java.MyUtil.OprandClass.ImmOprand;
+import main.java.MyUtil.OprandClass.MemAccess;
 import main.java.MyUtil.OprandClass.Oprand;
 import main.java.MyUtil.OprandClass.Register;
 import main.java.MyUtil.QuadClass.ArthQuad;
@@ -133,8 +135,8 @@ public class BasicBlock {
                     Register ttmp = new Register("rax");
                     curCodeList.add(new Quad("mov", tmp, r2.clone()));
                     curCodeList.add(new Quad("mov", ttmp, r1.clone()));
-                    curCodeList.add(new Quad("dqo"));
-                    curCodeList.add(new ArthQuad("idiv", r2.clone()));
+                    curCodeList.add(new Quad("cqo"));
+                    curCodeList.add(new ArthQuad("idiv", tmp.clone()));
                     curCodeList.add(new Quad("mov", rt.clone(), ttmp.clone()));
                 }
             }
@@ -153,8 +155,8 @@ public class BasicBlock {
                     curCodeList.add(new Quad("mov", tmp, r2.clone()));
                     curCodeList.add(new Quad("mov", ttmp, r1.clone()));
                     curCodeList.add(new Quad("cqo"));
-                    curCodeList.add(new Quad("idiv", r2.clone()));
-                    curCodeList.add(new Quad("mov", tttmp, rt.clone()));
+                    curCodeList.add(new ArthQuad("idiv", tmp.clone()));
+                    curCodeList.add(new Quad("mov", rt.clone(), tttmp));
                 }
             }
             if(op.equals("not") || op.equals("neg")) {
@@ -165,14 +167,24 @@ public class BasicBlock {
                 curCodeList.add(code.clone());
                 curCodeList.add(new Quad("jump", r2.clone()));
             }
-            if(op.equals("mov") || op.equals("lea") || op.equals("call") || op.equals("push") || op.equals("jump")) {
+            if(op.equals("mov")) {
+                if(rt instanceof MemAccess && r1 instanceof MemAccess) {
+                    Register tmp = new Register(getTempName());
+                    curCodeList.add(new Quad("mov", tmp, r1));
+                    curCodeList.add(new Quad("mov", rt, tmp));
+                }
+                else {
+                    curCodeList.add(code.clone());
+                }
+            }
+            if(op.equals("lea") || op.equals("call") || op.equals("push") || op.equals("jump")) {
                 curCodeList.add(code.clone());
             }
             if(op.equals("cmp")) {
                 if (!(rt instanceof Register)) {
                     Register tmp = new Register(getTempName());
                     curCodeList.add(new Quad("mov", tmp, rt.clone()));
-                    curCodeList.add(new CJumpQuad(op, tmp, r1.clone()));
+                    curCodeList.add(new Quad(op, tmp, r1.clone()));
                 } else {
                     curCodeList.add(code.clone());
                 }

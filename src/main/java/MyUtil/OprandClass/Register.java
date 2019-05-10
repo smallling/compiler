@@ -38,6 +38,6 @@ public class Register extends Oprand{
 
     @Override
     public Oprand clone() {
-        return new Register(name);
+        return new Register(name, memPos);
     }
 }

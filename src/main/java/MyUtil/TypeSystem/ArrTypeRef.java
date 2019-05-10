@@ -8,6 +8,7 @@ public class ArrTypeRef extends VarTypeRef {
 
     public ArrTypeRef(VarTypeRef tmp) {
         type = tmp;
+        size = 8;
     }
 
     public ArrTypeRef(String typeName, int dim) {
@@ -16,6 +17,7 @@ public class ArrTypeRef extends VarTypeRef {
             tmp = new ArrTypeRef(tmp);
         }
         type = tmp;
+        size = 8;
     }
 
     public ArrTypeRef clone() {

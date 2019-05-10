@@ -9,6 +9,14 @@ public class StackSlot extends MemAccess {
         return ac;
     }
 
+    public StackSlot(Oprand tmpBase) {
+        super(tmpBase);
+    }
+
+    public StackSlot(Oprand tmpBase, Oprand tmpOffset) {
+        super(tmpBase, tmpOffset);
+    }
+
     @Override
     public String getPrint() {
         String tmp = this.get();
@@ -22,6 +30,8 @@ public class StackSlot extends MemAccess {
 
     @Override
     public StackSlot clone() {
-        return new StackSlot(ac);
+        if(base == null)return new StackSlot(ac);
+        else if(offset == null)return new StackSlot(base);
+        return new StackSlot(base, offset);
     }
 }
