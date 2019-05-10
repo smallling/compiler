@@ -252,13 +252,10 @@ public class RegisterDistribution {
                 for(String reg : used) {
                     curCodeList.add(new Quad("mov", memMap.get(renameMap.get(reg)), spillPlace.get(reg)));
                 }
+                curCodeList.add(code.clone());
                 for(String reg : defined) {
-                    curCodeList.add(code.clone());
                     curCodeList.add(new Quad("mov", spillPlace.get(reg), memMap.get(renameMap.get(reg))));
-                    i++;
-                    if(i < block.codeList.size())code = block.codeList.get(i);
                 }
-                if(i < block.codeList.size())curCodeList.add(code.clone());
             }
             block.codeList = curCodeList;
         }

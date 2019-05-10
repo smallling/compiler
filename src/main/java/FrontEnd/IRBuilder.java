@@ -821,6 +821,7 @@ public class IRBuilder extends AstVisitor {
             insertQuad(new ArthQuad("add", tmp.clone(), tmp.clone(), new ImmOprand(size)));
         }
         genNewFunc(node.reg, tmp);
+        insertQuad(new Quad("mov", genMemAccess(node.reg), changeOprToReg(len.reg)));
         if(typ.type instanceof StringTypeRef || (typ.type instanceof ArrTypeRef && !(typ.son.get(0) instanceof EmptyExprNode))) {
             Oprand low = new ImmOprand(0);
             Oprand high = len.reg.clone();
