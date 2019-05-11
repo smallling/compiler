@@ -359,26 +359,20 @@ main:
         push r13
         push r15
         push rbx
-        mov r14, 1000000
+        mov r12, 1000000
         mov rdi, S_0
         call F_print
-        mov rdi, 256
-        call malloc
-        mov rbx, rax
-        mov rax, r14
+        mov rax, r12
         sal rax, 1
         mov rax, rax
         add rax, 1
         mov rdi, rax
         call F_toString
-        mov rax, rax
-        mov rdi, rbx
-        mov rsi, rax
-        call S_strcat
+        mov rbx, rax
         mov rdi, rbx
         mov rsi, S_1
         call S_strcat
-        mov rdi, r14
+        mov rdi, r12
         call F_toString
         mov rax, rax
         mov rdi, rbx
@@ -386,56 +380,50 @@ main:
         call S_strcat
         mov rdi, rbx
         call F_println
-        mov r13, 1
+        mov r14, 1
         mov rdi, 256
         call malloc
-        mov r12, rax
-        mov r15, 0
-        cmp r15, r14
+        mov rbx, rax
+        mov r13, 0
+        cmp r13, r12
         jl lb0
         jmp lb3
 lb3:
         mov rax, 0
         jmp end_main
 lb0:
-        mov rdi, 256
-        call malloc
-        mov rbx, rax
-        mov rdi, r13
+        mov rdi, r14
         call F_toString
-        mov rax, rax
-        mov rdi, rbx
-        mov rsi, rax
-        call S_strcat
-        mov rdi, rbx
+        mov r15, rax
+        mov rdi, r15
         mov rsi, S_2
         call S_strcat
-        mov rax, r13
+        mov rax, r14
         add rax, 1
         mov rdi, rax
         call F_toString
         mov rax, rax
-        mov rdi, rbx
+        mov rdi, r15
         mov rsi, rax
         call S_strcat
-        mov rdi, rbx
+        mov rdi, r15
         mov rsi, S_3
         call S_strcat
-        mov rax, r13
+        mov rax, r14
         add rax, 2
         mov rax, rax
         neg rax
         mov rdi, rax
         call F_toString
         mov rax, rax
-        mov rdi, rbx
+        mov rdi, r15
         mov rsi, rax
         call S_strcat
-        mov rdi, r12
-        mov rsi, rbx
+        mov rdi, rbx
+        mov rsi, r15
         call S_strcpy
         mov rcx, 100000
-        mov rax, r15
+        mov rax, r13
         cqo
         idiv rcx
         mov rax, rdx
@@ -443,15 +431,15 @@ lb0:
         je lb1
         jmp lb2
 lb2:
-        mov rax, r13
+        mov rax, r14
         add rax, 2
-        mov r13, rax
-        inc r15
-        cmp r15, r14
+        mov r14, rax
+        inc r13
+        cmp r13, r12
         jl lb0
         jmp lb3
 lb1:
-        mov rdi, r12
+        mov rdi, rbx
         call F_println
         jmp lb2
 end_main:
