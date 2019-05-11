@@ -243,19 +243,15 @@ public class IRBuilder extends AstVisitor {
         if(ans != null)insertQuad(new Quad("mov", ans.clone(), new Register("rax")));
     }
 
-    void genStringAdd(Node node) throws Exception {
-        Node left = node.son.get(0);
-        Node right = node.son.get(1);
-        if(left instanceof BinaryExprNode) {
-            genStringAdd(left);
-            visit(right);
+    void genStringAdd(Node node, Oprand reg) throws Exception {
+        if(node instanceof BinaryExprNode) {
+            genStringAdd(node.son.get(0), reg);
+            genStringAdd(node.son.get(1), reg);
         }
         else {
-            visit(left);
-            visit(right);
+            visit(node);
+            genStringFunc("S_strcat", null, reg.clone(), node.reg.clone());
         }
-        genStringFunc("S_strcat", null, left.reg.clone(), right.reg.clone());
-        node.reg = left.reg.clone();
     }
 
     void genCondition(Node node, int labelTrue, int labelFalse) throws Exception {
@@ -641,7 +637,9 @@ public class IRBuilder extends AstVisitor {
         Node right = node.son.get(1);
 
         if(left.type instanceof StringTypeRef && node.name.equals("+")) {
-            genStringAdd(node);
+            node.reg = new Register("A_");
+            genNewFunc(node.reg, new ImmOprand(256));
+            genStringAdd(node, node.reg.clone());
             return;
         }
 
@@ -966,6 +964,7 @@ public class IRBuilder extends AstVisitor {
                 insertQuad(new Quad("mov", tmp, ttmp));
                 return;
             }
+            return;
             return;
         }
         node.reg = new Register(getTmpName("A_"));
