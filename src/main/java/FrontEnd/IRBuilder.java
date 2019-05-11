@@ -701,8 +701,8 @@ public class IRBuilder extends AstVisitor {
             if(op.equals("*")) irOp = "mul";
             if(op.equals("/")) irOp = "div";
             if(op.equals("%")) irOp = "mod";
-            if(op.equals(">>")) irOp = "sal";
-            if(op.equals("<<")) irOp = "sar";
+            if(op.equals(">>")) irOp = "sar";
+            if(op.equals("<<")) irOp = "sal";
             if(op.equals("&")) irOp = "and";
             if(op.equals("|")) irOp = "or";
             if(op.equals("^")) irOp = "xor";

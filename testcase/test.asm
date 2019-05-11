@@ -1092,67 +1092,97 @@ end_C_Node_F_Node:
 C_splay_tree_F_build:
         push rbp
         mov rbp, rsp
-        sub rsp, 32
+        sub rsp, 16
         push r12
         push r14
         push r13
         push r15
         push rbx
-        mov rax, r8
-        mov [rbp+-24], rax
-        mov r13, rcx
-        mov rax, rdx
-        mov [rbp+-8], rax
-        mov rbx, rsi
-        mov r12, rdi
-        mov rax, r13
-        mov rcx, [rbp+-24]
-        add rax, rcx
+        mov r13, r8
+        mov r14, rcx
+        mov r12, rdx
+        mov r15, rsi
+        mov rax, rdi
+        mov [rbp+-16], rax
+        mov rax, r14
+        add rax, r13
         mov rax, rax
-        sal rax, 1
-        mov r14, rax
+        sar rax, 1
+        mov rax, rax
+        mov [rbp+-8], rax
+        mov rdi, 256
+        call malloc
+        mov rbx, rax
+        mov rdi, r14
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
+        mov rsi, S_1
+        call S_strcat
+        mov rax, [rbp+-8]
+        mov rdi, rax
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
+        mov rsi, S_2
+        call S_strcat
+        mov rdi, r13
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
+        call F_println
         mov rdi, 96
         call malloc
-        mov r15, rax
-        mov rdi, r15
+        mov rbx, rax
+        mov rdi, rbx
         call C_Node_F_Node
-        mov r15, r15
+        mov rbx, rbx
         mov rax, qword [rel A_din]
-        lea rax, [rax+r14*8+8]
+        mov rcx, [rbp+-8]
+        lea rax, [rax+rcx*8+8]
         inc qword [rel V_id_cnt]
-        mov rdi, r15
+        mov rdi, rbx
         mov rsi, qword [rax]
         mov rdx, qword [rel V_id_cnt]
         call C_Node_F_init
-        mov rdi, rbx
-        mov rsi, r15
+        mov rdi, r15
+        mov rsi, rbx
         call C_Node_F_copy
-        lea rax, [rbx+88]
-        mov rcx, [rbp+-8]
-        mov qword [rax], rcx
-        cmp r13, r14
+        lea rax, [r15+88]
+        mov qword [rax], r12
+        mov rax, [rbp+-8]
+        cmp r14, rax
         jl lb51
         jmp lb52
 lb52:
-        mov rax, [rbp+-24]
-        cmp rax, r14
+        mov rax, [rbp+-8]
+        cmp r13, rax
         jg lb53
         jmp lb54
 lb54:
-        mov rdi, rbx
+        mov rdi, r15
         call C_Node_F_push_up
         jmp end_C_splay_tree_F_build
 lb53:
-        lea rax, [rbx+48]
+        lea rax, [r15+48]
         mov rax, qword [rax]
-        lea r13, [rax+1*8+8]
+        lea r12, [rax+1*8+8]
         mov rdi, 96
         call malloc
-        mov r15, rax
-        mov rdi, r15
+        mov rbx, rax
+        mov rdi, rbx
         call C_Node_F_Node
-        mov qword [r13], r15
-        lea rax, [rbx+48]
+        mov qword [r12], rbx
+        lea rax, [r15+48]
         mov rax, qword [rax]
         lea rax, [rax+1*8+8]
         inc qword [rel V_id_cnt]
@@ -1160,38 +1190,37 @@ lb53:
         mov rsi, 0
         mov rdx, qword [rel V_id_cnt]
         call C_Node_F_init
-        lea rax, [rbx+48]
+        lea rax, [r15+48]
         mov rax, qword [rax]
         lea rax, [rax+1*8+8]
-        mov rax, r14
+        mov rax, [rbp+-8]
+        mov rax, rax
         add rax, 1
-        lea rax, [rbx+48]
+        lea rax, [r15+48]
         mov rax, qword [rax]
         lea rcx, [rax+1*8+8]
-        mov rax, r14
+        mov rax, [rbp+-8]
+        mov rax, rax
         add rax, 1
-        mov rdi, r12
+        mov rdx, [rbp+-16]
+        mov rdi, rdx
         mov rsi, qword [rcx]
-        mov rdx, rbx
+        mov rdx, r15
         mov rcx, rax
-        mov rax, [rbp+-24]
-        mov r8, rax
+        mov r8, r13
         call C_splay_tree_F_build
         jmp lb54
 lb51:
-        lea rax, [rbx+48]
+        lea rax, [r15+48]
         mov rax, qword [rax]
-        lea r15, [rax+0*8+8]
+        lea r12, [rax+0*8+8]
         mov rdi, 96
         call malloc
-        mov rax, rax
-        mov [rbp+-16], rax
-        mov rax, [rbp+-16]
-        mov rdi, rax
+        mov rbx, rax
+        mov rdi, rbx
         call C_Node_F_Node
-        mov rax, [rbp+-16]
-        mov qword [r15], rax
-        lea rax, [rbx+48]
+        mov qword [r12], rbx
+        lea rax, [r15+48]
         mov rax, qword [rax]
         lea rax, [rax+0*8+8]
         inc qword [rel V_id_cnt]
@@ -1199,20 +1228,23 @@ lb51:
         mov rsi, 0
         mov rdx, qword [rel V_id_cnt]
         call C_Node_F_init
-        lea rax, [rbx+48]
+        lea rax, [r15+48]
         mov rax, qword [rax]
         lea rax, [rax+0*8+8]
-        mov rax, r14
+        mov rax, [rbp+-8]
+        mov rax, rax
         sub rax, 1
-        lea rax, [rbx+48]
+        lea rax, [r15+48]
         mov rax, qword [rax]
         lea rcx, [rax+0*8+8]
-        mov rax, r14
+        mov rax, [rbp+-8]
+        mov rax, rax
         sub rax, 1
-        mov rdi, r12
+        mov rdx, [rbp+-16]
+        mov rdi, rdx
         mov rsi, qword [rcx]
-        mov rdx, rbx
-        mov rcx, r13
+        mov rdx, r15
+        mov rcx, r14
         mov r8, rax
         call C_splay_tree_F_build
         jmp lb52
@@ -1710,20 +1742,20 @@ F_equ:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        mov rcx, rsi
-        mov rax, rdi
-        cmp rax, 0
+        mov rax, rsi
+        mov rcx, rdi
+        cmp rcx, 0
         je lb72
         jmp lb75
 lb75:
-        cmp rcx, 0
+        cmp rax, 0
         je lb76
         jmp lb77
 lb77:
-        lea rax, [rax+72]
         lea rcx, [rcx+72]
-        mov rax, qword [rax]
-        cmp rax, qword [rcx]
+        lea rax, [rax+72]
+        mov rcx, qword [rcx]
+        cmp rcx, qword [rax]
         je lb78
         jmp lb79
 lb79:
@@ -1739,7 +1771,7 @@ lb76:
         mov rax, 0
         jmp end_F_equ
 lb72:
-        cmp rcx, 0
+        cmp rax, 0
         je lb73
         jmp lb74
 lb74:
@@ -1817,11 +1849,8 @@ end_F_merge:
 main:
         push rbp
         mov rbp, rsp
-        sub rsp, 16
+        sub rsp, 0
         push r12
-        push r14
-        push r13
-        push r15
         push rbx
         call __init
         call F_getInt
@@ -1850,12 +1879,12 @@ main:
         mov rax, qword [rel V_n]
         add rax, 1
         mov rcx, qword [rel A_din]
-        lea rcx, [rcx+rax*8+8]
-        mov rax, qword [rel V_INF]
-        neg rax
-        mov qword [rcx], rax
-        mov r12, 1
-        cmp r12, qword [rel V_n]
+        lea rax, [rcx+rax*8+8]
+        mov rcx, qword [rel V_INF]
+        neg rcx
+        mov qword [rax], rcx
+        mov rbx, 1
+        cmp rbx, qword [rel V_n]
         jle lb81
         jmp lb82
 lb82:
@@ -1865,240 +1894,21 @@ lb82:
         mov rsi, 0
         mov rdx, rax
         call C_splay_tree_F_build_tree
-        mov r12, 1
-        cmp r12, qword [rel V_m]
-        jle lb83
-        jmp lb102
-lb102:
         mov rax, 0
         jmp end_main
-lb83:
-        mov rdi, 256
-        call malloc
-        mov r13, rax
-        call F_getString
-        mov rax, rax
-        mov rdi, r13
-        mov rsi, rax
-        call S_strcpy
-        mov rdi, r13
-        mov rsi, 0
-        call S_ord
-        mov rbx, rax
-        mov rdi, qword [rel A_char_ID]
-        mov rsi, 0
-        call S_ord
-        mov rax, rax
-        cmp rbx, rax
-        je lb84
-        jmp lb87
-lb87:
-        mov rdi, r13
-        mov rsi, 0
-        call S_ord
-        mov rbx, rax
-        mov rdi, qword [rel A_char_ID]
-        mov rsi, 1
-        call S_ord
-        mov rax, rax
-        cmp rbx, rax
-        je lb88
-        jmp lb89
-lb89:
-        mov rdi, r13
-        mov rsi, 0
-        call S_ord
-        mov rax, rax
-        cmp rax, 82
-        je lb90
-        jmp lb91
-lb91:
-        mov rdi, r13
-        mov rsi, 0
-        call S_ord
-        mov rax, rax
-        cmp rax, 71
-        je lb92
-        jmp lb96
-lb96:
-        mov rdi, r13
-        mov rsi, 0
-        call S_ord
-        mov rax, rax
-        cmp rax, 77
-        je lb97
-        jmp lb101
-lb101:
-        inc r12
-        cmp r12, qword [rel V_m]
-        jle lb83
-        jmp lb102
-lb97:
-        mov rdi, r13
-        mov rsi, 2
-        call S_ord
-        mov rax, rax
-        cmp rax, 75
-        je lb98
-        jmp lb99
-lb99:
-        mov rdi, 256
-        call malloc
-        mov rbx, rax
-        mov rdi, qword [rel A_sp]
-        call C_splay_tree_F_getMax
-        mov rax, rax
-        mov rax, rax
-        mov rdi, rax
-        call F_toString
-        mov rax, rax
-        mov rdi, rbx
-        mov rsi, rax
-        call S_strcat
-        mov rdi, rbx
-        mov rsi, S_2
-        call S_strcat
-        mov rdi, rbx
-        call F_print
-        jmp lb100
-lb100:
-        jmp lb101
-lb98:
-        call F_getInt
-        mov rax, rax
-        mov rbx, rax
-        call F_getInt
-        mov rax, rax
-        mov r14, rax
-        call F_getInt
-        mov rax, rax
-        mov rcx, rax
-        mov rax, rbx
-        add rax, 1
-        mov rdx, rbx
-        add rdx, r14
-        mov rdi, qword [rel A_sp]
-        mov rsi, rax
-        mov rdx, rdx
-        mov rcx, rcx
-        call C_splay_tree_F_change
-        jmp lb100
-lb92:
-        call F_getInt
-        mov rax, rax
-        mov rbx, rax
-        call F_getInt
-        mov rax, rax
-        mov rax, rax
-        cmp rax, 0
-        jg lb93
-        jmp lb94
-lb94:
-        mov rdi, S_1
-        call F_print
-        jmp lb95
-lb95:
-        jmp lb96
-lb93:
-        mov rcx, rbx
-        add rcx, 1
-        mov rdx, rbx
-        add rdx, rax
-        mov rdi, qword [rel A_sp]
-        mov rsi, rcx
-        mov rdx, rdx
-        call C_splay_tree_F_getsum
-        mov rax, rax
-        mov rax, rax
-        mov rdi, rax
-        call F_toString
-        mov rax, rax
-        mov rdi, rax
-        call F_println
-        jmp lb95
-lb90:
-        call F_getInt
-        mov rax, rax
-        mov rbx, rax
-        call F_getInt
-        mov rax, rax
-        mov rdx, rax
-        mov rax, rbx
-        add rax, 1
-        mov rcx, rbx
-        add rcx, rdx
-        mov rdi, qword [rel A_sp]
-        mov rsi, rax
-        mov rdx, rcx
-        call C_splay_tree_F_rol
-        jmp lb91
-lb88:
-        call F_getInt
-        mov rax, rax
-        mov rbx, rax
-        call F_getInt
-        mov rax, rax
-        mov rax, rax
-        mov rcx, rbx
-        add rcx, 1
-        mov rdx, rbx
-        add rdx, rax
-        mov rdi, qword [rel A_sp]
-        mov rsi, rcx
-        mov rdx, rdx
-        call C_splay_tree_F_del
-        jmp lb89
-lb84:
-        call F_getInt
-        mov rax, rax
-        mov r15, rax
-        call F_getInt
-        mov rax, rax
-        mov r14, rax
-        mov rbx, 1
-        cmp rbx, r14
-        jle lb85
-        jmp lb86
-lb86:
-        mov rdi, qword [rel A_dintree]
-        mov rsi, 1
-        mov rdx, r14
-        call C_splay_tree_F_build_tree
-        mov rax, r15
-        add rax, 1
-        mov rdi, rax
-        mov rsi, qword [rel A_sp]
-        mov rdx, qword [rel A_dintree]
-        call F_merge
-        jmp lb87
-lb85:
-        mov rax, qword [rel A_din]
-        lea rax, [rax+rbx*8+8]
-        mov [rbp+-8], rax
-        call F_getInt
-        mov rax, rax
-        mov rcx, [rbp+-8]
-        mov qword [rcx], rax
-        inc rbx
-        cmp rbx, r14
-        jle lb85
-        jmp lb86
 lb81:
         mov rax, qword [rel A_din]
-        lea rbx, [rax+r12*8+8]
+        lea r12, [rax+rbx*8+8]
         call F_getInt
         mov rax, rax
-        mov qword [rbx], rax
-        mov rax, r12
-        inc r12
-        cmp r12, qword [rel V_n]
+        mov qword [r12], rax
+        mov rax, rbx
+        inc rbx
+        cmp rbx, qword [rel V_n]
         jle lb81
         jmp lb82
 end_main:
         pop rbx
-        pop r15
-        pop r13
-        pop r14
         pop r12
         mov rsp, rbp
         pop rbp
@@ -2160,8 +1970,12 @@ SECTION .rodata
 S_0: 
          db 49H, 44H, 00H
 S_1: 
-         db 30H, 0AH, 00H
+         db 20H, 00H
 S_2: 
+         db 20H, 00H
+S_3: 
+         db 30H, 0AH, 00H
+S_4: 
          db 0AH, 00H
 
 L_021:
