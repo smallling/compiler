@@ -135,7 +135,7 @@ public class Quad {
             curList.add("rdx");
         }
         if(this instanceof ArthQuad) {
-            if(op.equals("inc") || op.equals("dec") || op.equals("idiv") || (op.equals("imul") && r1 != null)) {
+            if(op.equals("inc") || op.equals("dec") || op.equals("idiv") || (op.equals("imul") && r1 == null)) {
                 if(rt instanceof MemAccess) {
                     curList.addAll(((MemAccess) rt).getUsedReg());
                 }
@@ -246,7 +246,7 @@ public class Quad {
 
     public void renameUsedReg(HashMap<String, String> renameMap) {
         if(this instanceof ArthQuad) {
-            if(op.equals("inc") || op.equals("dec") || op.equals("idiv") || (op.equals("imul") && r1 != null)) {
+            if(op.equals("inc") || op.equals("dec") || op.equals("idiv") || (op.equals("imul") && r1 == null)) {
                 if(rt instanceof MemAccess) {
                     ((MemAccess) rt).renameUsedReg(renameMap);
                 }

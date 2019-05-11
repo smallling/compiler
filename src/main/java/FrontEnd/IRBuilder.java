@@ -406,7 +406,7 @@ public class IRBuilder extends AstVisitor {
         if(curVarState == VarDefStatus.ClassObj) {
             curClassObj.put(node.name, curClassObjSize);
             curClassObjSize += node.type.getSize();
-            if(node.type instanceof StringTypeRef) classStr.add(node.reg.get());
+            if(node.type instanceof StringTypeRef) classStr.add(node.name);
         }
         if(curVarState == VarDefStatus.GeneralVar) {
             String name = ((GeneralMemAccess) node.reg).getName();
@@ -793,6 +793,10 @@ public class IRBuilder extends AstVisitor {
                 node.reg = new Register(getTmpName("A_"));
                 genNewFunc(node.reg, new ImmOprand(256));
             }
+            else if(node.type instanceof ClassTypeRef) {
+                node.reg = new Register(getTmpName("A_"));
+                genNewFunc(node.reg, new ImmOprand(((ClassTypeRef) node.type).getBelong().getSize()));
+            }
             else {
                 node.reg = null;
             }
@@ -822,7 +826,7 @@ public class IRBuilder extends AstVisitor {
         }
         genNewFunc(node.reg, tmp);
         insertQuad(new Quad("mov", genMemAccess(node.reg), changeOprToReg(len.reg)));
-        if(typ.type instanceof StringTypeRef || (typ.type instanceof ArrTypeRef && !(typ.son.get(0) instanceof EmptyExprNode))) {
+        if(typ.type instanceof StringTypeRef || typ.type instanceof ClassTypeRef || (typ.type instanceof ArrTypeRef && !(typ.son.get(0) instanceof EmptyExprNode))) {
             Oprand low = new ImmOprand(0);
             Oprand high = len.reg.clone();
             Oprand base = node.reg;

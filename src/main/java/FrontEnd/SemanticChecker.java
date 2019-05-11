@@ -11,6 +11,8 @@ import main.java.MyUtil.ScopeClass.LocalScope;
 import main.java.MyUtil.ScopeClass.Scope;
 import main.java.MyUtil.TypeSystem.*;
 
+import java.util.ArrayList;
+
 public class SemanticChecker extends AstVisitor{
     public GeneralScope<TypeRef> rootScope;
     int iterCnt;
@@ -110,6 +112,9 @@ public class SemanticChecker extends AstVisitor{
                 for(int j = 0; j < sonNode.son.size(); j++) {
                     Node sonSonNode = sonNode.son.get(j);
                     String tmpName = TypeRef.getPre(sonSonNode.type) + sonSonNode.name + sonSonNode.belong.getName();
+                    TypeRef curType = sonSonNode.type;
+                    if(curType instanceof ArrTypeRef)curType = ((ArrTypeRef) curType).getSingleType();
+                    if(curType instanceof ClassTypeRef)((ClassTypeRef) curType).belongTo((ClassDefTypeRef) rootScope.findItem(((ClassTypeRef) curType).getTypeName()));
                     sonSonNode.reg = new Register(tmpName);
                 }
             }
@@ -308,7 +313,18 @@ public class SemanticChecker extends AstVisitor{
             visit(objNode.son.get(i));
         }
         node.type = checkClass(tmp, objNode);
-        if(node.type instanceof ClassTypeRef)((ClassTypeRef) node.type).belongTo((ClassDefTypeRef) rootScope.findItem(((SpecialTypeRef) tmp.getTypeRef(objNode.name)).getTypeName()));
+
+        if(node.type instanceof ClassTypeRef) {
+            TypeRef cur = tmp.getTypeRef(objNode.name);
+            String curName = null;
+            if(cur instanceof SpecialTypeRef) {
+                curName = ((SpecialTypeRef) cur).getTypeName();
+            }
+            else {
+                curName = ((FuncTypeRef) cur).getTypeName();
+            }
+            ((ClassTypeRef) node.type).belongTo((ClassDefTypeRef) rootScope.findItem(curName));
+        }
         objNode.inClass = ((SpecialTypeRef) sonNode.type).getTypeName();
         objNode.type = node.type;
     }

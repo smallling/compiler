@@ -62,7 +62,7 @@ public class FuncFrame {
             String name = paramList.get(i);
             BasicBlock block = blockList.get(0);
             if(i < 6)block.codeList.addFirst(new Quad("mov", new Register(name), new Register(paramReg.get(i))));
-            else block.codeList.addFirst(new Quad("mov", new Register(name), new StackSlot("stack[]" + Main.rebuildCnt)));
+            else block.codeList.addFirst(new Quad("mov", new Register(name), new StackSlot(name)));
             block.codeList.get(0).setLabel(block.codeList.get(1).getLabel());
         }
         for(int i = 0; i < blockList.size(); i++) {

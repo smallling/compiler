@@ -1,5 +1,6 @@
 default rel
 
+global C_lhy_F_lhy
 global main
 global S_substring
 global S_parseInt
@@ -350,141 +351,75 @@ L_020:  neg     rbx
 
 
 
+C_lhy_F_lhy:
+        push rbp
+        mov rbp, rsp
+        sub rsp, 0
+        mov rax, rdi
+        jmp end_C_lhy_F_lhy
+end_C_lhy_F_lhy:
+        mov rsp, rbp
+        pop rbp
+        ret
+
+
 main:
         push rbp
         mov rbp, rsp
-        sub rsp, 16
+        sub rsp, 0
         push r12
         push r14
         push r13
-        push r15
         push rbx
-        mov r15, 10000
-        mov r13, 0
-        mov r14, 2800
-        mov rax, 0
-        mov [rbp+-8], rax
-        mov r12, 0
-        mov rdi, 22416
+        mov rdi, 16
         call malloc
-        mov rcx, rax
-        lea rax, [rcx]
-        mov rsi, 2801
-        mov qword [rax], rsi
-        mov rbx, rcx
-        mov rcx, 0
-        mov rax, r13
-        sub rax, r14
-        cmp rax, 0
-        jne lb0
+        mov rbx, rax
+        mov rdi, rbx
+        call C_lhy_F_lhy
+        mov r14, rbx
+        lea r12, [r14+8]
+        mov rdi, 24
+        call malloc
+        mov rbx, rax
+        lea rax, [rbx]
+        mov rcx, 2
+        mov qword [rax], rcx
+        mov r13, 0
+        cmp r13, 2
+        jl lb0
         jmp lb1
 lb1:
-        jmp lb2
-lb2:
-        mov rax, 0
-        mov [rbp+-8], rax
-        mov rax, r14
-        sal rax, 1
-        mov rcx, rax
-        cmp rcx, 0
-        je lb3
-        jmp lb4
-lb4:
-        mov r13, r14
-        jmp lb5
-lb5:
-        lea rax, [rbx+r13*8+8]
+        mov qword [r12], rbx
+        lea rax, [r14+8]
         mov rax, qword [rax]
-        imul r15
-        mov rsi, rax
-        mov rax, [rbp+-8]
-        mov rax, rax
-        add rax, rsi
-        mov rax, rax
-        mov [rbp+-8], rax
-        lea rdi, [rbx+r13*8+8]
-        dec rcx
-        mov rsi, rcx
-        mov rax, [rbp+-8]
-        mov rax, rax
-        cqo
-        idiv rsi
-        mov rax, rdx
-        mov qword [rdi], rax
-        mov rax, rcx
-        dec rcx
-        mov rsi, rax
-        mov rax, [rbp+-8]
-        mov rax, rax
-        cqo
-        idiv rsi
-        mov rax, rax
-        mov rax, rax
-        mov [rbp+-8], rax
-        dec r13
-        cmp r13, 0
-        je lb6
-        jmp lb7
-lb7:
-        mov rax, [rbp+-8]
-        mov rax, rax
-        imul r13
-        mov rax, rax
-        mov rax, rax
-        mov [rbp+-8], rax
-        jmp lb5
-lb6:
-        jmp lb8
-lb8:
-        mov rax, r14
-        sub rax, 14
-        mov r14, rax
-        mov rcx, r15
-        mov rax, [rbp+-8]
-        mov rax, rax
-        cqo
-        idiv rcx
-        mov rcx, rax
-        mov rax, r12
-        add rax, rcx
-        mov rdi, rax
+        lea rax, [rax+0*8+8]
+        mov rax, qword [rax]
+        lea rax, [rax+0]
+        mov qword [rax], 10
+        lea rax, [r14+8]
+        mov rax, qword [rax]
+        lea rax, [rax+0*8+8]
+        mov rax, qword [rax]
+        lea rax, [rax+0]
+        mov rdi, qword [rax]
         call F_toString
         mov rax, rax
         mov rdi, rax
-        call F_print
-        mov rcx, r15
-        mov rax, [rbp+-8]
-        mov rax, rax
-        cqo
-        idiv rcx
-        mov rax, rdx
-        mov r12, rax
-        jmp lb2
-lb3:
-        jmp lb9
-lb9:
-        mov rdi, S_0
-        call F_print
-        mov rax, 0
+        call F_println
         jmp end_main
 lb0:
-        mov rax, r13
-        inc r13
-        lea rcx, [rbx+rax*8+8]
-        mov rsi, 5
-        mov rax, r15
-        cqo
-        idiv rsi
-        mov rax, rax
-        mov qword [rcx], rax
-        mov rax, r13
-        sub rax, r14
-        cmp rax, 0
-        jne lb0
+        mov rdi, 16
+        call malloc
+        mov rcx, rax
+        lea rax, [rbx+r13*8+8]
+        mov qword [rax], rcx
+        mov r13, r13
+        add r13, 1
+        cmp r13, 2
+        jl lb0
         jmp lb1
 end_main:
         pop rbx
-        pop r15
         pop r13
         pop r14
         pop r12
@@ -498,8 +433,6 @@ SECTION .data    align=8
 SECTION .bss     align=8
 
 SECTION .rodata
-S_0: 
-         db 0AH, 00H
 
 L_021:
         db 25H, 6CH, 64H, 00H

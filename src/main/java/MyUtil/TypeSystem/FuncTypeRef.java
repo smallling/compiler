@@ -6,6 +6,10 @@ public class FuncTypeRef extends TypeRef {
     VarTypeRef returnType;
     ArrayList<VarTypeRef> param;
 
+    public String getTypeName() {
+        return ((SingleTypeRef) returnType).getTypeName();
+    }
+
     public FuncTypeRef(VarTypeRef tmpReturnType) {
         returnType = tmpReturnType;
         param = new ArrayList<VarTypeRef>();
