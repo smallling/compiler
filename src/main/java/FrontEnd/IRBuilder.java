@@ -557,7 +557,7 @@ public class IRBuilder extends AstVisitor {
         int labelFalse = labelCnt++;
         int label = labelCnt++;
         if(cond instanceof EmptyExprNode) {
-            insertQuad(new Quad("jump", new LabelName(Integer.toString(label))));
+            insertQuad(new Quad("jump", new LabelName(Integer.toString(labelTrue))));
         }
         else {
             genCondition(cond, labelTrue, labelFalse);
@@ -929,6 +929,7 @@ public class IRBuilder extends AstVisitor {
                 pres.add("A_");
                 pres.add("V_");
                 pres.add("V_");
+                genParam(oprs, pres);
                 insertQuad(new Quad("call", null, new FuncName("S_substring"), new ImmOprand(3)));
                 insertQuad(new Quad("mov", tmp, ttmp));
                 return;

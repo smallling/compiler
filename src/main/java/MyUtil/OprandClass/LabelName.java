@@ -19,6 +19,11 @@ public class LabelName extends Oprand {
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public void set(String tmp) {
         name = tmp;
     }

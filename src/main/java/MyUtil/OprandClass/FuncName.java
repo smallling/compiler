@@ -19,6 +19,11 @@ public class FuncName extends Oprand {
     }
 
     @Override
+    public String getName() {
+        return func;
+    }
+
+    @Override
     public void set(String tmp) {
         func = tmp;
     }

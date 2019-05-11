@@ -18,6 +18,11 @@ public class ImmOprand extends Oprand{
     }
 
     @Override
+    public String getName() {
+        return Long.toString(val);
+    }
+
+    @Override
     public void set(String tmp) {
         val = Long.parseLong(tmp);
     }

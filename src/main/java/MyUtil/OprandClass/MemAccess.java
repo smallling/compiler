@@ -110,6 +110,11 @@ public class MemAccess extends Oprand{
     }
 
     @Override
+    public String getName() {
+        return ac;
+    }
+
+    @Override
     public void set(String tmp) {
         ac = tmp;
     }

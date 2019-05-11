@@ -18,6 +18,11 @@ public class StrImmOprand extends Oprand{
     }
 
     @Override
+    public String getName() {
+        return val;
+    }
+
+    @Override
     public void set(String tmp) {
         val = tmp;
     }

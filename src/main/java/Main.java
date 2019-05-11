@@ -79,8 +79,8 @@ public class Main {
             System.out.println(code);
             content += code + "\n";
         }
-/*
-        File file = new File("testcase/" + fileName + ".asm");
+
+        /*File file = new File("testcase/" + fileName + ".asm");
         OutputStream out = new FileOutputStream(file);
         if (!file.exists()) file.createNewFile();
         out.write(content.getBytes());

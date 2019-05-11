@@ -32,6 +32,11 @@ public class Register extends Oprand{
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public void set(String tmp) {
         name = tmp;
     }

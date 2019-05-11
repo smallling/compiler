@@ -29,7 +29,7 @@ public class CodeGenFunc {
         for(int i = 6; i < param.size(); i++) {
             paramStack.add(new StackSlot(param.get(i)));
             paramName.add(param.get(i));
-            paramMap.put(param.get(i), paramStack.get(i));
+            paramMap.put(param.get(i), paramStack.get(i - 6));
         }
         for(int i = 0; i < paramStack.size(); i++) {
             StackSlot tmp = paramStack.get(i);
@@ -45,14 +45,14 @@ public class CodeGenFunc {
                 Oprand rt = code.getRt();
                 Oprand r1 = code.getR1();
                 Oprand r2 = code.getR2();
-                if(rt != null && paramName.contains(rt.get())) {
-                    code.setRt(paramMap.get(rt.get()));
+                if(rt != null && paramName.contains(rt.getName())) {
+                    code.setRt(paramMap.get(rt.getName()));
                 }
-                if(r1 != null && paramName.contains(r1.get())) {
-                    code.setRt(paramMap.get(r1.get()));
+                if(r1 != null && paramName.contains(r1.getName())) {
+                    code.setR1(paramMap.get(r1.getName()));
                 }
-                if(r2 != null && paramName.contains(r2.get())) {
-                    code.setRt(paramMap.get(r2.get()));
+                if(r2 != null && paramName.contains(r2.getName())) {
+                    code.setR2(paramMap.get(r2.getName()));
                 }
                 if(code.getOp().equals("call")) {
                     long val = Long.parseLong(r2.get());
