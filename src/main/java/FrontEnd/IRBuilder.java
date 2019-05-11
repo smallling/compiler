@@ -42,6 +42,8 @@ public class IRBuilder extends AstVisitor {
 
     ArrayList<String> classStr;
 
+    boolean flagForString;
+
     public IRBuilder() {
         labelCnt = 0;
         quadLabel = 0;
@@ -248,6 +250,7 @@ public class IRBuilder extends AstVisitor {
             genStringAdd(node.son.get(1), reg);
         }
         else {
+            if(!flagForString)visit(node);
             genStringFunc("S_strcat", null, reg.clone(), node.reg.clone());
         }
     }
@@ -660,12 +663,25 @@ public class IRBuilder extends AstVisitor {
         Node right = node.son.get(1);
 
         if(left.type instanceof StringTypeRef && node.name.equals("+")) {
-            node.reg = new Register("A_");
-            Register tmp = new Register(getTmpName("V_"));
-            genStringSize(node, tmp);
-            insertQuad(new ArthQuad("inc", tmp));
-            genNewFunc(node.reg, tmp.clone());
-            genStringAdd(node, node.reg.clone());
+            if(breakLabel.size() > 0) {
+                flagForString = true;
+            }
+            else {
+                flagForString = false;
+            }
+            if(flagForString) {
+                node.reg = new Register("A_");
+                Register tmp = new Register(getTmpName("V_"));
+                genStringSize(node, tmp);
+                insertQuad(new ArthQuad("inc", tmp));
+                genNewFunc(node.reg, tmp.clone());
+                genStringAdd(node, node.reg.clone());
+            }
+            else {
+                node.reg = new Register("A_");
+                genNewFunc(node.reg, new ImmOprand(256));
+                genStringAdd(node, node.reg.clone());
+            }
             return;
         }
 
