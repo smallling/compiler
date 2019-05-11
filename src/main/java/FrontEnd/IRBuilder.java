@@ -663,6 +663,7 @@ public class IRBuilder extends AstVisitor {
             node.reg = new Register("A_");
             Register tmp = new Register(getTmpName("V_"));
             genStringSize(node, tmp);
+            insertQuad(new ArthQuad("inc", tmp));
             genNewFunc(node.reg, tmp.clone());
             genStringAdd(node, node.reg.clone());
             return;
