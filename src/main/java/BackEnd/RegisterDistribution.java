@@ -225,9 +225,6 @@ public class RegisterDistribution {
         for(BasicBlock block : func.blockList) {
             LinkedList<Quad> curCodeList = new LinkedList<>();
             for(int i = 0; i < block.codeList.size(); i++) {
-                if(i == 10) {
-                    System.out.println("fuck");
-                }
                 Quad code = block.codeList.get(i);
                 LinkedList<String> used = new LinkedList<>(code.getUsedReg());
                 LinkedList<String> defined = new LinkedList<>(code.getDefinedReg());

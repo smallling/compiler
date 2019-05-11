@@ -1,11 +1,20 @@
 default rel
 
-global V_n
-global A_a
-global F_exchange
-global F_makeHeap
-global F_adjustHeap
-global F_heapSort
+global V_N
+global V_M
+global V_i
+global V_j
+global V_primeCount
+global V_resultCount
+global A_b
+global A_prime
+global A_gps
+global A_tmp
+global A_result
+global F_origin
+global F_getPrime
+global F_getResult
+global F_printF
 global main
 global S_substring
 global S_parseInt
@@ -356,246 +365,220 @@ L_020:  neg     rbx
 
 
 
-F_exchange:
+F_origin:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        mov rcx, rsi
-        mov rax, rdi
-        mov rdx, qword [rel A_a]
-        lea rdx, [rdx+rax*8+8]
-        mov rsi, qword [rdx]
-        mov rdx, qword [rel A_a]
-        lea rdx, [rdx+rax*8+8]
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rcx*8+8]
-        mov rax, qword [rax]
-        mov qword [rdx], rax
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rcx*8+8]
-        mov qword [rax], rsi
-        jmp end_F_exchange
-end_F_exchange:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_makeHeap:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
+        push r12
         push rbx
-        mov rax, qword [rel V_n]
-        sub rax, 1
+        mov r12, rdi
+        mov rax, r12
+        sal rax, 3
         mov rax, rax
-        sar rax, 1
-        mov rbx, rax
-        mov rax, 0
-        mov rcx, 0
-        cmp rbx, 0
-        jge lb0
-        jmp lb6
-lb6:
-        mov rax, 0
-        jmp end_F_makeHeap
-lb0:
-        mov rax, rbx
-        sal rax, 1
+        add rax, 8
+        mov rdi, rax
+        call malloc
         mov rcx, rax
-        mov rax, rbx
-        sal rax, 1
-        mov rax, rax
-        add rax, 1
-        cmp rax, qword [rel V_n]
-        jl lb1
+        lea rax, [rcx]
+        mov qword [rax], r12
+        mov qword [rel A_result], rcx
+        mov qword [rel V_i], 0
+        mov rax, qword [rel V_i]
+        cmp rax, r12
+        jl lb0
         jmp lb3
 lb3:
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rbx*8+8]
-        mov rdx, qword [rel A_a]
-        lea rdx, [rdx+rcx*8+8]
+        jmp end_F_origin
+lb0:
+        mov rcx, qword [rel A_result]
+        mov rax, qword [rel V_i]
+        lea rbx, [rcx+rax*8+8]
+        mov rax, r12
+        sal rax, 3
+        mov rax, rax
+        add rax, 8
+        mov rdi, rax
+        call malloc
+        mov rax, rax
+        lea rcx, [rax]
+        mov qword [rcx], r12
+        mov qword [rbx], rax
+        mov qword [rel V_j], 0
+        mov rax, qword [rel V_j]
+        cmp rax, r12
+        jl lb1
+        jmp lb2
+lb2:
+        mov rax, qword [rel V_i]
+        inc qword [rel V_i]
+        mov rax, qword [rel V_i]
+        cmp rax, r12
+        jl lb0
+        jmp lb3
+lb1:
+        mov rcx, qword [rel A_result]
+        mov rax, qword [rel V_i]
+        lea rax, [rcx+rax*8+8]
+        mov rcx, qword [rax]
+        mov rax, qword [rel V_j]
+        lea rax, [rcx+rax*8+8]
+        mov qword [rax], 0
+        mov rax, qword [rel V_j]
+        inc qword [rel V_j]
+        mov rax, qword [rel V_j]
+        cmp rax, r12
+        jl lb1
+        jmp lb2
+end_F_origin:
+        pop rbx
+        pop r12
+        mov rsp, rbp
+        pop rbp
+        ret
+
+
+F_getPrime:
+        push rbp
+        mov rbp, rsp
+        sub rsp, 0
+        mov rdi, rdi
+        mov r8, 2
+        mov rsi, 2
+        cmp rsi, rdi
+        jle lb4
+        jmp lb9
+lb9:
+        jmp end_F_getPrime
+lb4:
+        mov rax, qword [rel A_b]
+        lea rax, [rax+rsi*8+8]
         mov rax, qword [rax]
-        cmp rax, qword [rdx]
-        jg lb4
-        jmp lb5
+        cmp rax, 1
+        je lb5
+        jmp lb6
+lb6:
+        mov rax, rsi
+        imul r8
+        mov rax, rax
+        cmp rax, rdi
+        jle lb7
+        jmp lb8
+lb8:
+        mov r8, 2
+        mov rax, rsi
+        add rax, 1
+        mov rsi, rax
+        cmp rsi, rdi
+        jle lb4
+        jmp lb9
+lb7:
+        mov rax, rsi
+        imul r8
+        mov rcx, rax
+        mov rax, qword [rel A_b]
+        lea rax, [rax+rcx*8+8]
+        mov qword [rax], 0
+        mov rax, r8
+        add rax, 1
+        mov r8, rax
+        mov rax, rsi
+        imul r8
+        mov rax, rax
+        cmp rax, rdi
+        jle lb7
+        jmp lb8
 lb5:
+        mov rax, qword [rel A_tmp]
+        lea rcx, [rax+0*8+8]
+        mov rax, qword [rel A_tmp]
+        lea rax, [rax+0*8+8]
+        mov rax, qword [rax]
+        add rax, 1
+        mov qword [rcx], rax
+        mov rax, qword [rel A_tmp]
+        lea rax, [rax+0*8+8]
+        mov rcx, qword [rel A_prime]
+        mov rax, qword [rax]
+        lea rax, [rcx+rax*8+8]
+        mov qword [rax], rsi
+        mov rax, qword [rel A_gps]
+        lea rcx, [rax+rsi*8+8]
+        mov rax, qword [rel A_tmp]
+        lea rax, [rax+0*8+8]
+        mov rax, qword [rax]
+        mov qword [rcx], rax
+        jmp lb6
+end_F_getPrime:
+        mov rsp, rbp
+        pop rbp
+        ret
+
+
+F_getResult:
+        push rbp
+        mov rbp, rsp
+        sub rsp, 0
+        mov rax, rdx
+        mov rax, rsi
+        mov rax, rdi
+        mov rax, 0
+        jmp end_F_getResult
+end_F_getResult:
+        mov rsp, rbp
+        pop rbp
+        ret
+
+
+F_printF:
+        push rbp
+        mov rbp, rsp
+        sub rsp, 0
+        push r12
+        push r14
+        push rbx
+        mov rbx, rdx
+        mov r12, rsi
+        mov r14, rdi
+        mov rdi, r14
+        call F_toString
+        mov rax, rax
+        mov rdi, rax
+        call F_print
+        cmp rbx, 0
+        jg lb18
+        jmp lb19
+lb19:
+        mov rdi, S_1
+        call F_print
+        jmp end_F_printF
+lb18:
+        mov rdi, S_0
+        call F_print
+        mov rdi, r12
+        call F_toString
+        mov rax, rax
+        mov rdi, rax
+        call F_print
+        mov rax, r12
+        sal rax, 1
+        mov rax, rax
+        sub rax, r14
+        mov r12, rax
+        mov rax, r14
+        add rax, r12
+        mov rax, rax
+        sar rax, 1
+        mov r14, rax
         mov rax, rbx
         sub rax, 1
         mov rbx, rax
         cmp rbx, 0
-        jge lb0
-        jmp lb6
-lb4:
-        mov rdi, rbx
-        mov rsi, rcx
-        call F_exchange
-        jmp lb5
-lb1:
-        mov rax, rbx
-        sal rax, 1
-        mov rax, rax
-        add rax, 1
-        mov rdx, qword [rel A_a]
-        lea rax, [rdx+rax*8+8]
-        mov rsi, rbx
-        sal rsi, 1
-        mov rdx, qword [rel A_a]
-        lea rdx, [rdx+rsi*8+8]
-        mov rax, qword [rax]
-        cmp rax, qword [rdx]
-        jl lb2
-        jmp lb3
-lb2:
-        mov rax, rbx
-        sal rax, 1
-        mov rax, rax
-        add rax, 1
-        mov rcx, rax
-        jmp lb3
-end_F_makeHeap:
+        jg lb18
+        jmp lb19
+end_F_printF:
         pop rbx
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_adjustHeap:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        mov r8, rdi
-        mov rsi, 0
-        mov rdx, 0
-        mov rax, 0
-        mov rax, rsi
-        sal rax, 1
-        cmp rax, r8
-        jl lb7
-        jmp lb14
-lb14:
-        mov rax, 0
-        jmp end_F_adjustHeap
-lb7:
-        mov rax, rsi
-        sal rax, 1
-        mov rdx, rax
-        mov rax, rsi
-        sal rax, 1
-        mov rax, rax
-        add rax, 1
-        cmp rax, r8
-        jl lb8
-        jmp lb10
-lb10:
-        mov rax, qword [rel A_a]
-        lea rcx, [rax+rsi*8+8]
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rdx*8+8]
-        mov rcx, qword [rcx]
-        cmp rcx, qword [rax]
-        jg lb11
-        jmp lb12
-lb12:
-        jmp lb14
-lb11:
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rsi*8+8]
-        mov rdi, qword [rax]
-        mov rax, qword [rel A_a]
-        lea rcx, [rax+rsi*8+8]
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rdx*8+8]
-        mov rax, qword [rax]
-        mov qword [rcx], rax
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rdx*8+8]
-        mov qword [rax], rdi
-        mov rsi, rdx
-        jmp lb13
-lb13:
-        mov rax, rsi
-        sal rax, 1
-        cmp rax, r8
-        jl lb7
-        jmp lb14
-lb8:
-        mov rax, rsi
-        sal rax, 1
-        mov rcx, rax
-        add rcx, 1
-        mov rax, qword [rel A_a]
-        lea rax, [rax+rcx*8+8]
-        mov rdi, rsi
-        sal rdi, 1
-        mov rcx, qword [rel A_a]
-        lea rcx, [rcx+rdi*8+8]
-        mov rax, qword [rax]
-        cmp rax, qword [rcx]
-        jl lb9
-        jmp lb10
-lb9:
-        mov rax, rsi
-        sal rax, 1
-        mov rax, rax
-        add rax, 1
-        mov rdx, rax
-        jmp lb10
-end_F_adjustHeap:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_heapSort:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push rbx
-        mov rax, 0
-        mov rbx, 0
-        cmp rbx, qword [rel V_n]
-        jl lb15
-        jmp lb16
-lb16:
-        mov rax, 0
-        jmp end_F_heapSort
-lb15:
-        mov rax, qword [rel A_a]
-        lea rax, [rax+0*8+8]
-        mov rax, qword [rax]
-        mov rcx, qword [rel A_a]
-        lea rsi, [rcx+0*8+8]
-        mov rcx, qword [rel V_n]
-        sub rcx, rbx
-        mov rcx, rcx
-        sub rcx, 1
-        mov rdx, qword [rel A_a]
-        lea rcx, [rdx+rcx*8+8]
-        mov rcx, qword [rcx]
-        mov qword [rsi], rcx
-        mov rcx, qword [rel V_n]
-        sub rcx, rbx
-        mov rdx, rcx
-        sub rdx, 1
-        mov rcx, qword [rel A_a]
-        lea rcx, [rcx+rdx*8+8]
-        mov qword [rcx], rax
-        mov rax, qword [rel V_n]
-        sub rax, rbx
-        mov rax, rax
-        sub rax, 1
-        mov rdi, rax
-        call F_adjustHeap
-        mov rax, rax
-        mov rax, rbx
-        add rax, 1
-        mov rbx, rax
-        cmp rbx, qword [rel V_n]
-        jl lb15
-        jmp lb16
-end_F_heapSort:
-        pop rbx
+        pop r14
+        pop r12
         mov rsp, rbp
         pop rbp
         ret
@@ -605,86 +588,217 @@ main:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        push r12
         push rbx
-        mov qword [rel V_n], 9987
-        mov rax, qword [rel V_n]
-        sal rax, 3
+        call __init
+        mov rdi, 170
+        call F_origin
+        mov qword [rel V_N], 1000
+        call F_getInt
         mov rax, rax
-        add rax, 8
-        mov rdi, rax
-        call malloc
-        mov rcx, rax
-        lea rdx, [rcx]
-        mov rax, qword [rel V_n]
-        mov qword [rdx], rax
-        mov qword [rel A_a], rcx
-        mov r12, 0
-        mov rax, qword [rel A_a]
-        lea rax, [rax]
+        mov qword [rel V_M], rax
+        mov qword [rel V_primeCount], 0
+        mov qword [rel V_resultCount], 0
+        mov rax, qword [rel A_tmp]
+        lea rax, [rax+0*8+8]
+        mov qword [rax], 0
+        mov qword [rel V_i], 0
+        mov rcx, qword [rel V_N]
+        add rcx, 1
+        mov rax, qword [rel V_i]
+        cmp rax, rcx
+        jl lb20
+        jmp lb21
+lb21:
+        mov qword [rel V_i], 0
+        mov rax, qword [rel V_M]
+        add rax, 1
+        mov rcx, qword [rel V_i]
+        cmp rcx, rax
+        jl lb22
+        jmp lb23
+lb23:
+        mov qword [rel V_i], 0
+        mov rax, qword [rel V_i]
+        cmp rax, qword [rel V_M]
+        jle lb24
+        jmp lb27
+lb27:
+        mov rdi, qword [rel V_N]
+        call F_getPrime
+        mov rax, rax
+        mov rax, qword [rel A_tmp]
+        lea rax, [rax+0*8+8]
         mov rax, qword [rax]
-        cmp r12, rax
-        jl lb17
-        jmp lb18
-lb18:
-        call F_makeHeap
-        mov rax, rax
-        call F_heapSort
-        mov rax, rax
-        mov r12, 0
-        mov rax, qword [rel A_a]
-        lea rax, [rax]
-        mov rax, qword [rax]
-        cmp r12, rax
-        jl lb19
-        jmp lb20
-lb20:
-        mov rdi, S_1
+        mov qword [rel V_primeCount], rax
+        mov qword [rel V_i], 1
+        mov rax, qword [rel V_i]
+        cmp rax, qword [rel V_primeCount]
+        jl lb28
+        jmp lb35
+lb35:
+        mov rdi, S_3
         call F_print
+        mov rdi, qword [rel V_resultCount]
+        call F_toString
+        mov rax, rax
+        mov rdi, rax
+        call F_println
         mov rax, 0
         jmp end_main
-lb19:
+lb28:
+        mov rax, qword [rel V_i]
+        add rax, 1
+        mov qword [rel V_j], rax
+        mov rax, qword [rel V_j]
+        cmp rax, qword [rel V_primeCount]
+        jle lb29
+        jmp lb34
+lb34:
+        mov rax, 0
+        jmp end_main
+lb29:
+        mov rax, qword [rel A_result]
+        mov rcx, qword [rel V_i]
+        lea rax, [rax+rcx*8+8]
+        mov rax, qword [rax]
+        mov rcx, qword [rel V_j]
+        lea rax, [rax+rcx*8+8]
+        mov rax, qword [rax]
+        cmp rax, -1
+        je lb30
+        jmp lb33
+lb33:
+        mov rax, qword [rel V_j]
+        add rax, 1
+        mov qword [rel V_j], rax
+        mov rax, qword [rel V_j]
+        cmp rax, qword [rel V_primeCount]
+        jle lb29
+        jmp lb34
+lb30:
         mov rdi, 256
         call malloc
         mov rbx, rax
-        mov rax, qword [rel A_a]
-        lea rax, [rax+r12*8+8]
-        mov rdi, qword [rax]
+        mov rdi, qword [rel V_i]
         call F_toString
         mov rax, rax
         mov rdi, rbx
         mov rsi, rax
         call S_strcat
         mov rdi, rbx
-        mov rsi, S_0
+        mov rsi, S_2
+        call S_strcat
+        mov rdi, qword [rel V_j]
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
         call S_strcat
         mov rdi, rbx
-        call F_print
-        mov rax, r12
+        call F_println
+        mov rax, 0
+        jmp end_main
+lb24:
+        mov qword [rel V_j], 0
+        mov rax, qword [rel V_j]
+        cmp rax, qword [rel V_M]
+        jle lb25
+        jmp lb26
+lb26:
+        mov rax, qword [rel V_i]
         add rax, 1
-        mov r12, rax
-        mov rax, qword [rel A_a]
-        lea rax, [rax]
+        mov qword [rel V_i], rax
+        mov rax, qword [rel V_i]
+        cmp rax, qword [rel V_M]
+        jle lb24
+        jmp lb27
+lb25:
+        mov rax, qword [rel A_result]
+        mov rcx, qword [rel V_i]
+        lea rax, [rax+rcx*8+8]
         mov rax, qword [rax]
-        cmp r12, rax
-        jl lb19
-        jmp lb20
-lb17:
-        mov rax, qword [rel A_a]
-        lea rax, [rax+r12*8+8]
-        mov qword [rax], r12
-        mov rax, r12
+        mov rcx, qword [rel V_j]
+        lea rax, [rax+rcx*8+8]
+        mov qword [rax], -1
+        mov rax, qword [rel V_j]
         add rax, 1
-        mov r12, rax
-        mov rax, qword [rel A_a]
-        lea rax, [rax]
-        mov rax, qword [rax]
-        cmp r12, rax
-        jl lb17
-        jmp lb18
+        mov qword [rel V_j], rax
+        mov rax, qword [rel V_j]
+        cmp rax, qword [rel V_M]
+        jle lb25
+        jmp lb26
+lb22:
+        mov rax, qword [rel A_prime]
+        mov rcx, qword [rel V_i]
+        lea rax, [rax+rcx*8+8]
+        mov qword [rax], 0
+        mov rax, qword [rel V_i]
+        add rax, 1
+        mov qword [rel V_i], rax
+        mov rcx, qword [rel V_M]
+        add rcx, 1
+        mov rax, qword [rel V_i]
+        cmp rax, rcx
+        jl lb22
+        jmp lb23
+lb20:
+        mov rcx, qword [rel A_b]
+        mov rax, qword [rel V_i]
+        lea rax, [rcx+rax*8+8]
+        mov qword [rax], 1
+        mov rax, qword [rel A_gps]
+        mov rcx, qword [rel V_i]
+        lea rax, [rax+rcx*8+8]
+        mov qword [rax], 0
+        mov rax, qword [rel V_i]
+        add rax, 1
+        mov qword [rel V_i], rax
+        mov rax, qword [rel V_N]
+        add rax, 1
+        mov rcx, qword [rel V_i]
+        cmp rcx, rax
+        jl lb20
+        jmp lb21
 end_main:
         pop rbx
-        pop r12
+        mov rsp, rbp
+        pop rbp
+        ret
+
+
+__init:
+        push rbp
+        mov rbp, rsp
+        sub rsp, 0
+        mov rdi, 8016
+        call malloc
+        mov rcx, rax
+        lea rax, [rcx]
+        mov rdx, 1001
+        mov qword [rax], rdx
+        mov qword [rel A_b], rcx
+        mov rdi, 1368
+        call malloc
+        mov rcx, rax
+        lea rax, [rcx]
+        mov rdx, 170
+        mov qword [rax], rdx
+        mov qword [rel A_prime], rcx
+        mov rdi, 8016
+        call malloc
+        mov rcx, rax
+        lea rax, [rcx]
+        mov rdx, 1001
+        mov qword [rax], rdx
+        mov qword [rel A_gps], rcx
+        mov rdi, 16
+        call malloc
+        mov rax, rax
+        lea rcx, [rax]
+        mov rdx, 1
+        mov qword [rcx], rdx
+        mov qword [rel A_tmp], rax
+end___init:
         mov rsp, rbp
         pop rbp
         ret
@@ -693,9 +807,27 @@ end_main:
 SECTION .data    align=8
 
 SECTION .bss     align=8
-V_n:
+V_N:
          resq 1
-A_a:
+V_M:
+         resq 1
+V_i:
+         resq 1
+V_j:
+         resq 1
+V_primeCount:
+         resq 1
+V_resultCount:
+         resq 1
+A_b:
+         resq 1
+A_prime:
+         resq 1
+A_gps:
+         resq 1
+A_tmp:
+         resq 1
+A_result:
          resq 1
 
 SECTION .rodata
@@ -703,6 +835,10 @@ S_0:
          db 20H, 00H
 S_1: 
          db 0AH, 00H
+S_2: 
+         db 20H, 00H
+S_3: 
+         db 54H, 6FH, 74H, 61H, 6CH, 3AH, 20H, 00H
 
 L_021:
         db 25H, 6CH, 64H, 00H

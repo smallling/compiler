@@ -73,7 +73,7 @@ public class IRBuilder extends AstVisitor {
     }
 
     void insertFunc() {
-        if(curFunc.getRetSize() == 0)curCodeList.add(new Quad("ret"));
+        curCodeList.add(new Quad("ret"));
         updateLabel(curCodeList);
         setMemPos(curCodeList);
         curFunc.buildCFG(curCodeList);
@@ -648,11 +648,11 @@ public class IRBuilder extends AstVisitor {
 
             addNextLabel(labelTrue);
             insertQuad(new Quad("mov", val, new ImmOprand(1)));
-            insertQuad(new Quad("Jump", new LabelName(Integer.toString(label))));
+            insertQuad(new Quad("jump", new LabelName(Integer.toString(label))));
 
             addNextLabel(labelFalse);
             insertQuad(new Quad("mov", val, new ImmOprand(0)));
-            insertQuad(new Quad("Jump", new LabelName(Integer.toString(label))));
+            insertQuad(new Quad("jump", new LabelName(Integer.toString(label))));
 
             addNextLabel(label);
             node.reg = val;
@@ -668,11 +668,11 @@ public class IRBuilder extends AstVisitor {
 
             addNextLabel(labelTrue);
             insertQuad(new Quad("mov", lReg, new ImmOprand(1)));
-            insertQuad(new Quad("Jump", new LabelName(Integer.toString(label))));
+            insertQuad(new Quad("jump", new LabelName(Integer.toString(label))));
 
             addNextLabel(labelFalse);
             insertQuad(new Quad("mov", lReg, new ImmOprand(0)));
-            insertQuad(new Quad("Jump", new LabelName(Integer.toString(label))));
+            insertQuad(new Quad("jump", new LabelName(Integer.toString(label))));
 
             addNextLabel(label);
             return;
@@ -903,7 +903,7 @@ public class IRBuilder extends AstVisitor {
         }
         if(son.type instanceof StringTypeRef) {
             Register tmp = new Register(getTmpName("V_"));
-            node.reg = new Register(getTmpName("V_"));
+            node.reg = tmp;
             Register ttmp = new Register("rax");
 
             String func = mem.name;
