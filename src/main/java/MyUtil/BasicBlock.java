@@ -83,7 +83,7 @@ public class BasicBlock {
                 else {
                     Register tmp = new Register("rcx");
                     curCodeList.add(new Quad("mov", tmp, r2.clone()));
-                    curCodeList.add(new ArthQuad(op, rt.clone(), new Register("cl")));
+                    curCodeList.add(new ArthQuad(op, rt.clone(), tmp.clone()));
                 }
             }
             if(op.equals("mul")) {

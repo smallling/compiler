@@ -39,7 +39,11 @@ public class Quad {
         }
         if(rt != null) tmp += " " + rt.getPrint() + ",";
         if(r1 != null) {
-            if(op.equals("lea"))tmp += " " + r1.getPrint().substring(6) + ",";
+            if(op.equals("sal") || op.equals("sar")) {
+                if(r1 instanceof Register && r1.get().equals("rcx"))tmp += " " + "cl,";
+                else tmp += " " + r1.getPrint() + ",";
+            }
+            else if(op.equals("lea"))tmp += " " + r1.getPrint().substring(6) + ",";
             else tmp += " " + r1.getPrint() + ",";
         }
         if(r2 != null) tmp += " " + r2.getPrint() + ",";

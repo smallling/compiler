@@ -183,6 +183,7 @@ public class IRBuilder extends AstVisitor {
             if(op.equals(">="))ans = (lv >= rv ? 1 : 0);
             if(op.equals("=="))ans = (lv == rv ? 1 : 0);
             if(op.equals("!="))ans = (lv != rv ? 1 : 0);
+            System.err.println(ans);
             node.reg = new ImmOprand(ans);
             return;
         }
@@ -827,7 +828,7 @@ public class IRBuilder extends AstVisitor {
         }
         genNewFunc(node.reg, tmp);
         insertQuad(new Quad("mov", genMemAccess(node.reg), changeOprToReg(len.reg)));
-        if(typ.type instanceof StringTypeRef || typ.type instanceof ClassTypeRef || (typ.type instanceof ArrTypeRef && !(typ.son.get(0) instanceof EmptyExprNode))) {
+        if(typ.type instanceof StringTypeRef || (typ.type instanceof ArrTypeRef && !(typ.son.get(0) instanceof EmptyExprNode))) {
             Oprand low = new ImmOprand(0);
             Oprand high = len.reg.clone();
             Oprand base = node.reg;

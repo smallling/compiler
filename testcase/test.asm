@@ -1,6 +1,5 @@
 default rel
 
-global C_lhy_F_lhy
 global main
 global S_substring
 global S_parseInt
@@ -351,77 +350,116 @@ L_020:  neg     rbx
 
 
 
-C_lhy_F_lhy:
+main:
         push rbp
         mov rbp, rsp
         sub rsp, 0
         push r12
         push r14
+        push r13
+        push r15
         push rbx
-        mov rbx, rdi
-        mov rdi, 24
-        call malloc
-        mov r12, rax
-        lea rax, [r12]
-        mov rcx, 2
-        mov qword [rax], rcx
-        mov r14, 0
-        cmp r14, 2
-        jl lb0
-        jmp lb1
-lb1:
-        mov qword [rbx+8], r12
-        mov rax, qword [rbx+8]
-        lea rax, [rax+0*8+8]
-        mov rax, qword [rax]
-        lea rax, [rax+0]
-        mov qword [rax], 10
-        jmp end_C_lhy_F_lhy
-lb0:
-        mov rdi, 16
-        call malloc
-        mov rcx, rax
-        lea rax, [r12+r14*8+8]
-        mov qword [rax], rcx
-        mov r14, r14
-        add r14, 1
-        cmp r14, 2
-        jl lb0
-        jmp lb1
-end_C_lhy_F_lhy:
-        pop rbx
-        pop r14
-        pop r12
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-main:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push rbx
-        mov rdi, 16
+        mov r14, 1000000
+        mov rdi, S_0
+        call F_print
+        mov rdi, 256
         call malloc
         mov rbx, rax
-        mov rdi, rbx
-        call C_lhy_F_lhy
-        mov rax, rbx
-        lea rax, [rax+8]
-        mov rax, qword [rax]
-        lea rax, [rax+0*8+8]
-        mov rax, qword [rax]
-        lea rax, [rax+0]
-        mov rdi, qword [rax]
+        mov rax, r14
+        sal rax, 1
+        mov rax, rax
+        add rax, 1
+        mov rdi, rax
         call F_toString
         mov rax, rax
-        mov rdi, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
+        mov rsi, S_1
+        call S_strcat
+        mov rdi, r14
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
         call F_println
+        mov r13, 1
+        mov rdi, 256
+        call malloc
+        mov r12, rax
+        mov r15, 0
+        cmp r15, r14
+        jl lb0
+        jmp lb3
+lb3:
         mov rax, 0
         jmp end_main
+lb0:
+        mov rdi, 256
+        call malloc
+        mov rbx, rax
+        mov rdi, r13
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
+        mov rsi, S_2
+        call S_strcat
+        mov rax, r13
+        add rax, 1
+        mov rdi, rax
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, rbx
+        mov rsi, S_3
+        call S_strcat
+        mov rax, r13
+        add rax, 2
+        mov rax, rax
+        neg rax
+        mov rdi, rax
+        call F_toString
+        mov rax, rax
+        mov rdi, rbx
+        mov rsi, rax
+        call S_strcat
+        mov rdi, r12
+        mov rsi, rbx
+        call S_strcpy
+        mov rcx, 100000
+        mov rax, r15
+        cqo
+        idiv rcx
+        mov rax, rdx
+        cmp rax, 0
+        je lb1
+        jmp lb2
+lb2:
+        mov rax, r13
+        add rax, 2
+        mov r13, rax
+        inc r15
+        cmp r15, r14
+        jl lb0
+        jmp lb3
+lb1:
+        mov rdi, r12
+        call F_println
+        jmp lb2
 end_main:
         pop rbx
+        pop r15
+        pop r13
+        pop r14
+        pop r12
         mov rsp, rbp
         pop rbp
         ret
@@ -432,6 +470,14 @@ SECTION .data    align=8
 SECTION .bss     align=8
 
 SECTION .rodata
+S_0: 
+         db 70H, 20H, 63H, 6EH, 66H, 20H, 00H
+S_1: 
+         db 20H, 00H
+S_2: 
+         db 20H, 00H
+S_3: 
+         db 20H, 00H
 
 L_021:
         db 25H, 6CH, 64H, 00H

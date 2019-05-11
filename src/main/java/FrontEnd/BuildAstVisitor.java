@@ -568,7 +568,7 @@ public class BuildAstVisitor extends MxStarBaseVisitor <Node> {
         res.son.add(visit(ctx.orExpr()));
         res.son.add(visit(ctx.xorExpr()));
         res.loc = new Location(ctx.start);
-        return visitChildren(ctx);
+        return res;
     }
 
     @Override
