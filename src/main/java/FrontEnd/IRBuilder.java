@@ -965,7 +965,6 @@ public class IRBuilder extends AstVisitor {
                 return;
             }
             return;
-            return;
         }
         node.reg = new Register(getTmpName("A_"));
         insertQuad(new Quad("mov", node.reg, genMemAccess(son.reg.clone())));
