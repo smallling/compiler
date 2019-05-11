@@ -2,15 +2,14 @@ class lhy {
     lhy[] siz;
     int c;
 
-    void put(int x) {
-        siz[0].c = x;
+    lhy() {
+        siz = new lhy[2];
+        siz[0].c = 10;
     }
 }
 
 int main() {
     lhy c = new lhy();
-    c.siz = new lhy[2];
-    c.put(10);
     println(toString(c.siz[0].c));
     return 0;
 }

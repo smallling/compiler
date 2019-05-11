@@ -1,6 +1,5 @@
 default rel
 
-global C_lhy_F_put
 global C_lhy_F_lhy
 global main
 global S_substring
@@ -352,31 +351,47 @@ L_020:  neg     rbx
 
 
 
-C_lhy_F_put:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        mov rcx, rsi
-        mov rax, rdi
-        mov rax, qword [rax+8]
-        lea rax, [rax+0*8+8]
-        mov rax, qword [rax]
-        lea rax, [rax+0]
-        mov qword [rax], rcx
-        jmp end_C_lhy_F_put
-end_C_lhy_F_put:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
 C_lhy_F_lhy:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        mov rax, rdi
+        push r12
+        push r14
+        push rbx
+        mov rbx, rdi
+        mov rdi, 24
+        call malloc
+        mov r12, rax
+        lea rax, [r12]
+        mov rcx, 2
+        mov qword [rax], rcx
+        mov r14, 0
+        cmp r14, 2
+        jl lb0
+        jmp lb1
+lb1:
+        mov qword [rbx+8], r12
+        mov rax, qword [rbx+8]
+        lea rax, [rax+0*8+8]
+        mov rax, qword [rax]
+        lea rax, [rax+0]
+        mov qword [rax], 10
         jmp end_C_lhy_F_lhy
+lb0:
+        mov rdi, 16
+        call malloc
+        mov rcx, rax
+        lea rax, [r12+r14*8+8]
+        mov qword [rax], rcx
+        mov r14, r14
+        add r14, 1
+        cmp r14, 2
+        jl lb0
+        jmp lb1
 end_C_lhy_F_lhy:
+        pop rbx
+        pop r14
+        pop r12
         mov rsp, rbp
         pop rbp
         ret
@@ -386,33 +401,14 @@ main:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        push r12
-        push r14
-        push r13
         push rbx
         mov rdi, 16
         call malloc
         mov rbx, rax
         mov rdi, rbx
         call C_lhy_F_lhy
-        mov r14, rbx
-        lea r12, [r14+8]
-        mov rdi, 24
-        call malloc
-        mov rbx, rax
-        lea rax, [rbx]
-        mov rcx, 2
-        mov qword [rax], rcx
-        mov r13, 0
-        cmp r13, 2
-        jl lb0
-        jmp lb1
-lb1:
-        mov qword [r12], rbx
-        mov rdi, r14
-        mov rsi, 10
-        call C_lhy_F_put
-        lea rax, [r14+8]
+        mov rax, rbx
+        lea rax, [rax+8]
         mov rax, qword [rax]
         lea rax, [rax+0*8+8]
         mov rax, qword [rax]
@@ -422,23 +418,10 @@ lb1:
         mov rax, rax
         mov rdi, rax
         call F_println
+        mov rax, 0
         jmp end_main
-lb0:
-        mov rdi, 16
-        call malloc
-        mov rcx, rax
-        lea rax, [rbx+r13*8+8]
-        mov qword [rax], rcx
-        mov r13, r13
-        add r13, 1
-        cmp r13, 2
-        jl lb0
-        jmp lb1
 end_main:
         pop rbx
-        pop r13
-        pop r14
-        pop r12
         mov rsp, rbp
         pop rbp
         ret
