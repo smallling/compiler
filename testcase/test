@@ -74,7 +74,7 @@ int main() {
 	origin(170);
     N = 1000;
 //    M = 100*(getchar()-'0')+10*(getchar()-'0')+getchar()-'0';
-	M = getInt();
+	M = 168;
     primeCount = 0;
     resultCount = 0;
     tmp[0] = 0;
@@ -97,6 +97,8 @@ int main() {
     primeCount = tmp[0];
     for (i = 1; i < primeCount; i = i + 1) {
         for (j = i + 1; j <= primeCount; j = j + 1) {
+
+            println(toString(result[i][j]));
             if (result[i][j] == -1) {
                 println(toString(i) + " " + toString(j));
                 return 0;

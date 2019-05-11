@@ -593,9 +593,7 @@ main:
         mov rdi, 170
         call F_origin
         mov qword [rel V_N], 1000
-        call F_getInt
-        mov rax, rax
-        mov qword [rel V_M], rax
+        mov qword [rel V_M], 168
         mov qword [rel V_primeCount], 0
         mov qword [rel V_resultCount], 0
         mov rax, qword [rel A_tmp]
@@ -657,6 +655,17 @@ lb34:
         mov rax, 0
         jmp end_main
 lb29:
+        mov rax, qword [rel A_result]
+        mov rcx, qword [rel V_i]
+        lea rax, [rax+rcx*8+8]
+        mov rcx, qword [rax]
+        mov rax, qword [rel V_j]
+        lea rax, [rcx+rax*8+8]
+        mov rdi, qword [rax]
+        call F_toString
+        mov rax, rax
+        mov rdi, rax
+        call F_println
         mov rax, qword [rel A_result]
         mov rcx, qword [rel V_i]
         lea rax, [rax+rcx*8+8]
@@ -742,13 +751,13 @@ lb22:
         jl lb22
         jmp lb23
 lb20:
-        mov rcx, qword [rel A_b]
-        mov rax, qword [rel V_i]
-        lea rax, [rcx+rax*8+8]
-        mov qword [rax], 1
-        mov rax, qword [rel A_gps]
+        mov rax, qword [rel A_b]
         mov rcx, qword [rel V_i]
         lea rax, [rax+rcx*8+8]
+        mov qword [rax], 1
+        mov rcx, qword [rel A_gps]
+        mov rax, qword [rel V_i]
+        lea rax, [rcx+rax*8+8]
         mov qword [rax], 0
         mov rax, qword [rel V_i]
         add rax, 1
