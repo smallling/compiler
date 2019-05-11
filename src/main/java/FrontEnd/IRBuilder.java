@@ -183,7 +183,6 @@ public class IRBuilder extends AstVisitor {
             if(op.equals(">="))ans = (lv >= rv ? 1 : 0);
             if(op.equals("=="))ans = (lv == rv ? 1 : 0);
             if(op.equals("!="))ans = (lv != rv ? 1 : 0);
-            System.err.println(ans);
             node.reg = new ImmOprand(ans);
             return;
         }
@@ -249,7 +248,6 @@ public class IRBuilder extends AstVisitor {
             genStringAdd(node.son.get(1), reg);
         }
         else {
-            visit(node);
             genStringFunc("S_strcat", null, reg.clone(), node.reg.clone());
         }
     }
