@@ -8,8 +8,9 @@ import main.java.MyUtil.LinearIR;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
-
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class Main {
@@ -80,11 +81,11 @@ public class Main {
             content += code + "\n";
         }
 
-        /*File file = new File("testcase/" + fileName + ".asm");
+        File file = new File("testcase/" + fileName + ".asm");
         OutputStream out = new FileOutputStream(file);
         if (!file.exists()) file.createNewFile();
         out.write(content.getBytes());
         out.flush();
-        out.close();*/
+        out.close();
     }
 }

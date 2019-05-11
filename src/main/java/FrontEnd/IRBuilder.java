@@ -254,6 +254,31 @@ public class IRBuilder extends AstVisitor {
         }
     }
 
+    void genStringSize(Node node, Oprand reg) throws Exception {
+        if(node instanceof BinaryExprNode) {
+            Register tmpl = new Register(getTmpName("V_"));
+            Register tmpr = new Register(getTmpName("V_"));
+            genStringSize(node.son.get(0), tmpl);
+            genStringSize(node.son.get(1), tmpr);
+            insertQuad(new ArthQuad("add", reg.clone(), tmpr.clone(), tmpl.clone()));
+        }
+        else {
+            visit(node);
+            if(node.reg instanceof StrImmOprand) {
+                insertQuad(new Quad("mov", reg.clone(), new ImmOprand(node.name.length())));
+            }
+            else {
+                ArrayList<Oprand> oprs = new ArrayList<>();
+                ArrayList<String> pres = new ArrayList<>();
+                oprs.add(node.reg);
+                pres.add("A_");
+                genParam(oprs, pres);
+                insertQuad(new Quad("call", null, new FuncName("S_strlen"), new ImmOprand(1)));
+                insertQuad(new Quad("mov", reg.clone(), new Register("rax")));
+            }
+        }
+    }
+
     void genCondition(Node node, int labelTrue, int labelFalse) throws Exception {
         if(node.name.equals("true")) {
             insertQuad(new Quad("jump", new LabelName(Integer.toString(labelTrue))));
@@ -638,7 +663,9 @@ public class IRBuilder extends AstVisitor {
 
         if(left.type instanceof StringTypeRef && node.name.equals("+")) {
             node.reg = new Register("A_");
-            genNewFunc(node.reg, new ImmOprand(256));
+            Register tmp = new Register(getTmpName("V_"));
+            genStringSize(node, tmp);
+            genNewFunc(node.reg, tmp.clone());
             genStringAdd(node, node.reg.clone());
             return;
         }
