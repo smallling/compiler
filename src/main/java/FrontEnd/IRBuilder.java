@@ -82,6 +82,7 @@ public class IRBuilder extends AstVisitor {
     }
 
     void setInit() {
+        curCodeList.add(new Quad("ret"));
         updateLabel(curCodeList);
         setMemPos(curCodeList);
         curFunc.buildCFG(curCodeList);
@@ -465,7 +466,7 @@ public class IRBuilder extends AstVisitor {
         if(node.inClass != null) {
             curFunc = new FuncFrame(classFuncLabel(node.inClass, node.name));
             curFunc.setClassObj(curClassObj);
-            curFunc.addParam("A_this", TypeRef.curLen);
+            curFunc.addParam("A_this.", TypeRef.curLen);
         }
         else {
             if(node.name.equals("main")) {
@@ -495,10 +496,10 @@ public class IRBuilder extends AstVisitor {
     void visit(ConsFuncDefNode node) throws Exception {
         curFunc = new FuncFrame(classFuncLabel(node.name, node.name));
         curFunc.setClassObj(curClassObj);
-        curFunc.addParam("A_this", TypeRef.curLen);
+        curFunc.addParam("A_this.", TypeRef.curLen);
 
         for(String var : classStr) {
-            genNewFunc(genMemAccess(new Register("A_this", "A_this"), new ImmOprand(curClassObj.get(var))), new ImmOprand(256));
+            genNewFunc(genMemAccess(new Register("A_this.", "A_this."), new ImmOprand(curClassObj.get(var))), new ImmOprand(256));
         }
 
         for(int i = 0; i < node.son.size(); i++) {
@@ -852,7 +853,7 @@ public class IRBuilder extends AstVisitor {
     void visit(FuncExprNode node) throws Exception {
         visitChild(node);
         if(node.inClass != null) {
-            genClassFunc(node, node.inClass, new Register("A_this"));
+            genClassFunc(node, node.inClass, new Register("A_this."));
             return;
         }
         String func = funcLabel(node.name);

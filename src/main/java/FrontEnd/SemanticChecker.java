@@ -335,7 +335,7 @@ public class SemanticChecker extends AstVisitor{
             if(curClassName == "") throw new ThisOutOfClass(node.loc);
             node.type = new ClassTypeRef(curClassName);
             ((ClassTypeRef) node.type).belongTo((ClassDefTypeRef) rootScope.findItem(curClassName));
-            node.reg = new Register("A_this", "A_this");
+            node.reg = new Register("A_this.", "A_this.");
         }
         else {
             Pair<Scope<TypeRef>, TypeRef> now = node.belong.findVarName(node.name);
@@ -345,7 +345,7 @@ public class SemanticChecker extends AstVisitor{
                 node.inClass = curClassName;
                 ClassDefTypeRef tmp = (ClassDefTypeRef) rootScope.findItem(curClassName);
                 long offset = tmp.getSize(node.name);
-                node.reg = new MemAccess(new Register("A_this", "A_this"), new ImmOprand(offset));
+                node.reg = new MemAccess(new Register("A_this.", "A_this."), new ImmOprand(offset));
             }
             else {
                 String tmpName = TypeRef.getPre(node.type) + node.name + now.getKey().getName();

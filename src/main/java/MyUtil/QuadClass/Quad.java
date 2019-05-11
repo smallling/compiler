@@ -170,19 +170,19 @@ public class Quad {
                     curList.add(r1.get());
                 }
             }
-            if(op.equals("lea")) {
+            else if(op.equals("lea")) {
                 curList.addAll(((MemAccess) r1).getUsedReg());
                 //curList.add(rt.get());
             }
-            if(op.equals("push")) {
+            else if(op.equals("push")) {
                 if(rt instanceof MemAccess) {
                     curList.addAll(((MemAccess) rt).getUsedReg());
                 }
             }
-            if(op.equals("ret") && rt != null) {
+            else if(op.equals("ret") && rt != null) {
                 curList.add("rax");
             }
-            if(op.equals("cmp")) {
+            else if(op.equals("cmp")) {
                 if(rt instanceof Register) {
                     curList.add(rt.get());
                 }
@@ -191,6 +191,14 @@ public class Quad {
                 }
                 else if(r1 instanceof Register) {
                     curList.add(r1.get());
+                }
+            }
+            else {
+                if(rt instanceof MemAccess) {
+                    curList.addAll(((MemAccess) rt).getUsedReg());
+                }
+                else if(rt instanceof Register) {
+                    curList.add(rt.get());
                 }
             }
         }
@@ -281,15 +289,15 @@ public class Quad {
                     r1.set(renameMap.get(r1.get()));
                 }
             }
-            if(op.equals("lea")) {
+            else if(op.equals("lea")) {
                 ((MemAccess) r1).renameUsedReg(renameMap);
             }
-            if(op.equals("push")) {
+            else if(op.equals("push")) {
                 if(rt instanceof MemAccess) {
                     ((MemAccess) rt).renameUsedReg(renameMap);
                 }
             }
-            if(op.equals("cmp")) {
+            else if(op.equals("cmp")) {
                 if(rt instanceof Register && renameMap.containsKey(rt.get())) {
                     rt.set(renameMap.get(rt.get()));
                 }
@@ -298,6 +306,14 @@ public class Quad {
                 }
                 else if(r1 instanceof Register && renameMap.containsKey(r1.get())) {
                     r1.set(renameMap.get(r1.get()));
+                }
+            }
+            else {
+                if(rt instanceof MemAccess) {
+                    ((MemAccess) rt).renameUsedReg(renameMap);
+                }
+                else if(rt instanceof Register && renameMap.containsKey(rt.get())) {
+                    rt.set(renameMap.get(rt.get()));
                 }
             }
         }
