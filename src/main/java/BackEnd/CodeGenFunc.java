@@ -167,10 +167,12 @@ public class CodeGenFunc {
         finalCodeList.get(curSize).setLabel(endLabel);
         ArrayList<String> codes = new ArrayList<>();
         codes.add(func.getName() + ":");
-        for(Quad code : finalCodeList) {
-            String curLabel = code.getLabel();
+        for(Quad code : finalCodeList) {String curLabel = code.getLabel();
             if(curLabel != null) {
                 codes.add(curLabel + ":");
+            }
+            if(code.getOp().equals("mov")) {
+                if(code.getRt().get().equals(code.getR1().get()))continue;
             }
             codes.add(code.getPrint());
         }

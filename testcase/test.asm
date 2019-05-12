@@ -1,5 +1,6 @@
 default rel
 
+global F_f
 global main
 global S_substring
 global S_parseInt
@@ -673,104 +674,101 @@ L_032:
 
 L_033:
         db 25H, 6CH, 64H, 00H
+F_f:
+        push rbp
+        mov rbp, rsp
+        sub rsp, 0
+        mov rsi, rdi
+        mov rax, 0
+        mov r8, 0
+        cmp r8, rsi
+        jl lb0
+        jmp lb1
+lb1:
+        jmp end_F_f
+lb0:
+        mov rcx, rax
+        add rcx, r8
+        mov rdi, r8
+        sub rdi, 1
+        mov rax, rsi
+        and rax, rdi
+        xor rcx, rax
+        mov rax, rcx
+        mov rcx, 10000
+        cqo
+        idiv rcx
+        mov rax, rdx
+        mov rcx, r8
+        add rcx, 1
+        mov r8, rcx
+        cmp r8, rsi
+        jl lb0
+        jmp lb1
+end_F_f:
+        mov rsp, rbp
+        pop rbp
+        ret
+
+
 main:
         push rbp
         mov rbp, rsp
         sub rsp, 0
         push r12
         push r14
-        push r13
         push rbx
-        mov r12, 1000000
-        mov rdi, S_0
-        call F_print
-        mov rax, r12
-        sal rax, 1
-        mov rax, rax
-        add rax, 1
-        mov rdi, rax
-        call F_toString
-        mov rax, rax
-        mov rdi, rax
-        mov rsi, S_1
-        call S_strcat
-        mov rbx, rax
-        mov rdi, r12
-        call F_toString
-        mov rax, rax
+        mov rbx, 0
+        mov r14, 0
+        cmp r14, 90000000
+        jl lb2
+        jmp lb9
+lb9:
         mov rdi, rbx
-        mov rsi, rax
-        call S_strcat
-        mov rbx, rax
-        mov rdi, rbx
+        call F_toString
+        mov rdi, rax
         call F_println
-        mov r14, 1
-        mov rdi, 256
-        call malloc
-        mov rsi, rax
-        mov r13, 0
-        cmp r13, r12
-        jl lb0
-        jmp lb3
-lb3:
         mov rax, 0
         jmp end_main
-lb0:
-        mov rdi, r14
-        call F_toString
-        mov rax, rax
-        mov rdi, rax
-        mov rsi, S_2
-        call S_strcat
-        mov rbx, rax
-        mov rax, r14
-        add rax, 1
-        mov rdi, rax
-        call F_toString
-        mov rax, rax
-        mov rdi, rbx
-        mov rsi, rax
-        call S_strcat
-        mov rbx, rax
-        mov rdi, rbx
-        mov rsi, S_3
-        call S_strcat
-        mov rbx, rax
-        mov rax, r14
-        add rax, 2
-        mov rax, rax
-        neg rax
-        mov rdi, rax
-        call F_toString
-        mov rax, rax
-        mov rdi, rbx
-        mov rsi, rax
-        call S_strcat
-        mov rbx, rax
-        mov rsi, rbx
-        mov rcx, 100000
-        mov rax, r13
-        cqo
-        idiv rcx
-        mov rax, rdx
-        cmp rax, 0
-        je lb1
-        jmp lb2
 lb2:
+        mov r12, 0
+        cmp r12, 10
+        jl lb3
+        jmp lb8
+lb8:
         mov rax, r14
-        add rax, 2
-        mov r14, rax
-        inc r13
-        cmp r13, r12
-        jl lb0
-        jmp lb3
-lb1:
-        mov rdi, rsi
-        call F_println
-        jmp lb2
+        inc r14
+        cmp r14, 90000000
+        jl lb2
+        jmp lb9
+lb3:
+        cmp r14, 89999999
+        jge lb4
+        jmp lb7
+lb7:
+        mov rax, r12
+        inc r12
+        cmp r12, 10
+        jl lb3
+        jmp lb8
+lb4:
+        cmp r12, 9
+        jge lb5
+        jmp lb6
+lb6:
+        jmp lb7
+lb5:
+        mov rax, r14
+        sal rax, 3
+        mov rdi, rax
+        call F_f
+        mov rcx, rax
+        mov rax, rbx
+        add rax, rcx
+        mov rbx, rax
+        jmp lb6
 end_main:
         pop rbx
-        pop r13
         pop r14
         pop r12
         mov rsp, rbp
@@ -781,15 +779,3 @@ end_main:
 SECTION .data    align=8
 
 
-S_0: 
-         dq 6
-         db 70H, 20H, 63H, 6EH, 66H, 20H, 00H
-S_1: 
-         dq 1
-         db 20H, 00H
-S_2: 
-         dq 1
-         db 20H, 00H
-S_3: 
-         dq 1
-         db 20H, 00H
