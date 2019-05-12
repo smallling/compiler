@@ -3,7 +3,7 @@ int f(int n) {
     int res = 0;
     for (i = 0; i < n; i = i + 1) {
         res = res + i ^ n & (i - 1);
-        res = res % 10000;
+        res = res % 97600;
     }
     return res;
 }
@@ -14,8 +14,8 @@ int main()
     int j;
     int k;
     int ans = 0;
-    for (i = 89999999; i < 90000000; i = i + 1) {
-        for (j = 9; j < 10; j = j + 1){
+    for (i = 0; i < 90000000; i = i + 1) {
+        for (j = 0; j < 10; j = j + 1){
             if (i >= 89999999) {
                 if (j >= 9){
                     ans = ans + f(i * 8);

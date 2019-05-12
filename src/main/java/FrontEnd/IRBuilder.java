@@ -42,6 +42,8 @@ public class IRBuilder extends AstVisitor {
 
     ArrayList<String> classStr;
 
+    long x, y;
+
     public IRBuilder() {
         labelCnt = 0;
         quadLabel = 0;
@@ -88,6 +90,18 @@ public class IRBuilder extends AstVisitor {
         curFunc.buildCFG(curCodeList);
         linearCode.setInit(curFunc);
         curCodeList.clear();
+    }
+
+    void exgcd(long a, long b) {
+        if(b == 0) {
+            x = 1L;
+            y = 0L;
+            return;
+        }
+        exgcd(b, a % b);
+        long X = x;
+        x = y;
+        y = X - a / b * y;
     }
 
     boolean isTemp(String s) {
@@ -715,15 +729,27 @@ public class IRBuilder extends AstVisitor {
                 insertQuad(new Quad(irOp, lReg, rReg));
             }
             else {
-                if(irOp.equals("mod") && rReg instanceof ImmOprand && Long.parseLong(rReg.get()) == 10000) { //don't want to write exgcdQAQ
+                if(irOp.equals("mod") && rReg instanceof ImmOprand) {
+                    long val = Long.parseLong(rReg.get()), cnt = 0;
+                    while(val % 2 == 0) {
+                        cnt++;
+                        val /= 2;
+                    }
+                    if(val == 1) {
+                        insertQuad(new ArthQuad(irOp, node.reg, lReg, rReg));
+                        return;
+                    }
                     Register tmp = new Register("V_");
-                    insertQuad(new ArthQuad("sar", tmp, lReg, new ImmOprand(4)));
-                    insertQuad(new ArthQuad("mul", tmp.clone(), tmp.clone(), new ImmOprand(6871948)));
+                    long mo = 1L << 32;
+                    x = (mo - 1) / val + 1;
+                    insertQuad(new ArthQuad("sar", tmp, lReg, new ImmOprand(cnt)));
+                    insertQuad(new ArthQuad("mul", tmp.clone(), tmp.clone(), new ImmOprand(x)));
                     insertQuad(new ArthQuad("sar", tmp.clone(), tmp.clone(), new ImmOprand(32)));
                     insertQuad(new ArthQuad("mul", tmp.clone(), tmp.clone(), rReg.clone()));
                     insertQuad(new ArthQuad("sub", node.reg.clone(), lReg.clone(), tmp.clone()));
+                    return;
                 }
-                else insertQuad(new ArthQuad(irOp, node.reg, lReg, rReg));
+                insertQuad(new ArthQuad(irOp, node.reg, lReg, rReg));
             }
             return;
         }

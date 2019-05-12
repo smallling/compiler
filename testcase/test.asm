@@ -696,10 +696,10 @@ lb0:
         xor rdx, rcx
         mov rcx, rdx
         mov rdi, rcx
-        sar rdi, 4
-        imul rdi, rdi, 6871948
+        sar rdi, 6
+        imul rdi, rdi, 2816372
         sar rdi, 32
-        imul rdi, rdi, 10000
+        imul rdi, rdi, 97600
         sub rcx, rdi
         mov rdx, r8
         add rdx, 1
@@ -721,7 +721,7 @@ main:
         push r14
         push rbx
         mov rbx, 0
-        mov r14, 89999999
+        mov r14, 0
         cmp r14, 90000000
         jl lb2
 lb9:
@@ -732,7 +732,7 @@ lb9:
         mov rax, 0
         jmp end_main
 lb2:
-        mov r12, 9
+        mov r12, 0
         cmp r12, 10
         jl lb3
 lb8:
