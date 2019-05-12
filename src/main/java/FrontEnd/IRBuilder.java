@@ -715,7 +715,7 @@ public class IRBuilder extends AstVisitor {
                 insertQuad(new Quad(irOp, lReg, rReg));
             }
             else {
-                if(irOp.equals("mod") && rReg instanceof ImmOprand && Long.parseLong(rReg.get()) == 10000) { //不想写exgcdQAQ
+                if(irOp.equals("mod") && rReg instanceof ImmOprand && Long.parseLong(rReg.get()) == 10000) { //don't want to write exgcdQAQ
                     Register tmp = new Register("V_");
                     insertQuad(new ArthQuad("sar", tmp, lReg, new ImmOprand(4)));
                     insertQuad(new ArthQuad("mul", tmp.clone(), tmp.clone(), new ImmOprand(6871948)));

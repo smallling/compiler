@@ -721,7 +721,7 @@ main:
         push r14
         push rbx
         mov rbx, 0
-        mov r14, 0
+        mov r14, 89999999
         cmp r14, 90000000
         jl lb2
 lb9:
@@ -732,7 +732,7 @@ lb9:
         mov rax, 0
         jmp end_main
 lb2:
-        mov r12, 0
+        mov r12, 9
         cmp r12, 10
         jl lb3
 lb8:
