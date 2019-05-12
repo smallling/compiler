@@ -696,10 +696,10 @@ lb0:
         xor rdx, rcx
         mov rcx, rdx
         mov rdi, rcx
-        sar rdi, 6
-        imul rdi, rdi, 2816372
+        sar rdi, 4
+        imul rdi, rdi, 6871948
         sar rdi, 32
-        imul rdi, rdi, 97600
+        imul rdi, rdi, 10000
         sub rcx, rdi
         mov rdx, r8
         add rdx, 1

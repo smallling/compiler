@@ -729,7 +729,7 @@ public class IRBuilder extends AstVisitor {
                 insertQuad(new Quad(irOp, lReg, rReg));
             }
             else {
-                if(irOp.equals("mod") && rReg instanceof ImmOprand) {
+                if(irOp.equals("mod") && rReg instanceof ImmOprand) { // sometimes work
                     long val = Long.parseLong(rReg.get()), cnt = 0;
                     while(val % 2 == 0) {
                         cnt++;
