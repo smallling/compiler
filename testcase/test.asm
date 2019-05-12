@@ -679,28 +679,31 @@ F_f:
         mov rbp, rsp
         sub rsp, 0
         mov rsi, rdi
-        mov rax, 0
+        mov rcx, 0
         mov r8, 0
         cmp r8, rsi
         jl lb0
 lb1:
+        mov rax, rcx
         jmp end_F_f
 lb0:
-        mov rcx, rax
-        add rcx, r8
+        mov rdx, rcx
+        add rdx, r8
         mov rdi, r8
         sub rdi, 1
-        mov rax, rsi
-        and rax, rdi
-        xor rcx, rax
-        mov rax, rcx
-        mov rcx, 10000
-        cqo
-        idiv rcx
-        mov rax, rdx
-        mov rcx, r8
-        add rcx, 1
-        mov r8, rcx
+        mov rcx, rsi
+        and rcx, rdi
+        xor rdx, rcx
+        mov rcx, rdx
+        mov rdi, rcx
+        sar rdi, 4
+        imul rdi, rdi, 6871948
+        sar rdi, 32
+        imul rdi, rdi, 10000
+        sub rcx, rdi
+        mov rdx, r8
+        add rdx, 1
+        mov r8, rdx
         cmp r8, rsi
         jl lb0
         jmp lb1
@@ -734,7 +737,8 @@ lb2:
         jl lb3
 lb8:
         mov rax, r14
-        inc r14
+        add rax, 1
+        mov r14, rax
         cmp r14, 90000000
         jl lb2
         jmp lb9
@@ -743,7 +747,8 @@ lb3:
         jge lb4
 lb7:
         mov rax, r12
-        inc r12
+        add rax, 1
+        mov r12, rax
         cmp r12, 10
         jl lb3
         jmp lb8

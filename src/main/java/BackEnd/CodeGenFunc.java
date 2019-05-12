@@ -223,17 +223,11 @@ public class CodeGenFunc {
         for(int i = 0; i < finalCodeList.size(); i++) {
             Quad code = finalCodeList.get(i);
             String curLabel = code.getLabel();
-            if (curLabel != null && curLabel.equals("lb7")) {
-                System.err.println("fuck");
-            }
             if(curLabel != null) {
                 codes.add(curLabel + ":");
             }
             if(code.getOp().equals("mov")) {
                 if(code.getRt().get().equals(code.getR1().get()))continue;
-            }
-            if(code.getOp().equals("jmp")) {
-                System.err.println("fuck");
             }
             if(code.getOp().equals("jump")) {
                 if(i < finalCodeList.size() - 1) {

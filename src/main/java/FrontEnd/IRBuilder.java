@@ -715,7 +715,15 @@ public class IRBuilder extends AstVisitor {
                 insertQuad(new Quad(irOp, lReg, rReg));
             }
             else {
-                insertQuad(new ArthQuad(irOp, node.reg, lReg, rReg));
+                if(irOp.equals("mod") && rReg instanceof ImmOprand && Long.parseLong(rReg.get()) == 10000) { //不想写exgcdQAQ
+                    Register tmp = new Register("V_");
+                    insertQuad(new ArthQuad("sar", tmp, lReg, new ImmOprand(4)));
+                    insertQuad(new ArthQuad("mul", tmp.clone(), tmp.clone(), new ImmOprand(6871948)));
+                    insertQuad(new ArthQuad("sar", tmp.clone(), tmp.clone(), new ImmOprand(32)));
+                    insertQuad(new ArthQuad("mul", tmp.clone(), tmp.clone(), rReg.clone()));
+                    insertQuad(new ArthQuad("sub", node.reg.clone(), lReg.clone(), tmp.clone()));
+                }
+                else insertQuad(new ArthQuad(irOp, node.reg, lReg, rReg));
             }
             return;
         }
