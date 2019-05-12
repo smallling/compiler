@@ -1,24 +1,70 @@
 package main.java.BackEnd;
 
+import main.java.FrontEnd.BuildAstVisitor;
 import main.java.MyUtil.BasicBlock;
 import main.java.MyUtil.FuncFrame;
 import main.java.MyUtil.OprandClass.*;
 import main.java.MyUtil.QuadClass.ArthQuad;
+import main.java.MyUtil.QuadClass.CJumpQuad;
 import main.java.MyUtil.QuadClass.Quad;
 
 import java.util.*;
+import java.util.concurrent.BlockingDeque;
 
 public class CodeGenFunc {
     String[] regList = {"rdi", "rsi", "rdx", "rcx", "r8", "r9", "rax", "rbx", "r12", "r13", "r14", "r15", "r11", "r10", "rbp", "rsp"};
 
     FuncFrame func;
 
-    String curLbal;
+    String curLbal, endLabel;
+
+    ArrayList<Quad> finalCodeList;
+    HashSet<BasicBlock> vis;
 
     public CodeGenFunc(FuncFrame func, HashMap<String, Long> varSize) {
         this.func = func;
 
         curLbal = null;
+    }
+
+    void dfs(BasicBlock block) {
+        if(block.codeList.size() == 0) {
+            block.codeList.add(new Quad("nop"));
+        }
+        for(int i = 0; i < block.codeList.size(); i++) {
+            Quad code = block.codeList.get(i);
+            if(code.getOp().equals("ret")) {
+                finalCodeList.add(new Quad("jump", new LabelName(endLabel)));
+            }
+            else finalCodeList.add(code.clone());
+            Quad tmp = finalCodeList.get(finalCodeList.size() - 1);
+            if(block.getIdx() > 0 && i == 0) {
+                tmp.setLabel(block.getName());
+            }
+            if(code.getOp().equals("jump")) {
+                BasicBlock lb = block.out.get(0);
+                if(!vis.contains(lb)) {
+                    vis.add(lb);
+                    dfs(lb);
+                }
+            }
+            if(code instanceof CJumpQuad) {
+                BasicBlock lb1 = block.out.get(1);
+                BasicBlock lb2 = block.out.get(0);
+                if(!vis.contains(lb1)) {
+                    vis.add(lb1);
+                    dfs(lb1);
+                    if(!vis.contains(lb2)) {
+                        vis.add(lb2);
+                        dfs(lb2);
+                    }
+                }
+                else if(!vis.contains(lb2)){
+                    vis.add(lb2);
+                    dfs(lb2);
+                }
+            }
+        }
     }
 
     public ArrayList<String> genCode() {
@@ -120,7 +166,7 @@ public class CodeGenFunc {
             }
         }
 
-        ArrayList<Quad> finalCodeList = new ArrayList<>();
+        finalCodeList = new ArrayList<>();
         finalCodeList.add(new Quad("push", new Register("rbp")));
         finalCodeList.add(new Quad("mov", new Register("rbp"), new Register("rsp")));
         finalCodeList.add(new ArthQuad("sub", new Register("rsp"), new ImmOprand((curStack.size() + curStack.size() % 2) * 8)));
@@ -138,8 +184,12 @@ public class CodeGenFunc {
             fuck.add(reg);
         }
 
-        String endLabel = "end_" + func.getName();
+        endLabel = "end_" + func.getName();
 
+        vis = new HashSet<>();
+
+        dfs(func.blockList.get(0));
+        /*
         for(BasicBlock block : func.blockList) {
             if(block.codeList.size() == 0) {
                 block.codeList.add(new Quad("nop"));
@@ -156,6 +206,7 @@ public class CodeGenFunc {
                 }
             }
         }
+        */
         int curSize = finalCodeList.size();
         for(int i = fuck.size() - 1; i >= 0; i--) {
             finalCodeList.add(new Quad("pop", new Register(fuck.get(i))));
@@ -167,12 +218,34 @@ public class CodeGenFunc {
         finalCodeList.get(curSize).setLabel(endLabel);
         ArrayList<String> codes = new ArrayList<>();
         codes.add(func.getName() + ":");
-        for(Quad code : finalCodeList) {String curLabel = code.getLabel();
+        for(int i = 0; i < finalCodeList.size(); i++) {
+            Quad code = finalCodeList.get(i);
+            String curLabel = code.getLabel();
             if(curLabel != null) {
                 codes.add(curLabel + ":");
             }
             if(code.getOp().equals("mov")) {
                 if(code.getRt().get().equals(code.getR1().get()))continue;
+            }
+            if(code.getOp().equals("jmp")) {
+                System.err.println("fuck");
+            }
+            if(code.getOp().equals("jump")) {
+                if(i < finalCodeList.size() - 1) {
+                    Quad nextCode = finalCodeList.get(i + 1);
+                    String label = nextCode.getLabel();
+                    if(label != null && label.equals(code.getRt().get())) {
+                        continue;
+                    }
+                }
+                if(i > 0) {
+                    Quad lastCode = finalCodeList.get(i - 1);
+                    if(code.getLabel() == null) {
+                        if(lastCode.getOp().equals("jump")) {
+                            continue;
+                        }
+                    }
+                }
             }
             codes.add(code.getPrint());
         }

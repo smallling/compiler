@@ -23,9 +23,9 @@ public class Quad {
     }
 
     public String getPrint() {
-        if(op.equals("jump"))op = "jmp";
         String tmp = String.format("%-8s", "");
-        tmp += op;
+        if(op.equals("jump"))tmp += "jmp";
+        else tmp += op;
         if(op.equals("ret")) {
             return tmp;
         }
