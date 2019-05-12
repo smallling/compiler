@@ -13,7 +13,7 @@ public class LinearIR {
 
     public HashMap<String, Long> varSize;
 
-    public ArrayList<Pair<String, String> > roData;
+    public ArrayList<Pair<String, Pair<Integer, String> > > roData;
     public ArrayList<Pair<String, Long> > uninitMem;
 
     public LinearIR() {
@@ -60,11 +60,11 @@ public class LinearIR {
 
     public String insertStringConst(String str) {
         String name = "S_" + roData.size();
-        addRoData(name, str.getBytes());
+        addRoData(name, str.getBytes(), str.length());
         return name;
     }
 
-    void addRoData(String name, byte[] list) {
+    void addRoData(String name, byte[] list, int length) {
         int len = list.length;
         String str = "";
         for(int i = 0; i < len; i++) {
@@ -74,6 +74,6 @@ public class LinearIR {
         }
 
         str += "00H";
-        roData.add(new Pair<>(name, str));
+        roData.add(new Pair<>(name, new Pair<>(length, str)));
     }
 }

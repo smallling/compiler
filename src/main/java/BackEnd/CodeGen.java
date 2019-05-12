@@ -17,7 +17,7 @@ public class CodeGen {
     FuncFrame initFunc;
 
     ArrayList<Pair<String, Long> > uninitMem;
-    ArrayList<Pair<String, String> > roData;
+    ArrayList<Pair<String, Pair<Integer, String> > > roData;
 
     public CodeGen(LinearIR ir) {
         globals = ir.globals;
@@ -27,6 +27,7 @@ public class CodeGen {
         globals.add("S_strcpy");
         globals.add("S_strcat");
         globals.add("S_strlen");
+        globals.add("S_strcmp");
         globals.add("F_print");
         globals.add("F_println");
         globals.add("F_getString");
@@ -52,6 +53,8 @@ public class CodeGen {
         externs.add("sscanf");
         externs.add("memcpy");
         externs.add("malloc");
+        externs.add("__isoc99_scanf");
+        externs.add("__printf_chk");
 
         uninitMem = ir.uninitMem;
         roData = ir.roData;
@@ -95,7 +98,6 @@ public class CodeGen {
         codeList.add("SECTION .data    align=8");
 
         codeList.add("");
-        codeList.add("SECTION .bss     align=8");
 
         for(Pair<String, Long> data : uninitMem) {
             codeList.add(data.getKey() + ":");
@@ -103,12 +105,11 @@ public class CodeGen {
         }
 
         codeList.add("");
-        codeList.add("SECTION .rodata");
-        for (Pair<String, String> data: roData) {
+        for (Pair<String, Pair<Integer, String> > data: roData) {
             codeList.add(data.getKey() + ": ");
-            codeList.add(String.format("%-8s db %s", " ", data.getValue()));
+            codeList.add(String.format("%-8s dq %d", " ", data.getValue().getKey()));
+            codeList.add(String.format("%-8s db %s", " ", data.getValue().getValue()));
         }
-        codeList.add(BuiltinCode.roDataString);
 
 
         return codeList;
