@@ -49,6 +49,8 @@ public class CodeGenFunc {
                 }
             }
             if(code instanceof CJumpQuad) {
+                i++;
+                finalCodeList.add(block.codeList.get(i).clone());
                 BasicBlock lb1 = block.out.get(1);
                 BasicBlock lb2 = block.out.get(0);
                 if(!vis.contains(lb1)) {
@@ -221,6 +223,9 @@ public class CodeGenFunc {
         for(int i = 0; i < finalCodeList.size(); i++) {
             Quad code = finalCodeList.get(i);
             String curLabel = code.getLabel();
+            if (curLabel != null && curLabel.equals("lb7")) {
+                System.err.println("fuck");
+            }
             if(curLabel != null) {
                 codes.add(curLabel + ":");
             }
@@ -238,14 +243,14 @@ public class CodeGenFunc {
                         continue;
                     }
                 }
-                if(i > 0) {
+                /*if(i > 0) {
                     Quad lastCode = finalCodeList.get(i - 1);
                     if(code.getLabel() == null) {
                         if(lastCode.getOp().equals("jump")) {
                             continue;
                         }
                     }
-                }
+                }*/
             }
             codes.add(code.getPrint());
         }

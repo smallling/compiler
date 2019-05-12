@@ -1,13 +1,6 @@
 default rel
 
-global A_asciiTable
-global F_hilo
-global F_shift_l
-global F_shift_r
-global F_xorshift
-global F_int2chr
-global F_toStringHex
-global F_getnumber
+global F_f
 global main
 global S_substring
 global S_parseInt
@@ -681,263 +674,37 @@ L_032:
 
 L_033:
         db 25H, 6CH, 64H, 00H
-F_hilo:
+F_f:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        mov rdx, rsi
-        mov rax, rdi
-        mov rcx, rax
-        sal rcx, 16
-        mov rax, rdx
-        or rax, rcx
-end_F_hilo:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_shift_l:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push rbx
-        mov rcx, rsi
-        mov rax, rdi
-        mov rbx, rax
-        sal rbx, cl
-        mov rdi, 32767
-        mov rsi, 65535
-        call F_hilo
-        mov rcx, rbx
-        and rcx, rax
-        mov rax, rcx
-end_F_shift_l:
-        pop rbx
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_shift_r:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push r12
-        push r14
-        push rbx
-        mov r14, rsi
-        mov rbx, rdi
-        mov rdi, 32767
-        mov rsi, 65535
-        call F_hilo
-        mov r12, rax
-        mov rax, r12
-        mov rcx, r14
-        sar rax, cl
-        sal rax, 1
-        add rax, 1
-        mov r12, rax
-        mov rdx, rbx
-        mov rcx, r14
-        sar rdx, cl
-        mov rax, r12
-        and rax, rdx
-        mov r12, rax
-        mov rdi, 32767
-        mov rsi, 65535
-        call F_hilo
-        mov rcx, rax
-        mov rax, r12
-        and rax, rcx
-end_F_shift_r:
-        pop rbx
-        pop r14
-        pop r12
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_xorshift:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push r12
-        push r14
-        push r13
-        push rbx
-        mov r12, rsi
-        mov rcx, rdi
-        add rcx, 1
-        mov rbx, rcx
-        mov r14, 0
-        imul rsi, r12, 10
-        cmp r14, rsi
+        mov rsi, rdi
+        mov rax, 0
+        mov r8, 0
+        cmp r8, rsi
         jl lb0
 lb1:
-        mov rax, rbx
-        xor rax, 123456789
-        jmp end_F_xorshift
+        jmp end_F_f
 lb0:
-        mov rdi, rbx
-        mov rsi, 13
-        call F_shift_l
         mov rcx, rax
-        mov rax, rbx
-        xor rax, rcx
-        mov rbx, rax
-        mov rdi, rbx
-        mov rsi, 17
-        call F_shift_r
-        mov rcx, rax
-        mov rax, rbx
-        xor rax, rcx
-        mov rbx, rax
-        mov rdi, rbx
-        mov rsi, 5
-        call F_shift_l
-        mov rdx, rax
-        mov rcx, rbx
-        xor rcx, rdx
-        mov rbx, rcx
-        mov rcx, r14
-        inc r14
-        imul r13, r12, 10
-        cmp r14, r13
+        add rcx, r8
+        mov rdi, r8
+        sub rdi, 1
+        mov rax, rsi
+        and rax, rdi
+        xor rcx, rax
+        mov rax, rcx
+        mov rcx, 10000
+        cqo
+        idiv rcx
+        mov rax, rdx
+        mov rcx, r8
+        add rcx, 1
+        mov r8, rcx
+        cmp r8, rsi
         jl lb0
         jmp lb1
-end_F_xorshift:
-        pop rbx
-        pop r13
-        pop r14
-        pop r12
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_int2chr:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        mov rax, rdi
-        cmp rax, 32
-        jge lb2
-lb4:
-        mov rax, S_1
-        jmp end_F_int2chr
-lb2:
-        cmp rax, 126
-        jle lb3
-lb3:
-        mov rcx, rax
-        sub rcx, 32
-        sub rax, 32
-        mov rdi, qword [rel A_asciiTable]
-        mov rsi, rcx
-        mov rdx, rax
-        call S_substring
-        jmp end_F_int2chr
-end_F_int2chr:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_toStringHex:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push r12
-        push r14
-        push rbx
-        mov rbx, rdi
-        mov rdi, 256
-        call malloc
-        mov r14, rax
-        mov r14, S_2
-        mov r12, 28
-        cmp r12, 0
-        jge lb5
-lb9:
-        mov rax, r14
-        jmp end_F_toStringHex
-lb5:
-        mov rax, rbx
-        mov rcx, r12
-        sar rax, cl
-        and rax, 15
-        cmp rax, 10
-        jl lb6
-lb7:
-        mov rcx, 65
-        add rcx, rax
-        mov rax, rcx
-        sub rax, 10
-        mov rdi, rax
-        call F_int2chr
-        mov rdi, r14
-        mov rsi, rax
-        call S_strcat
-        mov r14, rax
-lb8:
-        mov rax, r12
-        sub rax, 4
-        mov r12, rax
-        cmp r12, 0
-        jge lb5
-        jmp lb9
-lb6:
-        mov rcx, 48
-        add rcx, rax
-        mov rdi, rcx
-        call F_int2chr
-        mov rdi, r14
-        mov rsi, rax
-        call S_strcat
-        mov r14, rax
-        jmp lb8
-end_F_toStringHex:
-        pop rbx
-        pop r14
-        pop r12
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
-F_getnumber:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        push r12
-        push r14
-        push rbx
-        mov rax, rsi
-        mov rcx, rdi
-        and rdx, 31
-        mov rbx, rdx
-        mov rdi, rcx
-        mov rsi, rax
-        call F_xorshift
-        mov r14, rax
-        mov rdi, r14
-        mov rsi, rbx
-        call F_shift_l
-        mov r12, rax
-        mov rax, 32
-        sub rax, rbx
-        mov rdi, r14
-        mov rsi, rax
-        call F_shift_r
-        mov rcx, rax
-        mov rax, r12
-        or rax, rcx
-end_F_getnumber:
-        pop rbx
-        pop r14
-        pop r12
+end_F_f:
         mov rsp, rbp
         pop rbp
         ret
@@ -946,214 +713,57 @@ end_F_getnumber:
 main:
         push rbp
         mov rbp, rsp
-        sub rsp, 112
+        sub rsp, 0
         push r12
         push r14
-        push r13
-        push r15
         push rbx
-        call __init
-        mov rax, 0
-        mov [rbp+-112], rax
-        mov rax, 40
-        mov [rbp+-16], rax
-        mov rax, 100
-        mov [rbp+-104], rax
-        mov rax, 200
-        mov [rbp+-40], rax
-        mov rax, 125
-        mov [rbp+-96], rax
-        mov rax, 250
-        mov [rbp+-64], rax
-        mov rax, 30
-        mov [rbp+-88], rax
-        mov rax, 0
-        mov [rbp+-48], rax
-        mov rax, 0
-        mov [rbp+-72], rax
-        mov rax, 0
-        mov [rbp+-8], rax
-        mov rax, 0
-        mov [rbp+-24], rax
-        mov rax, [rbp+-112]
-        mov [rbp+-32], rax
-        mov rax, [rbp+-32]
-        mov rcx, [rbp+-16]
-        cmp rax, rcx
-        jl lb10
-lb15:
-        mov rax, [rbp+-48]
+        mov rbx, 0
+        mov r14, 0
+        cmp r14, 90000000
+        jl lb2
+lb9:
+        mov rdi, rbx
+        call F_toString
         mov rdi, rax
-        call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_3
-        call S_strcat
-        mov rdi, rax
-        call F_print
-        mov rax, [rbp+-72]
-        mov rdi, rax
-        call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_4
-        call S_strcat
-        mov rdi, rax
-        call F_print
-        mov rax, [rbp+-8]
-        mov rdi, rax
-        call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_5
-        call S_strcat
-        mov rdi, rax
-        call F_print
-        mov rax, [rbp+-24]
-        mov rdi, rax
-        call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_6
-        call S_strcat
-        mov rdi, rax
-        call F_print
-        mov rdi, S_7
         call F_println
         mov rax, 0
         jmp end_main
-lb10:
-        mov rax, [rbp+-104]
-        mov [rbp+-56], rax
-        mov rax, [rbp+-56]
-        mov rcx, [rbp+-40]
-        cmp rax, rcx
-        jl lb11
-lb14:
-        mov rax, [rbp+-32]
-        mov rax, [rbp+-32]
-        inc rax
-        mov [rbp+-32], rax
-        mov rcx, [rbp+-32]
-        mov rax, [rbp+-16]
-        cmp rcx, rax
-        jl lb10
-        jmp lb15
-lb11:
-        mov rax, [rbp+-96]
-        mov [rbp+-80], rax
-        mov rcx, [rbp+-80]
-        mov rax, [rbp+-64]
-        cmp rcx, rax
-        jl lb12
-lb13:
-        mov rax, [rbp+-56]
-        mov rax, [rbp+-56]
-        inc rax
-        mov [rbp+-56], rax
-        mov rax, [rbp+-56]
-        mov rcx, [rbp+-40]
-        cmp rax, rcx
-        jl lb11
-        jmp lb14
-lb12:
-        mov rax, [rbp+-112]
+lb2:
+        mov r12, 0
+        cmp r12, 10
+        jl lb3
+lb8:
+        mov rax, r14
+        inc r14
+        cmp r14, 90000000
+        jl lb2
+        jmp lb9
+lb3:
+        cmp r14, 89999999
+        jge lb4
+lb7:
+        mov rax, r12
+        inc r12
+        cmp r12, 10
+        jl lb3
+        jmp lb8
+lb4:
+        cmp r12, 9
+        jge lb5
+lb6:
+        jmp lb7
+lb5:
+        mov rax, r14
+        sal rax, 3
         mov rdi, rax
-        mov rax, [rbp+-88]
-        mov rsi, rax
-        mov rax, [rbp+-80]
-        mov rdx, rax
-        call F_getnumber
-        mov r12, rax
-        mov rax, [rbp+-32]
-        mov rdi, rax
-        mov rax, [rbp+-88]
-        mov rsi, rax
-        mov rax, [rbp+-80]
-        mov rdx, rax
-        call F_getnumber
-        mov r14, rax
-        mov rax, [rbp+-56]
-        mov rdi, rax
-        mov rax, [rbp+-88]
-        mov rsi, rax
-        mov rax, [rbp+-80]
-        mov rdx, rax
-        call F_getnumber
-        mov r13, rax
-        mov rax, [rbp+-32]
-        mov rcx, [rbp+-56]
-        xor rax, rcx
-        mov rdi, rax
-        mov rax, [rbp+-88]
-        mov rsi, rax
-        mov rax, [rbp+-80]
-        mov rdx, rax
-        call F_getnumber
-        mov r15, rax
-        mov rax, [rbp+-80]
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
-        mov rbx, rax
-        mov rax, [rbp+-56]
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
-        xor rbx, rax
-        mov rax, [rbp+-32]
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
+        call F_f
         mov rcx, rax
         mov rax, rbx
-        xor rax, rcx
-        mov rbx, rax
-        mov rax, r12
-        xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
-        mov rcx, [rbp+-48]
-        add rcx, rax
-        mov rax, rcx
-        mov [rbp+-48], rax
-        mov rax, r14
-        xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
-        mov rcx, [rbp+-72]
-        add rcx, rax
-        mov rax, rcx
-        mov [rbp+-72], rax
-        mov rax, r13
-        xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
-        mov rcx, rax
-        mov rax, [rbp+-8]
         add rax, rcx
-        mov [rbp+-8], rax
-        mov rax, r15
-        xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
-        call F_xorshift
-        mov rcx, [rbp+-24]
-        add rcx, rax
-        mov rax, rcx
-        mov [rbp+-24], rax
-        mov rax, [rbp+-80]
-        mov rax, [rbp+-80]
-        inc rax
-        mov [rbp+-80], rax
-        mov rcx, [rbp+-80]
-        mov rax, [rbp+-64]
-        cmp rcx, rax
-        jl lb12
-        jmp lb13
+        mov rbx, rax
+        jmp lb6
 end_main:
         pop rbx
-        pop r15
-        pop r13
         pop r14
         pop r12
         mov rsp, rbp
@@ -1161,46 +771,6 @@ end_main:
         ret
 
 
-__init:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0
-        mov rdi, 256
-        call malloc
-        mov qword [rel A_asciiTable], rax
-        mov qword [rel A_asciiTable], S_0
-end___init:
-        mov rsp, rbp
-        pop rbp
-        ret
-
-
 SECTION .data    align=8
 
-A_asciiTable:
-         resq 256
 
-S_0: 
-         dq 95
-         db 20H, 21H, 22H, 23H, 24H, 25H, 26H, 27H, 28H, 29H, 2AH, 2BH, 2CH, 2DH, 2EH, 2FH, 30H, 31H, 32H, 33H, 34H, 35H, 36H, 37H, 38H, 39H, 3AH, 3BH, 3CH, 3DH, 3EH, 3FH, 40H, 41H, 42H, 43H, 44H, 45H, 46H, 47H, 48H, 49H, 4AH, 4BH, 4CH, 4DH, 4EH, 4FH, 50H, 51H, 52H, 53H, 54H, 55H, 56H, 57H, 58H, 59H, 5AH, 5BH, 5CH, 5DH, 5EH, 5FH, 60H, 61H, 62H, 63H, 64H, 65H, 66H, 67H, 68H, 69H, 6AH, 6BH, 6CH, 6DH, 6EH, 6FH, 70H, 71H, 72H, 73H, 74H, 75H, 76H, 77H, 78H, 79H, 7AH, 7BH, 7CH, 7DH, 7EH, 00H
-S_1: 
-         dq 0
-         db 00H
-S_2: 
-         dq 0
-         db 00H
-S_3: 
-         dq 1
-         db 20H, 00H
-S_4: 
-         dq 1
-         db 20H, 00H
-S_5: 
-         dq 1
-         db 20H, 00H
-S_6: 
-         dq 1
-         db 20H, 00H
-S_7: 
-         dq 0
-         db 00H
