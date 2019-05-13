@@ -58,10 +58,10 @@ public class Main {
 
         //System.err.println("=============================================================");
 
-        for(FuncFrame func : irCode.funcs) {
+        /*for(FuncFrame func : irCode.funcs) {
             DeadCode tmp = new DeadCode();
             tmp.processFunc(func);
-        }
+        }*/
 
         //irCode.print();
 

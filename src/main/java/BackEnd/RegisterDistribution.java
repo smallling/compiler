@@ -202,7 +202,7 @@ public class RegisterDistribution {
         for(String reg : spilledReg) {
             String yyy = null;
             if(memMap.containsKey(reg) && memMap.get(reg).getMemPos() != null)yyy = memMap.get(reg).getMemPos();
-            if(yyy != null && !yyy.contains(".") && !(yyy.charAt(2) >= '0' && yyy.charAt(2) <= '9')) {
+            if(yyy != null && !yyy.contains(".") && !yyy.contains("TEMP") && !(yyy.length() > 2 && yyy.charAt(2) >= '0' && yyy.charAt(2) <= '9')) {
                 spillPlace.put(reg, new GeneralMemAccess(memMap.get(reg).getMemPos()));
             }
             else {
