@@ -1,6 +1,6 @@
 package main.java.MyUtil.ScopeClass;
 
-import javafx.util.Pair;
+import main.java.MyUtil.Pair;
 import main.java.MyUtil.SymbolTable;
 
 import java.util.ArrayList;

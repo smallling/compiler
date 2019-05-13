@@ -1,8 +1,8 @@
 package main.java.BackEnd;
 
-import javafx.util.Pair;
 import main.java.MyUtil.FuncFrame;
 import main.java.MyUtil.LinearIR;
+import main.java.MyUtil.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -105,7 +105,7 @@ public class CodeGen {
         }
 
         codeList.add("");
-        for (Pair<String, Pair<Integer, String> > data: roData) {
+        for (Pair<String, Pair<Integer, String>> data: roData) {
             codeList.add(data.getKey() + ": ");
             codeList.add(String.format("%-8s dq %d", " ", data.getValue().getKey()));
             codeList.add(String.format("%-8s db %s", " ", data.getValue().getValue()));

@@ -1,11 +1,10 @@
 package main.java.FrontEnd;
 
-import javafx.util.Pair;
-import jdk.nashorn.internal.codegen.MethodEmitter;
 import main.java.MyUtil.FuncFrame;
 import main.java.MyUtil.LinearIR;
 import main.java.MyUtil.OprandClass.*;
 import main.java.MyUtil.OprandClass.Oprand;
+import main.java.MyUtil.Pair;
 import main.java.MyUtil.QuadClass.ArthQuad;
 import main.java.MyUtil.QuadClass.CJumpQuad;
 import main.java.MyUtil.QuadClass.Quad;
@@ -28,7 +27,7 @@ public class IRBuilder extends AstVisitor {
     private long curClassObjSize;
 
     private Stack<Integer> breakLabel;
-    private Stack<Pair<Integer, Boolean> > continueLabel;
+    private Stack<Pair<Integer, Boolean>> continueLabel;
 
     private FuncFrame curFunc;
 

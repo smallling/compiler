@@ -1,6 +1,6 @@
 package main.java.MyUtil.TypeSystem;
 
-import javafx.util.Pair;
+import main.java.MyUtil.Pair;
 
 import java.util.HashMap;
 

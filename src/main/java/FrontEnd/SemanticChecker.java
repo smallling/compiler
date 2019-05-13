@@ -1,10 +1,10 @@
 package main.java.FrontEnd;
 
-import javafx.util.Pair;
 import main.java.MyUtil.OprandClass.GeneralMemAccess;
 import main.java.MyUtil.OprandClass.ImmOprand;
 import main.java.MyUtil.OprandClass.MemAccess;
 import main.java.MyUtil.OprandClass.Register;
+import main.java.MyUtil.Pair;
 import main.java.MyUtil.ScopeClass.ClassScope;
 import main.java.MyUtil.ScopeClass.GeneralScope;
 import main.java.MyUtil.ScopeClass.LocalScope;

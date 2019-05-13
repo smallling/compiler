@@ -1,7 +1,5 @@
 package main.java.MyUtil;
 
-import javafx.util.Pair;
-import main.java.Main;
 import main.java.MyUtil.OprandClass.FuncName;
 import main.java.MyUtil.OprandClass.ImmOprand;
 import main.java.MyUtil.OprandClass.Register;
