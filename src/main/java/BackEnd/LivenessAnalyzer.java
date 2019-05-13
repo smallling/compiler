@@ -66,6 +66,11 @@ public class LivenessAnalyzer {
         }
     }
 
+    HashMap<BasicBlock, HashSet<String> > getLiveOut(FuncFrame func) {
+        calcLiveOut(func);
+        return liveOut;
+    }
+
     public void getGraph(FuncFrame func, Graph graph) {
         calcLiveOut(func);
 

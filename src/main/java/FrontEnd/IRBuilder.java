@@ -39,7 +39,13 @@ public class IRBuilder extends AstVisitor {
 
     public ArrayList<String> paramReg;
 
+    private Stack<String> inlineStack;
+
     ArrayList<String> classStr;
+
+    private String curFuncName;
+
+    private HashMap<String, Node> funcMap;
 
     long x, y;
 
@@ -66,6 +72,8 @@ public class IRBuilder extends AstVisitor {
         paramReg.add("r8");
         paramReg.add("r9");
         classStr = new ArrayList<>();
+        inlineStack = new Stack<>();
+        funcMap = new HashMap<>(SemanticChecker.funcMap);
     }
 
     public LinearIR buildIR(Node root) throws Exception {
@@ -509,6 +517,13 @@ public class IRBuilder extends AstVisitor {
         curFunc.setRetSize(node.type.getSize());
 
         insertFunc();
+
+
+        String funcName = node.name;
+        if(node.inClass != null)funcName = node.inClass + "." + node.name;
+
+        curFuncName = funcName;
+        inlineStack.push(curFuncName);
     }
 
     @Override
@@ -888,6 +903,19 @@ public class IRBuilder extends AstVisitor {
             genClassFunc(node, node.inClass, new Register("A_this."));
             return;
         }
+
+        boolean toInline = false;
+
+        if(toInline) {
+            String funcName = node.name;
+            if (!curFuncName.equals(funcName) && funcMap.containsKey(funcName)) {
+                int deep = inlineStack.size();
+                if (deep < 2) {
+
+                }
+            }
+        }
+
         String func = funcLabel(node.name);
         ArrayList<Oprand> oprs = new ArrayList<>();
         ArrayList<String> pres = new ArrayList<>();

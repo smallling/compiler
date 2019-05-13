@@ -12,8 +12,11 @@ import main.java.MyUtil.ScopeClass.Scope;
 import main.java.MyUtil.TypeSystem.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SemanticChecker extends AstVisitor{
+    static public HashMap<String, Node> funcMap = new HashMap<>();
+
     public GeneralScope<TypeRef> rootScope;
     int iterCnt;
     String curClassName;
@@ -130,6 +133,9 @@ public class SemanticChecker extends AstVisitor{
         visitChild(node);
         returnType = null;
         if(node.belong instanceof ClassScope)node.inClass = curClassName;
+        String funcName = node.name;
+        if(node.belong instanceof ClassScope)funcName = node.inClass + "." + node.name;
+        funcMap.put(funcName, node.son.get(node.son.size() - 1));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package main.java;
 
 import main.java.BackEnd.CodeGen;
+import main.java.BackEnd.DeadCode;
 import main.java.BackEnd.RegisterDistribution;
 import main.java.FrontEnd.*;
 import main.java.MyUtil.FuncFrame;
@@ -58,6 +59,15 @@ public class Main {
         //System.err.println("=============================================================");
 
         for(FuncFrame func : irCode.funcs) {
+            DeadCode tmp = new DeadCode();
+            tmp.processFunc(func);
+        }
+
+        //irCode.print();
+
+        //System.err.println("=============================================================");
+
+        for(FuncFrame func : irCode.funcs) {
             RegisterDistribution tmp = new RegisterDistribution();
             tmp.processFunc(func);
         }
@@ -81,11 +91,11 @@ public class Main {
             content += code + "\n";
         }
 
-        /*File file = new File("testcase/" + fileName + ".asm");
+        File file = new File("testcase/" + fileName + ".asm");
         OutputStream out = new FileOutputStream(file);
         if (!file.exists()) file.createNewFile();
         out.write(content.getBytes());
         out.flush();
-        out.close();*/
+        out.close();
     }
 }
