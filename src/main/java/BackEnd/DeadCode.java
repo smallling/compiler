@@ -2,6 +2,7 @@ package main.java.BackEnd;
 
 import main.java.MyUtil.BasicBlock;
 import main.java.MyUtil.FuncFrame;
+import main.java.MyUtil.OprandClass.FuncName;
 import main.java.MyUtil.OprandClass.MemAccess;
 import main.java.MyUtil.OprandClass.Oprand;
 import main.java.MyUtil.OprandClass.Register;
@@ -23,6 +24,7 @@ public class DeadCode {
 
     boolean isRemovable(Quad code) {
         String op = code.getOp();
+        if(op.equals("mov") && code.getR2() instanceof FuncName)return false;
         return !(op.equals("ret") || op.equals("call") || op.equals("cqo") || op.equals("push") || op.equals("pop") || op.equals("jump") || code instanceof CJumpQuad);
     }
 
@@ -119,9 +121,12 @@ public class DeadCode {
                     liveSet.removeAll(defined);
                     liveSet.addAll(used);
                 }
-                curCodeList.add(code.clone());
+                curCodeList.addFirst(code.clone());
             }
-            curCodeList.get(0).setLabel(block.codeList.get(0).getLabel());
+            if(curCodeList.isEmpty())curCodeList.add(new Quad("nop"));
+            for(Quad code : curCodeList) {
+                code.setLabel(block.codeList.get(0).getLabel());
+            }
             block.codeList = curCodeList;
         }
     }

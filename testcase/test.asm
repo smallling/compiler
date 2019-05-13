@@ -706,8 +706,8 @@ F_shift_l:
         mov rax, rdi
         mov rbx, rax
         sal rbx, cl
-        mov rdi, 32767
-        mov rsi, 65535
+        mov rdi, 32767, 
+        mov rsi, 65535, 
         call F_hilo
         mov rcx, rbx
         and rcx, rax
@@ -728,8 +728,8 @@ F_shift_r:
         push rbx
         mov r14, rsi
         mov rbx, rdi
-        mov rdi, 32767
-        mov rsi, 65535
+        mov rdi, 32767, 
+        mov rsi, 65535, 
         call F_hilo
         mov r12, rax
         mov rax, r12
@@ -744,8 +744,8 @@ F_shift_r:
         mov rax, r12
         and rax, rdx
         mov r12, rax
-        mov rdi, 32767
-        mov rsi, 65535
+        mov rdi, 32767, 
+        mov rsi, 65535, 
         call F_hilo
         mov rcx, rax
         mov rax, r12
@@ -780,22 +780,22 @@ lb1:
         xor rax, 123456789
         jmp end_F_xorshift
 lb0:
-        mov rdi, rbx
-        mov rsi, 13
+        mov rdi, rbx, 
+        mov rsi, 13, 
         call F_shift_l
         mov rcx, rax
         mov rax, rbx
         xor rax, rcx
         mov rbx, rax
-        mov rdi, rbx
-        mov rsi, 17
+        mov rdi, rbx, 
+        mov rsi, 17, 
         call F_shift_r
         mov rcx, rax
         mov rax, rbx
         xor rax, rcx
         mov rbx, rax
-        mov rdi, rbx
-        mov rsi, 5
+        mov rdi, rbx, 
+        mov rsi, 5, 
         call F_shift_l
         mov rdx, rax
         mov rcx, rbx
@@ -835,9 +835,9 @@ lb3:
         mov rcx, rax
         sub rcx, 32
         sub rax, 32
-        mov rdi, qword [rel A_asciiTable]
-        mov rsi, rcx
-        mov rdx, rax
+        mov rdi, qword [rel A_asciiTable], 
+        mov rsi, rcx, 
+        mov rdx, rax, 
         call S_substring
 end_F_int2chr:
         mov rsp, rbp
@@ -853,7 +853,7 @@ F_toStringHex:
         push r14
         push rbx
         mov rbx, rdi
-        mov rdi, 256
+        mov rdi, 256, 
         call malloc
         mov r14, rax
         mov r14, S_2
@@ -875,10 +875,10 @@ lb7:
         add rcx, rax
         mov rax, rcx
         sub rax, 10
-        mov rdi, rax
+        mov rdi, rax, 
         call F_int2chr
-        mov rdi, r14
-        mov rsi, rax
+        mov rdi, r14, 
+        mov rsi, rax, 
         call S_strcat
         mov r14, rax
 lb8:
@@ -891,10 +891,10 @@ lb8:
 lb6:
         mov rcx, 48
         add rcx, rax
-        mov rdi, rcx
+        mov rdi, rcx, 
         call F_int2chr
-        mov rdi, r14
-        mov rsi, rax
+        mov rdi, r14, 
+        mov rsi, rax, 
         call S_strcat
         mov r14, rax
         jmp lb8
@@ -918,18 +918,18 @@ F_getnumber:
         mov rcx, rdi
         and rdx, 31
         mov rbx, rdx
-        mov rdi, rcx
-        mov rsi, rax
+        mov rdi, rcx, 
+        mov rsi, rax, 
         call F_xorshift
         mov r14, rax
-        mov rdi, r14
-        mov rsi, rbx
+        mov rdi, r14, 
+        mov rsi, rbx, 
         call F_shift_l
         mov r12, rax
         mov rax, 32
         sub rax, rbx
-        mov rdi, r14
-        mov rsi, rax
+        mov rdi, r14, 
+        mov rsi, rax, 
         call F_shift_r
         mov rcx, rax
         mov rax, r12
@@ -983,38 +983,38 @@ main:
         jl lb10
 lb15:
         mov rax, [rbp+-48]
-        mov rdi, rax
+        mov rdi, rax, 
         call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_3
+        mov rdi, rax, 
+        mov rsi, S_3, 
         call S_strcat
-        mov rdi, rax
+        mov rdi, rax, 
         call F_print
         mov rax, [rbp+-72]
-        mov rdi, rax
+        mov rdi, rax, 
         call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_4
+        mov rdi, rax, 
+        mov rsi, S_4, 
         call S_strcat
-        mov rdi, rax
+        mov rdi, rax, 
         call F_print
         mov rax, [rbp+-8]
-        mov rdi, rax
+        mov rdi, rax, 
         call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_5
+        mov rdi, rax, 
+        mov rsi, S_5, 
         call S_strcat
-        mov rdi, rax
+        mov rdi, rax, 
         call F_print
         mov rax, [rbp+-24]
-        mov rdi, rax
+        mov rdi, rax, 
         call F_toStringHex
-        mov rdi, rax
-        mov rsi, S_6
+        mov rdi, rax, 
+        mov rsi, S_6, 
         call S_strcat
-        mov rdi, rax
+        mov rdi, rax, 
         call F_print
-        mov rdi, S_7
+        mov rdi, S_7, 
         call F_println
         mov rax, 0
         jmp end_main
@@ -1054,52 +1054,52 @@ lb13:
         jmp lb14
 lb12:
         mov rax, [rbp+-112]
-        mov rdi, rax
+        mov rdi, rax, 
         mov rax, [rbp+-88]
-        mov rsi, rax
+        mov rsi, rax, 
         mov rax, [rbp+-80]
-        mov rdx, rax
+        mov rdx, rax, 
         call F_getnumber
         mov r12, rax
         mov rax, [rbp+-32]
-        mov rdi, rax
+        mov rdi, rax, 
         mov rax, [rbp+-88]
-        mov rsi, rax
+        mov rsi, rax, 
         mov rax, [rbp+-80]
-        mov rdx, rax
+        mov rdx, rax, 
         call F_getnumber
         mov r14, rax
         mov rax, [rbp+-56]
-        mov rdi, rax
+        mov rdi, rax, 
         mov rax, [rbp+-88]
-        mov rsi, rax
+        mov rsi, rax, 
         mov rax, [rbp+-80]
-        mov rdx, rax
+        mov rdx, rax, 
         call F_getnumber
         mov r13, rax
         mov rax, [rbp+-32]
         mov rcx, [rbp+-56]
         xor rax, rcx
-        mov rdi, rax
+        mov rdi, rax, 
         mov rax, [rbp+-88]
-        mov rsi, rax
+        mov rsi, rax, 
         mov rax, [rbp+-80]
-        mov rdx, rax
+        mov rdx, rax, 
         call F_getnumber
         mov r15, rax
         mov rax, [rbp+-80]
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         mov rbx, rax
         mov rax, [rbp+-56]
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         xor rbx, rax
         mov rax, [rbp+-32]
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         mov rcx, rax
         mov rax, rbx
@@ -1107,8 +1107,8 @@ lb12:
         mov rbx, rax
         mov rax, r12
         xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         mov rcx, [rbp+-48]
         add rcx, rax
@@ -1116,8 +1116,8 @@ lb12:
         mov [rbp+-48], rax
         mov rax, r14
         xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         mov rcx, [rbp+-72]
         add rcx, rax
@@ -1125,8 +1125,8 @@ lb12:
         mov [rbp+-72], rax
         mov rax, r13
         xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         mov rcx, rax
         mov rax, [rbp+-8]
@@ -1134,8 +1134,8 @@ lb12:
         mov [rbp+-8], rax
         mov rax, r15
         xor rax, rbx
-        mov rdi, rax
-        mov rsi, 1
+        mov rdi, rax, 
+        mov rsi, 1, 
         call F_xorshift
         mov rcx, [rbp+-24]
         add rcx, rax
@@ -1165,7 +1165,7 @@ __init:
         push rbp
         mov rbp, rsp
         sub rsp, 0
-        mov rdi, 256
+        mov rdi, 256, 
         call malloc
         mov qword [rel A_asciiTable], rax
         mov qword [rel A_asciiTable], S_0

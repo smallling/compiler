@@ -112,6 +112,8 @@ public class IRBuilder extends AstVisitor {
     }
 
     boolean isTemp(String s) {
+        if(paramReg.contains(s))return true;
+        if(s.equals("rax"))return true;
         if(s.charAt(0) != 'A' || s.charAt(0) != 'V')return false;
         if(s.charAt(2) < '0' || s.charAt(2) > '9')return false;
         return true;
@@ -241,11 +243,11 @@ public class IRBuilder extends AstVisitor {
         for(int i = 0; i < oprs.size(); i++) {
             if(i < 6) {
                 Oprand tmp = new Register(paramReg.get(i));
-                insertQuad(new Quad("mov", tmp.clone(), oprs.get(i).clone()));
+                insertQuad(new Quad("mov", tmp.clone(), oprs.get(i).clone(), new FuncName("")));
             }
             else {
                 Oprand tmp = new Register(pres.get(i));
-                insertQuad(new Quad("mov", tmp.clone(), oprs.get(i).clone()));
+                insertQuad(new Quad("mov", tmp.clone(), oprs.get(i).clone(), new FuncName("")));
                 insertQuad(new Quad("push", tmp.clone()));
             }
         }
