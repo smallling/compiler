@@ -228,6 +228,14 @@ public class CodeGenFunc {
             }
             if(code.getOp().equals("mov")) {
                 if(code.getRt().get().equals(code.getR1().get()))continue;
+                if(i < finalCodeList.size() - 1) {
+                    Quad nextCode = finalCodeList.get(i + 1);
+                    if(nextCode.getOp().equals("mov")) {
+                        if(nextCode.getR1().equals(code.getRt()) && nextCode.getRt().equals(code.getR1())) {
+                            continue;
+                        }
+                    }
+                }
             }
             if(code.getOp().equals("jump")) {
                 if(i < finalCodeList.size() - 1) {
@@ -237,14 +245,14 @@ public class CodeGenFunc {
                         continue;
                     }
                 }
-                /*if(i > 0) {
+                if(i > 0) {
                     Quad lastCode = finalCodeList.get(i - 1);
                     if(code.getLabel() == null) {
                         if(lastCode.getOp().equals("jump")) {
                             continue;
                         }
                     }
-                }*/
+                }
             }
             codes.add(code.getPrint());
         }
