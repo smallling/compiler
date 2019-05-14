@@ -236,7 +236,7 @@ public class CodeGenFunc {
                         }
                     }
                 }
-                if(code.getR1() instanceof ImmOprand && code.getR1().get().equals("0")) {
+                if(code.getRt() instanceof Register && code.getR1() instanceof ImmOprand && code.getR1().get().equals("0")) {
                     code = new Quad("xor", code.getRt().clone(), code.getRt().clone());
                 }
             }
